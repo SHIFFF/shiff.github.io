@@ -22,15 +22,15 @@
     var CONFIG = {"hostname":"shiff.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="在Vue 3中，withDefaults和defineProps是用于定义和设置组件的props的工具，特别是在使用语法糖时。 definePropsdefineProps函数用于在Vue组件中声明props的类型。它通常与TypeScript一起使用，以提供类型安全。在语法中，defineProps用于定义接收自父组件的数据的属性。 withDefaultswithDefaults函数在Vue">
+  <meta name="description" content="在Vue 3中，withDefaults和defineProps是用于定义和设置组件的props的工具，特别是在使用script setup语法糖时。 definePropsdefineProps函数用于在Vue组件中声明props的类型。它通常与TypeScript一起使用，以提供类型安全。在script setup语法中，defineProps用于定义接收自父组件的数据的属性。 withDef">
 <meta property="og:type" content="article">
 <meta property="og:title" content="【Vue3】withDefaults和defineProps">
 <meta property="og:url" content="http://shiff.top/2024/04/24/%E3%80%90Vue3%E3%80%91withDefaults%E5%92%8CdefineProps/index.html">
 <meta property="og:site_name" content="微弱的光">
-<meta property="og:description" content="在Vue 3中，withDefaults和defineProps是用于定义和设置组件的props的工具，特别是在使用语法糖时。 definePropsdefineProps函数用于在Vue组件中声明props的类型。它通常与TypeScript一起使用，以提供类型安全。在语法中，defineProps用于定义接收自父组件的数据的属性。 withDefaultswithDefaults函数在Vue">
+<meta property="og:description" content="在Vue 3中，withDefaults和defineProps是用于定义和设置组件的props的工具，特别是在使用script setup语法糖时。 definePropsdefineProps函数用于在Vue组件中声明props的类型。它通常与TypeScript一起使用，以提供类型安全。在script setup语法中，defineProps用于定义接收自父组件的数据的属性。 withDef">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-04-24T07:47:00.000Z">
-<meta property="article:modified_time" content="2024-04-24T07:53:52.317Z">
+<meta property="article:modified_time" content="2024-04-24T08:21:42.628Z">
 <meta property="article:author" content="shiff">
 <meta property="article:tag" content="Vue3">
 <meta property="article:tag" content="TypeScript">
@@ -229,7 +229,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-04-24 15:47:00 / 修改时间：15:53:52" itemprop="dateCreated datePublished" datetime="2024-04-24T15:47:00+08:00">2024-04-24</time>
+              <time title="创建时间：2024-04-24 15:47:00 / 修改时间：16:21:42" itemprop="dateCreated datePublished" datetime="2024-04-24T15:47:00+08:00">2024-04-24</time>
             </span>
 
           
@@ -244,7 +244,7 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>1.2k</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -262,8 +262,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>在Vue 3中，withDefaults和defineProps是用于定义和设置组件的props的工具，特别是在使用<script setup>语法糖时。</p>
-<h3 id="defineProps"><a href="#defineProps" class="headerlink" title="defineProps"></a>defineProps</h3><p>defineProps函数用于在Vue组件中声明props的类型。它通常与TypeScript一起使用，以提供类型安全。在<script setup>语法中，defineProps用于定义接收自父组件的数据的属性。</p>
+        <p>在Vue 3中，withDefaults和defineProps是用于定义和设置组件的props的工具，特别是在使用script setup语法糖时。</p>
+<h3 id="defineProps"><a href="#defineProps" class="headerlink" title="defineProps"></a>defineProps</h3><p>defineProps函数用于在Vue组件中声明props的类型。它通常与TypeScript一起使用，以提供类型安全。在script setup语法中，defineProps用于定义接收自父组件的数据的属性。</p>
 <h3 id="withDefaults"><a href="#withDefaults" class="headerlink" title="withDefaults"></a>withDefaults</h3><p>withDefaults函数在Vue 3中用于为defineProps定义的props提供默认值。它的参数结构如下：</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">withDefaults</span>(defineProps&lt;<span class="title class_">Type</span>&gt;(), defaultProps)</span><br></pre></td></tr></table></figure>
 
@@ -280,10 +280,10 @@
 <ul>
 <li><p>defineProps<Props>()：这里使用Props接口来定义props的结构，Props接口指定了postList是一个数组。</p>
 </li>
-<li><p>withDefaults(..., { postList: () => [] })：这里为postList提供了一个默认值。默认值是通过一个函数() => []来指定的，这意味着如果没有提供postList，它将默认为一个空数组。使用函数来返回默认值是一种常见的做法，因为这确保了每次使用默认值时都会创建一个新的数组实例，避免了不同实例间共享同一个数组的问题。</p>
+<li><p>withDefaults(…, { postList: () &#x3D;&gt; [] })：这里为postList提供了一个默认值。默认值是通过一个函数() &#x3D;&gt; []来指定的，这意味着如果没有提供postList，它将默认为一个空数组。使用函数来返回默认值是一种常见的做法，因为这确保了每次使用默认值时都会创建一个新的数组实例，避免了不同实例间共享同一个数组的问题。</p>
 </li>
 </ul>
-<h3 id="postList-的意思"><a href="#postList-的意思" class="headerlink" title="postList: () => []的意思"></a>postList: () => []的意思</h3><p>这里postList: () => []表示postList的默认值是一个空数组。使用箭头函数()返回一个新的空数组[]，这样做的好处是每次调用这个默认值时都会创建一个新的数组实例，避免了潜在的引用类型数据共享问题，这是在JavaScript中处理数组和对象默认值的推荐做法。</p>
+<h3 id="postList-x3D-gt-的意思"><a href="#postList-x3D-gt-的意思" class="headerlink" title="postList: () &#x3D;&gt; []的意思"></a>postList: () &#x3D;&gt; []的意思</h3><p>这里postList: () &#x3D;&gt; []表示postList的默认值是一个空数组。使用箭头函数()返回一个新的空数组[]，这样做的好处是每次调用这个默认值时都会创建一个新的数组实例，避免了潜在的引用类型数据共享问题，这是在JavaScript中处理数组和对象默认值的推荐做法。</p>
 <p>总结来说，这种写法确保了组件的postList prop在没有从父组件接收到值时，会安全地使用一个新的空数组作为默认值，同时保持了类型安全和响应性。</p>
 
     </div>
@@ -421,6 +421,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#defineProps"><span class="nav-number">1.</span> <span class="nav-text">defineProps</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#withDefaults"><span class="nav-number">2.</span> <span class="nav-text">withDefaults</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#postList-x3D-gt-%E7%9A%84%E6%84%8F%E6%80%9D"><span class="nav-number">3.</span> <span class="nav-text">postList: () &#x3D;&gt; []的意思</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

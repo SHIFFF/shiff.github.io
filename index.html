@@ -311,7 +311,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2024-04-24 15:47:00 / 修改时间：15:53:52" itemprop="dateCreated datePublished" datetime="2024-04-24T15:47:00+08:00">2024-04-24</time>
+              <time title="创建时间：2024-04-24 15:47:00 / 修改时间：16:21:42" itemprop="dateCreated datePublished" datetime="2024-04-24T15:47:00+08:00">2024-04-24</time>
             </span>
 
           
@@ -319,7 +319,7 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>1.2k</span>
+              <span>1.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -337,8 +337,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>在Vue 3中，withDefaults和defineProps是用于定义和设置组件的props的工具，特别是在使用<script setup>语法糖时。</p>
-<h3 id="defineProps"><a href="#defineProps" class="headerlink" title="defineProps"></a>defineProps</h3><p>defineProps函数用于在Vue组件中声明props的类型。它通常与TypeScript一起使用，以提供类型安全。在<script setup>语法中，defineProps用于定义接收自父组件的数据的属性。</p>
+          <p>在Vue 3中，withDefaults和defineProps是用于定义和设置组件的props的工具，特别是在使用script setup语法糖时。</p>
+<h3 id="defineProps"><a href="#defineProps" class="headerlink" title="defineProps"></a>defineProps</h3><p>defineProps函数用于在Vue组件中声明props的类型。它通常与TypeScript一起使用，以提供类型安全。在script setup语法中，defineProps用于定义接收自父组件的数据的属性。</p>
 <h3 id="withDefaults"><a href="#withDefaults" class="headerlink" title="withDefaults"></a>withDefaults</h3><p>withDefaults函数在Vue 3中用于为defineProps定义的props提供默认值。它的参数结构如下：</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">withDefaults</span>(defineProps&lt;<span class="title class_">Type</span>&gt;(), defaultProps)</span><br></pre></td></tr></table></figure>
 
@@ -355,10 +355,10 @@
 <ul>
 <li><p>defineProps<Props>()：这里使用Props接口来定义props的结构，Props接口指定了postList是一个数组。</p>
 </li>
-<li><p>withDefaults(..., { postList: () => [] })：这里为postList提供了一个默认值。默认值是通过一个函数() => []来指定的，这意味着如果没有提供postList，它将默认为一个空数组。使用函数来返回默认值是一种常见的做法，因为这确保了每次使用默认值时都会创建一个新的数组实例，避免了不同实例间共享同一个数组的问题。</p>
+<li><p>withDefaults(…, { postList: () &#x3D;&gt; [] })：这里为postList提供了一个默认值。默认值是通过一个函数() &#x3D;&gt; []来指定的，这意味着如果没有提供postList，它将默认为一个空数组。使用函数来返回默认值是一种常见的做法，因为这确保了每次使用默认值时都会创建一个新的数组实例，避免了不同实例间共享同一个数组的问题。</p>
 </li>
 </ul>
-<h3 id="postList-的意思"><a href="#postList-的意思" class="headerlink" title="postList: () => []的意思"></a>postList: () => []的意思</h3><p>这里postList: () => []表示postList的默认值是一个空数组。使用箭头函数()返回一个新的空数组[]，这样做的好处是每次调用这个默认值时都会创建一个新的数组实例，避免了潜在的引用类型数据共享问题，这是在JavaScript中处理数组和对象默认值的推荐做法。</p>
+<h3 id="postList-x3D-gt-的意思"><a href="#postList-x3D-gt-的意思" class="headerlink" title="postList: () &#x3D;&gt; []的意思"></a>postList: () &#x3D;&gt; []的意思</h3><p>这里postList: () &#x3D;&gt; []表示postList的默认值是一个空数组。使用箭头函数()返回一个新的空数组[]，这样做的好处是每次调用这个默认值时都会创建一个新的数组实例，避免了潜在的引用类型数据共享问题，这是在JavaScript中处理数组和对象默认值的推荐做法。</p>
 <p>总结来说，这种写法确保了组件的postList prop在没有从父组件接收到值时，会安全地使用一个新的空数组作为默认值，同时保持了类型安全和响应性。</p>
 
       

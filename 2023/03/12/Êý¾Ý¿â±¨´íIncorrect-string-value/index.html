@@ -22,24 +22,23 @@
     var CONFIG = {"hostname":"shiff.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Typora的查找（替换）快捷键 查找：Ctrl+F   替换：Ctrl+H">
+  <meta name="description" content="数据库报错Incorrect string value: ‘\xE7\x94\xB7‘ for column ‘name‘ at row 1 报错内容为在name列插入的第一条数据的字符串值是不正确的，主要原因是我插入的数据为汉字，为中文字符串，需要使用到utf-8字符集，而默认是使用的是latin1字符集。 解决方案：用这个命令更改表名，去覆盖它的原有字符集，就可以实现成功插入中文 1ALTER">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Typora的查找（替换）快捷键">
-<meta property="og:url" content="http://shiff.top/2023/03/14/Typora%E7%9A%84%E6%9F%A5%E6%89%BE%EF%BC%88%E6%9B%BF%E6%8D%A2%EF%BC%89%E5%BF%AB%E6%8D%B7%E9%94%AE/index.html">
+<meta property="og:title" content="数据库报错Incorrect-string-value">
+<meta property="og:url" content="http://shiff.top/2023/03/12/E%CC%82y%CC%81%C2%BEY%CC%81%C2%BFa%CC%82%C2%B1%C2%A8%C2%B4i%CC%81Incorrect-string-value/index.html">
 <meta property="og:site_name" content="微弱的光">
-<meta property="og:description" content="Typora的查找（替换）快捷键 查找：Ctrl+F   替换：Ctrl+H">
+<meta property="og:description" content="数据库报错Incorrect string value: ‘\xE7\x94\xB7‘ for column ‘name‘ at row 1 报错内容为在name列插入的第一条数据的字符串值是不正确的，主要原因是我插入的数据为汉字，为中文字符串，需要使用到utf-8字符集，而默认是使用的是latin1字符集。 解决方案：用这个命令更改表名，去覆盖它的原有字符集，就可以实现成功插入中文 1ALTER">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230314102135161.png">
-<meta property="og:image" content="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230314102239226.png">
-<meta property="article:published_time" content="2023-03-14T02:23:38.000Z">
-<meta property="article:modified_time" content="2023-03-14T02:25:17.286Z">
+<meta property="og:image" content="c:\Users\12726\AppData\Roaming\Typora\typora-user-images\image-20230312024828536.png">
+<meta property="article:published_time" content="2023-03-12T09:32:36.000Z">
+<meta property="article:modified_time" content="2023-03-12T09:35:04.000Z">
 <meta property="article:author" content="shiff">
-<meta property="article:tag" content="Typora">
-<meta property="article:tag" content="快捷键">
+<meta property="article:tag" content="MySQL">
+<meta property="article:tag" content="踩坑">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230314102135161.png">
+<meta name="twitter:image" content="c:\Users\12726\AppData\Roaming\Typora\typora-user-images\image-20230312024828536.png">
 
-<link rel="canonical" href="http://shiff.top/2023/03/14/Typora%E7%9A%84%E6%9F%A5%E6%89%BE%EF%BC%88%E6%9B%BF%E6%8D%A2%EF%BC%89%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+<link rel="canonical" href="http://shiff.top/2023/03/12/E%CC%82y%CC%81%C2%BEY%CC%81%C2%BFa%CC%82%C2%B1%C2%A8%C2%B4i%CC%81Incorrect-string-value/">
 
 
 <script id="page-configurations">
@@ -52,7 +51,7 @@
   };
 </script>
 
-  <title>Typora的查找（替换）快捷键 | 微弱的光</title>
+  <title>数据库报错Incorrect-string-value | 微弱的光</title>
   
 
 
@@ -206,7 +205,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://shiff.top/2023/03/14/Typora%E7%9A%84%E6%9F%A5%E6%89%BE%EF%BC%88%E6%9B%BF%E6%8D%A2%EF%BC%89%E5%BF%AB%E6%8D%B7%E9%94%AE/">
+    <link itemprop="mainEntityOfPage" href="http://shiff.top/2023/03/12/E%CC%82y%CC%81%C2%BEY%CC%81%C2%BFa%CC%82%C2%B1%C2%A8%C2%B4i%CC%81Incorrect-string-value/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars.githubusercontent.com/u/55538843?s=96&v=4">
@@ -219,7 +218,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Typora的查找（替换）快捷键
+          数据库报错Incorrect-string-value
         </h1>
 
         <div class="post-meta">
@@ -232,7 +231,20 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-03-14 10:23:38 / 修改时间：10:25:17" itemprop="dateCreated datePublished" datetime="2023-03-14T10:23:38+08:00">2023-03-14</time>
+              <time title="创建时间：2023-03-12 17:32:36 / 修改时间：17:35:04" itemprop="dateCreated datePublished" datetime="2023-03-12T17:32:36+08:00">2023-03-12</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+                </span>
             </span>
 
           
@@ -247,7 +259,7 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>34</span>
+              <span>312</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -265,14 +277,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="Typora的查找（替换）快捷键"><a href="#Typora的查找（替换）快捷键" class="headerlink" title="Typora的查找（替换）快捷键"></a>Typora的查找（替换）快捷键</h3><ul>
-<li><p>查找：Ctrl+F</p>
-<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230314102135161.png" alt="image-20230314102135161"></p>
-</li>
-<li><p>替换：Ctrl+H</p>
-</li>
-</ul>
-<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230314102239226.png" alt="image-20230314102239226"></p>
+        <h3 id="数据库报错Incorrect-string-value-‘-xE7-x94-xB7‘-for-column-‘name‘-at-row-1"><a href="#数据库报错Incorrect-string-value-‘-xE7-x94-xB7‘-for-column-‘name‘-at-row-1" class="headerlink" title="数据库报错Incorrect string value: ‘\xE7\x94\xB7‘ for column ‘name‘ at row 1"></a>数据库报错Incorrect string value: ‘\xE7\x94\xB7‘ for column ‘name‘ at row 1</h3><p><img src="C:\Users\12726\AppData\Roaming\Typora\typora-user-images\image-20230312024828536.png" alt="image-20230312024828536"></p>
+<p>报错内容为在name列插入的第一条数据的字符串值是不正确的，主要原因是我插入的数据为汉字，为中文字符串，需要使用到utf-8字符集，而默认是使用的是latin1字符集。</p>
+<p>解决方案：用这个命令更改表名，去覆盖它的原有字符集，就可以实现成功插入中文</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE interface_info（这里改成自己的表名） CONVERT TO CHARACTER SET utf8;</span><br></pre></td></tr></table></figure>
+
+<p>参考博文：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_63639665/article/details/128206602">https://blog.csdn.net/weixin_63639665/article/details/128206602</a></p>
 
     </div>
 
@@ -320,7 +330,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://shiff.top/2023/03/14/Typora%E7%9A%84%E6%9F%A5%E6%89%BE%EF%BC%88%E6%9B%BF%E6%8D%A2%EF%BC%89%E5%BF%AB%E6%8D%B7%E9%94%AE/" title="Typora的查找（替换）快捷键">http://shiff.top/2023/03/14/Typora的查找（替换）快捷键/</a>
+    <a href="http://shiff.top/2023/03/12/E%CC%82y%CC%81%C2%BEY%CC%81%C2%BFa%CC%82%C2%B1%C2%A8%C2%B4i%CC%81Incorrect-string-value/" title="数据库报错Incorrect-string-value">http://shiff.top/2023/03/12/Êý¾Ý¿â±¨´íIncorrect-string-value/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -331,8 +341,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/Typora/" rel="tag"># Typora</a>
-              <a href="/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/" rel="tag"># 快捷键</a>
+              <a href="/tags/MySQL/" rel="tag"># MySQL</a>
+              <a href="/tags/%E8%B8%A9%E5%9D%91/" rel="tag"># 踩坑</a>
           </div>
 
         
@@ -341,12 +351,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/03/12/JavaScript%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95-dom-bom-js-es6%E6%96%B0%E8%AF%AD%E6%B3%95-jQuery-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="prev" title="JavaScript基础语法-dom-bom-js-es6新语法-jQuery-数据可视化">
-      <i class="fa fa-chevron-left"></i> JavaScript基础语法-dom-bom-js-es6新语法-jQuery-数据可视化
+    <a href="/2023/03/12/idea%C2%B5A%CC%88E%CC%80%C2%AB%C2%BEO%CC%88E%CC%88N%CC%83E%CC%88%C3%B7%C2%A3%C2%A8I%CC%80%C3%A6%C2%BB%C2%BB%C2%A3%C2%A9%C2%BFi%CC%80%C2%BDY%CC%81%C2%BCu%CC%88/" rel="prev" title="idea的全局搜索（替换）快捷键">
+      <i class="fa fa-chevron-left"></i> idea的全局搜索（替换）快捷键
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/03/16/%E3%80%8AjavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" rel="next" title="《javaScript权威指南》读书笔记">
-      《javaScript权威指南》读书笔记 <i class="fa fa-chevron-right"></i>
+    <a href="/2023/03/12/JavaScript%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95-dom-bom-js-es6%E6%96%B0%E8%AF%AD%E6%B3%95-jQuery-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="next" title="JavaScript基础语法-dom-bom-js-es6新语法-jQuery-数据可视化">
+      JavaScript基础语法-dom-bom-js-es6新语法-jQuery-数据可视化 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -412,7 +422,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Typora%E7%9A%84%E6%9F%A5%E6%89%BE%EF%BC%88%E6%9B%BF%E6%8D%A2%EF%BC%89%E5%BF%AB%E6%8D%B7%E9%94%AE"><span class="nav-number">1.</span> <span class="nav-text">Typora的查找（替换）快捷键</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8A%A5%E9%94%99Incorrect-string-value-%E2%80%98-xE7-x94-xB7%E2%80%98-for-column-%E2%80%98name%E2%80%98-at-row-1"><span class="nav-number">1.</span> <span class="nav-text">数据库报错Incorrect string value: ‘\xE7\x94\xB7‘ for column ‘name‘ at row 1</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -428,7 +438,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -441,7 +451,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-count">22</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -501,7 +511,7 @@
 <div class="copyright">
   
   &copy; 2023-02 – 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
@@ -510,12 +520,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">19k</span>
+    <span title="站点总字数">20k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">17 分钟</span>
+    <span title="站点阅读时长">18 分钟</span>
 </div>
 
 <div>

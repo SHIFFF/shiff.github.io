@@ -9,8 +9,86 @@
     <atom:link href="http://shiff.top/rss2.xml" rel="self" type="application/rss+xml"/>
     
     <description>千里之行，始于足下</description>
-    <pubDate>Wed, 24 Apr 2024 08:21:42 GMT</pubDate>
+    <pubDate>Fri, 10 May 2024 08:41:52 GMT</pubDate>
     <generator>http://hexo.io/</generator>
+    
+    <item>
+      <title>双指针：两个输入,两个都需要遍历（快慢指针）</title>
+      <link>http://shiff.top/2024/05/10/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%9A%E4%B8%A4%E4%B8%AA%E8%BE%93%E5%85%A5-%E4%B8%A4%E4%B8%AA%E9%83%BD%E9%9C%80%E8%A6%81%E9%81%8D%E5%8E%86%EF%BC%88%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88%EF%BC%89/</link>
+      <guid>http://shiff.top/2024/05/10/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%9A%E4%B8%A4%E4%B8%AA%E8%BE%93%E5%85%A5-%E4%B8%A4%E4%B8%AA%E9%83%BD%E9%9C%80%E8%A6%81%E9%81%8D%E5%8E%86%EF%BC%88%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88%EF%BC%89/</guid>
+      <pubDate>Fri, 10 May 2024 08:41:08 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;2-双指针：两个输入-两个都需要遍历（快慢指针）&quot;&gt;&lt;a href=&quot;#2-双指针：两个输入-两个都需要遍历（快慢指针）&quot; class=&quot;headerlink&quot; title=&quot;2.双指针：两个输入,两个都需要遍历（快慢指针）&quot;&gt;&lt;/a&gt;2.双指针：两个输入,两个都</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="2-双指针：两个输入-两个都需要遍历（快慢指针）"><a href="#2-双指针：两个输入-两个都需要遍历（快慢指针）" class="headerlink" title="2.双指针：两个输入,两个都需要遍历（快慢指针）"></a>2.双指针：两个输入,两个都需要遍历（快慢指针）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="title function_">fn</span> = (<span class="params">arr1, arr2</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">let</span> i = <span class="number">0</span>, j = <span class="number">0</span>, ans = <span class="number">0</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">while</span>(i &lt; arr1.<span class="property">length</span> &amp;&amp; j &lt; arr2.<span class="property">length</span>)&#123;</span><br><span class="line">    <span class="comment">//根据题意补充代码</span></span><br><span class="line">    <span class="keyword">if</span>()&#123;</span><br><span class="line">      i++;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      j++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; arr1.<span class="property">length</span>)&#123;</span><br><span class="line">      <span class="comment">//</span></span><br><span class="line">      i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(j &lt; arr2.<span class="property">length</span>)&#123;</span><br><span class="line">      <span class="comment">//</span></span><br><span class="line">      j++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h4><p><a href="https://leetcode.cn/problems/merge-sorted-array/">88. 合并两个有序数组</a></p><p>给你两个按 <strong>非递减顺序</strong> 排列的整数数组 <code>nums1</code> 和 <code>nums2</code>，另有两个整数 <code>m</code> 和 <code>n</code> ，分别表示 <code>nums1</code> 和 <code>nums2</code> 中的元素数目。</p><p>请你 <strong>合并</strong> <code>nums2</code> 到 <code>nums1</code> 中，使合并后的数组同样按 <strong>非递减顺序</strong> 排列。</p><p><strong>注意：</strong>最终，合并后数组不应由函数返回，而是存储在数组 <code>nums1</code> 中。为了应对这种情况，<code>nums1</code> 的初始长度为 <code>m + n</code>，其中前 <code>m</code> 个元素表示应合并的元素，后 <code>n</code> 个元素为 <code>0</code> ，应忽略。<code>nums2</code> 的长度为 <code>n</code> 。</p><p><strong>示例 1：</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3</span><br><span class="line">输出：[1,2,2,3,5,6]</span><br><span class="line">解释：需要合并 [1,2,3] 和 [2,5,6] 。</span><br><span class="line">合并结果是 [1,2,2,3,5,6] ，其中斜体加粗标注的为 nums1 中的元素。</span><br></pre></td></tr></table></figure><p><strong>示例 2：</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入：nums1 = [1], m = 1, nums2 = [], n = 0</span><br><span class="line">输出：[1]</span><br><span class="line">解释：需要合并 [1] 和 [] 。</span><br><span class="line">合并结果是 [1] 。</span><br></pre></td></tr></table></figure><p><strong>示例 3：</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">输入：nums1 = [0], m = 0, nums2 = [1], n = 1</span><br><span class="line">输出：[1]</span><br><span class="line">解释：需要合并的数组是 [] 和 [1] 。</span><br><span class="line">合并结果是 [1] 。</span><br><span class="line">注意，因为 m = 0 ，所以 nums1 中没有元素。nums1 中仅存的 0 仅仅是为了确保合并结果可以顺利存放到 nums1 中。</span><br></pre></td></tr></table></figure><p>思路一：双指针，但是不借助额外的数组，原数组nums1的值就会被覆盖，但是题目没有说不能借助额外数组，所以就先放到新的数组里面，在把新数组赋值给nuns1</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">nums1</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; <span class="variable">m</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">nums2</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; <span class="variable">n</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">void</span>&#125; Do not return anything, modify nums1 in-place instead.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> merge = <span class="keyword">function</span>(<span class="params">nums1, m, nums2, n</span>) &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//思路一：双指针，但是不借助额外的数组，原数组nums1的值就会被覆盖，但是题目没有说不能借助额外数组，所以就先放到新的数组里面，在把新数组赋值给nuns1</span></span><br><span class="line">    <span class="keyword">let</span> newArr = <span class="keyword">new</span> <span class="title class_">Array</span>(m + n);</span><br><span class="line">    <span class="keyword">let</span> k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; m &amp;&amp; j &lt; n)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums2[j] &lt;= nums1[i])&#123;</span><br><span class="line">            newArr[k++] = nums2[j++];</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            newArr[k++] = nums1[i++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; m) newArr[k++] = nums1[i++];</span><br><span class="line">    <span class="keyword">while</span>(j &lt; n) newArr[k++] = nums2[j++];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> p = <span class="number">0</span>; p &lt; m + n; p++)&#123;</span><br><span class="line">        nums1[p] = newArr[p];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> nums1;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>思路二：逆向双指针，因为num1的数组的末尾m个都是0，是不害怕被覆盖的</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">nums1</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; <span class="variable">m</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">nums2</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; <span class="variable">n</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">void</span>&#125; Do not return anything, modify nums1 in-place instead.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> merge = <span class="keyword">function</span>(<span class="params">nums1, m, nums2, n</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> i = m - <span class="number">1</span>, j = n - <span class="number">1</span>, k = m + n - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(i &gt;= <span class="number">0</span> &amp;&amp; j &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums1[i] &gt;= nums2[j])&#123;</span><br><span class="line">            nums1[k--] = nums1[i--];</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            nums1[k--] = nums2[j--];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(i &gt;= <span class="number">0</span>) nums1[k--] = nums1[i--];</span><br><span class="line">    <span class="keyword">while</span>(j &gt;= <span class="number">0</span>) nums1[k--] = nums2[j--];</span><br><span class="line">    <span class="keyword">return</span> nums1;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content:encoded>
+      
+      
+      
+      <category domain="http://shiff.top/tags/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="http://shiff.top/tags/JavaScript/">JavaScript</category>
+      
+      
+      <comments>http://shiff.top/2024/05/10/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%9A%E4%B8%A4%E4%B8%AA%E8%BE%93%E5%85%A5-%E4%B8%A4%E4%B8%AA%E9%83%BD%E9%9C%80%E8%A6%81%E9%81%8D%E5%8E%86%EF%BC%88%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88%EF%BC%89/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>双指针：一个输入，两端遍历（两边夹）</title>
+      <link>http://shiff.top/2024/05/10/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%9A%E4%B8%80%E4%B8%AA%E8%BE%93%E5%85%A5%EF%BC%8C%E4%B8%A4%E7%AB%AF%E9%81%8D%E5%8E%86%EF%BC%88%E4%B8%A4%E8%BE%B9%E5%A4%B9%EF%BC%89/</link>
+      <guid>http://shiff.top/2024/05/10/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%9A%E4%B8%80%E4%B8%AA%E8%BE%93%E5%85%A5%EF%BC%8C%E4%B8%A4%E7%AB%AF%E9%81%8D%E5%8E%86%EF%BC%88%E4%B8%A4%E8%BE%B9%E5%A4%B9%EF%BC%89/</guid>
+      <pubDate>Fri, 10 May 2024 08:04:21 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h3 id=&quot;双指针：一个输入，两端遍历（两边夹）&quot;&gt;&lt;a href=&quot;#双指针：一个输入，两端遍历（两边夹）&quot; class=&quot;headerlink&quot; title=&quot;双指针：一个输入，两端遍历（两边夹）&quot;&gt;&lt;/a&gt;双指针：一个输入，两端遍历（两边夹）&lt;/h3&gt;&lt;figure c</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h3 id="双指针：一个输入，两端遍历（两边夹）"><a href="#双指针：一个输入，两端遍历（两边夹）" class="headerlink" title="双指针：一个输入，两端遍历（两边夹）"></a>双指针：一个输入，两端遍历（两边夹）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//箭头函数 ()=&gt;&#123;&#125;</span></span><br><span class="line"><span class="comment">//()表示参数</span></span><br><span class="line"><span class="comment">//&#123;&#125;表示函数体</span></span><br><span class="line"><span class="keyword">let</span> <span class="title function_">fn</span> = arr =&gt;&#123;</span><br><span class="line">  <span class="keyword">let</span> left = <span class="number">0</span>, ans = <span class="number">0</span>, right = arr.<span class="property">length</span> -<span class="number">1</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">    <span class="comment">//根据题意补充代码</span></span><br><span class="line">    <span class="keyword">if</span>()&#123;</span><br><span class="line">      left++;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      right--;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h4><p><a href="https://leetcode.cn/problems/container-with-most-water/">11. 盛最多水的容器</a></p><p>给定一个长度为 <code>n</code> 的整数数组 <code>height</code> 。有 <code>n</code> 条垂线，第 <code>i</code> 条线的两个端点是 <code>(i, 0)</code> 和 <code>(i, height[i])</code> 。</p><p>找出其中的两条线，使得它们与 <code>x</code> 轴共同构成的容器可以容纳最多的水。</p><p>返回容器可以储存的最大水量。</p><p><strong>说明：</strong>你不能倾斜容器。</p><p><strong>示例 1：</strong></p><p><img src="https://aliyun-lc-upload.oss-cn-hangzhou.aliyuncs.com/aliyun-lc-upload/uploads/2018/07/25/question_11.jpg" alt="img"></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：[1,8,6,2,5,4,8,3,7]</span><br><span class="line">输出：49 </span><br><span class="line">解释：图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</span><br></pre></td></tr></table></figure><p><strong>示例 2：</strong></p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：height = [1,1]</span><br><span class="line">输出：1 </span><br></pre></td></tr></table></figure><p><strong>提示：</strong></p><ul><li><code>n == height.length</code></li><li><code>2 &lt;= n &lt;= 105</code></li><li><code>0 &lt;= height[i] &lt;= 104</code></li></ul><p>做题思路：</p><p>双指针</p><p>长*宽的最大值，迭代</p><p>难点在于在什么情况下移动左指针，在什么情况下移动右指针</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">height</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">number</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> maxArea = <span class="keyword">function</span>(<span class="params">height</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> left = <span class="number">0</span>, right = height.<span class="property">length</span> - <span class="number">1</span>, maxAns = -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">        <span class="keyword">let</span> w = right - left;</span><br><span class="line">        <span class="keyword">let</span> h = <span class="title class_">Math</span>.<span class="title function_">min</span>(height[left], height[right]);</span><br><span class="line">        maxAns = <span class="title class_">Math</span>.<span class="title function_">max</span>(w * h, maxAns);</span><br><span class="line">        <span class="keyword">if</span>(height[left] &lt; height[right])&#123;</span><br><span class="line">            left++;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxAns</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure><p>参考官方题解</p><p><a href="https://leetcode.cn/problems/container-with-most-water/solutions/207215/sheng-zui-duo-shui-de-rong-qi-by-leetcode-solution">https://leetcode.cn/problems/container-with-most-water/solutions/207215/sheng-zui-duo-shui-de-rong-qi-by-leetcode-solution</a></p>]]></content:encoded>
+      
+      
+      
+      <category domain="http://shiff.top/tags/%E7%AE%97%E6%B3%95/">算法</category>
+      
+      <category domain="http://shiff.top/tags/JavaScript/">JavaScript</category>
+      
+      
+      <comments>http://shiff.top/2024/05/10/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%9A%E4%B8%80%E4%B8%AA%E8%BE%93%E5%85%A5%EF%BC%8C%E4%B8%A4%E7%AB%AF%E9%81%8D%E5%8E%86%EF%BC%88%E4%B8%A4%E8%BE%B9%E5%A4%B9%EF%BC%89/#disqus_thread</comments>
+      
+    </item>
+    
+    <item>
+      <title>【Vue】v-bind</title>
+      <link>http://shiff.top/2024/04/24/%E3%80%90Vue%E3%80%91v-bind/</link>
+      <guid>http://shiff.top/2024/04/24/%E3%80%90Vue%E3%80%91v-bind/</guid>
+      <pubDate>Wed, 24 Apr 2024 08:47:31 GMT</pubDate>
+      
+        
+        
+      <description>&lt;h1 id=&quot;v-bind&quot;&gt;&lt;a href=&quot;#v-bind&quot; class=&quot;headerlink&quot; title=&quot;v-bind&quot;&gt;&lt;/a&gt;v-bind&lt;/h1&gt;&lt;p&gt; 是Vue.js中的一个指令，用于动态地绑定一个或多个属性，或者传递属性到组件。它可以将数据的值绑定到HTM</description>
+        
+      
+      
+      
+      <content:encoded><![CDATA[<h1 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h1><p> 是Vue.js中的一个指令，用于动态地绑定一个或多个属性，或者传递属性到组件。它可以将数据的值绑定到HTML元素的属性上，或者是父组件向子组件传递数据。</p><h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><ul><li><strong>绑定HTML属性</strong>：可以将数据绑定到元素的属性上。例如，如果你想根据数据动态改变<img>的src属性，可以这样写：</li></ul><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img v-<span class="attr">bind</span>:src=<span class="string">&quot;imageSrc&quot;</span>&gt;</span><br></pre></td></tr></table></figure><p>这里，imageSrc是一个变量名，它的值会被设置为img的src属性。</p><ul><li><strong>缩写</strong>：v-bind:有一个缩写，即冒号:。上面的例子可以简写为：</li></ul><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;img :src=<span class="string">&quot;imageSrc&quot;</span>&gt;</span><br></pre></td></tr></table></figure><h3 id="绑定多个属性"><a href="#绑定多个属性" class="headerlink" title="绑定多个属性"></a>绑定多个属性</h3><p>v-bind也可以通过使用对象语法一次绑定多个属性。例如：</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-bind=<span class="string">&quot;&#123; id: someId, &#x27;data-name&#x27;: name &#125;&quot;</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure><p>这里，someId和name是变量，它们的值将分别绑定到div的id属性和data-name属性。</p><h3 id="绑定到组件的props"><a href="#绑定到组件的props" class="headerlink" title="绑定到组件的props"></a>绑定到组件的props</h3><p>当使用组件时，v-bind用于将数据从父组件传递到子组件的props：</p><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;my-component :some-prop=<span class="string">&quot;someData&quot;</span>&gt;&lt;/my-component&gt;</span><br></pre></td></tr></table></figure><p>这里，someData是父组件中的数据，some-prop是子组件的prop，someData的值将传递给子组件的some-prop。</p><h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>动态绑定元素的类和样式。</p><p>将数据传递给组件的props。</p><p>根据数据动态改变元素的属性，如src、href等。</p><p>v-bind:是Vue开发中非常常用的一个指令，它提高了代码的灵活性和可维护性，使得数据和视图之间的绑定更加直观和方便。</p>]]></content:encoded>
+      
+      
+      
+      <category domain="http://shiff.top/tags/Vue3/">Vue3</category>
+      
+      <category domain="http://shiff.top/tags/Vue2/">Vue2</category>
+      
+      
+      <comments>http://shiff.top/2024/04/24/%E3%80%90Vue%E3%80%91v-bind/#disqus_thread</comments>
+      
+    </item>
     
     <item>
       <title>【Vue3】withDefaults和defineProps</title>
@@ -233,88 +311,6 @@
       
       
       <comments>http://shiff.top/2023/03/12/JavaScript%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95-dom-bom-js-es6%E6%96%B0%E8%AF%AD%E6%B3%95-jQuery-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>数据库报错Incorrect-string-value</title>
-      <link>http://shiff.top/2023/03/12/E%CC%82y%CC%81%C2%BEY%CC%81%C2%BFa%CC%82%C2%B1%C2%A8%C2%B4i%CC%81Incorrect-string-value/</link>
-      <guid>http://shiff.top/2023/03/12/E%CC%82y%CC%81%C2%BEY%CC%81%C2%BFa%CC%82%C2%B1%C2%A8%C2%B4i%CC%81Incorrect-string-value/</guid>
-      <pubDate>Sun, 12 Mar 2023 09:32:36 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h3 id=&quot;数据库报错Incorrect-string-value-‘-xE7-x94-xB7‘-for-column-‘name‘-at-row-1&quot;&gt;&lt;a href=&quot;#数据库报错Incorrect-string-value-‘-xE7-x94-xB7‘-for-colu</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h3 id="数据库报错Incorrect-string-value-‘-xE7-x94-xB7‘-for-column-‘name‘-at-row-1"><a href="#数据库报错Incorrect-string-value-‘-xE7-x94-xB7‘-for-column-‘name‘-at-row-1" class="headerlink" title="数据库报错Incorrect string value: ‘\xE7\x94\xB7‘ for column ‘name‘ at row 1"></a>数据库报错Incorrect string value: ‘\xE7\x94\xB7‘ for column ‘name‘ at row 1</h3><p><img src="C:\Users\12726\AppData\Roaming\Typora\typora-user-images\image-20230312024828536.png" alt="image-20230312024828536"></p><p>报错内容为在name列插入的第一条数据的字符串值是不正确的，主要原因是我插入的数据为汉字，为中文字符串，需要使用到utf-8字符集，而默认是使用的是latin1字符集。</p><p>解决方案：用这个命令更改表名，去覆盖它的原有字符集，就可以实现成功插入中文</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE interface_info（这里改成自己的表名） CONVERT TO CHARACTER SET utf8;</span><br></pre></td></tr></table></figure><p>参考博文：<a href="https://blog.csdn.net/weixin_63639665/article/details/128206602">https://blog.csdn.net/weixin_63639665/article/details/128206602</a></p>]]></content:encoded>
-      
-      
-      <category domain="http://shiff.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</category>
-      
-      <category domain="http://shiff.top/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/">MySQL</category>
-      
-      
-      <category domain="http://shiff.top/tags/MySQL/">MySQL</category>
-      
-      <category domain="http://shiff.top/tags/%E8%B8%A9%E5%9D%91/">踩坑</category>
-      
-      
-      <comments>http://shiff.top/2023/03/12/E%CC%82y%CC%81%C2%BEY%CC%81%C2%BFa%CC%82%C2%B1%C2%A8%C2%B4i%CC%81Incorrect-string-value/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>idea的全局搜索（替换）快捷键</title>
-      <link>http://shiff.top/2023/03/12/idea%C2%B5A%CC%88E%CC%80%C2%AB%C2%BEO%CC%88E%CC%88N%CC%83E%CC%88%C3%B7%C2%A3%C2%A8I%CC%80%C3%A6%C2%BB%C2%BB%C2%A3%C2%A9%C2%BFi%CC%80%C2%BDY%CC%81%C2%BCu%CC%88/</link>
-      <guid>http://shiff.top/2023/03/12/idea%C2%B5A%CC%88E%CC%80%C2%AB%C2%BEO%CC%88E%CC%88N%CC%83E%CC%88%C3%B7%C2%A3%C2%A8I%CC%80%C3%A6%C2%BB%C2%BB%C2%A3%C2%A9%C2%BFi%CC%80%C2%BDY%CC%81%C2%BCu%CC%88/</guid>
-      <pubDate>Sun, 12 Mar 2023 09:22:41 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;idea的全局搜索（替换）快捷键&quot;&gt;&lt;a href=&quot;#idea的全局搜索（替换）快捷键&quot; class=&quot;headerlink&quot; title=&quot;idea的全局搜索（替换）快捷键&quot;&gt;&lt;/a&gt;idea的全局搜索（替换）快捷键&lt;/h2&gt;&lt;p&gt;可以鼠标选中想要搜索的内容在</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="idea的全局搜索（替换）快捷键"><a href="#idea的全局搜索（替换）快捷键" class="headerlink" title="idea的全局搜索（替换）快捷键"></a>idea的全局搜索（替换）快捷键</h2><p>可以鼠标选中想要搜索的内容在按快捷键或者按完快捷键后输入想要搜索的内容</p><ul><li>ctrl+F 搜索范围为当前文件，不可替换</li></ul><p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230311230431152.png" alt="image"></p><ul><li>ctrl+R 搜索范围为当前文件，可替换</li></ul><p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230312034130905.png" alt="image-20230312034130905"></p><ul><li>ctrl+shift+R 搜索范围为整个项目，可替换</li></ul><p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230311230702057.png" alt="image-20230311230702057"></p>]]></content:encoded>
-      
-      
-      
-      <category domain="http://shiff.top/tags/idea/">idea</category>
-      
-      <category domain="http://shiff.top/tags/%E8%B8%A9%E5%9D%91/">踩坑</category>
-      
-      <category domain="http://shiff.top/tags/%E5%BF%AB%E6%8D%B7%E9%94%AE/">快捷键</category>
-      
-      
-      <comments>http://shiff.top/2023/03/12/idea%C2%B5A%CC%88E%CC%80%C2%AB%C2%BEO%CC%88E%CC%88N%CC%83E%CC%88%C3%B7%C2%A3%C2%A8I%CC%80%C3%A6%C2%BB%C2%BB%C2%A3%C2%A9%C2%BFi%CC%80%C2%BDY%CC%81%C2%BCu%CC%88/#disqus_thread</comments>
-      
-    </item>
-    
-    <item>
-      <title>站点记录</title>
-      <link>http://shiff.top/2023/03/12/O%CC%83%C2%BE%C2%B5a%CC%83%C2%BCC%CC%A7A%CC%82%C2%BC/</link>
-      <guid>http://shiff.top/2023/03/12/O%CC%83%C2%BE%C2%B5a%CC%83%C2%BCC%CC%A7A%CC%82%C2%BC/</guid>
-      <pubDate>Sun, 12 Mar 2023 07:41:51 GMT</pubDate>
-      
-        
-        
-      <description>&lt;h2 id=&quot;站点记录&quot;&gt;&lt;a href=&quot;#站点记录&quot; class=&quot;headerlink&quot; title=&quot;站点记录&quot;&gt;&lt;/a&gt;站点记录&lt;/h2&gt;&lt;h3 id=&quot;工具类站点&quot;&gt;&lt;a href=&quot;#工具类站点&quot; class=&quot;headerlink&quot; title=&quot;工具类站点&quot;&gt;</description>
-        
-      
-      
-      
-      <content:encoded><![CDATA[<h2 id="站点记录"><a href="#站点记录" class="headerlink" title="站点记录"></a>站点记录</h2><h3 id="工具类站点"><a href="#工具类站点" class="headerlink" title="工具类站点"></a>工具类站点</h3><p>1.时间戳转换： <a href="https://tool.lu/timestamp">https://tool.lu/timestamp</a><br>2.b站视频下载： <a href="https://www.urlgot.cn/">https://www.urlgot.cn/</a></p><h3 id="学习类站点"><a href="#学习类站点" class="headerlink" title="学习类站点"></a>学习类站点</h3><h4 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h4><ul><li><a href="https://developers.aliwork.com/docs/guide/start">钉钉宜搭.开发者中心</a></li><li>前端框架：<a href="https://pro.ant.design/zh-CN/docs/getting-started">ant.design.pro</a></li><li>博客框架：<a href="https://hexo.io/zh-cn/docs">hexo文档</a></li></ul><h3 id="仓库类站点"><a href="#仓库类站点" class="headerlink" title="仓库类站点"></a>仓库类站点</h3>]]></content:encoded>
-      
-      
-      
-      <category domain="http://shiff.top/tags/%E7%AB%99%E7%82%B9%E9%93%BE%E6%8E%A5/">站点链接</category>
-      
-      
-      <comments>http://shiff.top/2023/03/12/O%CC%83%C2%BE%C2%B5a%CC%83%C2%BCC%CC%A7A%CC%82%C2%BC/#disqus_thread</comments>
       
     </item>
     

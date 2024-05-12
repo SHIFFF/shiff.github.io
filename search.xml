@@ -102,6 +102,33 @@
       </tags>
   </entry>
   <entry>
+    <title>鉴权失败</title>
+    <url>/2024/04/24/%E9%89%B4%E6%9D%83%E5%A4%B1%E8%B4%A5/</url>
+    <content><![CDATA[<h3 id="【git部署时输入密码错误】remote-Support-for-password-authentication-was-removed-on-August-13-2021-remote-Please-see-https-docs-github-com-get-started-getting-started-with-git-about-remote-repositories-cloning-with-https-urls-for-information-on-currently-recommended-modes-of-authentication-致命错误：’https-github-com-SHIFFF-SHIFFF-github-io-git-‘-鉴权失败"><a href="#【git部署时输入密码错误】remote-Support-for-password-authentication-was-removed-on-August-13-2021-remote-Please-see-https-docs-github-com-get-started-getting-started-with-git-about-remote-repositories-cloning-with-https-urls-for-information-on-currently-recommended-modes-of-authentication-致命错误：’https-github-com-SHIFFF-SHIFFF-github-io-git-‘-鉴权失败" class="headerlink" title="【git部署时输入密码错误】remote: Support for password authentication was removed on August 13, 2021. remote: Please see https://docs.github.com/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls for information on currently recommended modes of authentication. 致命错误：’https://github.com/SHIFFF/SHIFFF.github.io.git/‘ 鉴权失败"></a>【git部署时输入密码错误】remote: Support for password authentication was removed on August 13, 2021. remote: Please see <a href="https://docs.github.com/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls">https://docs.github.com/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls</a> for information on currently recommended modes of authentication. 致命错误：’<a href="https://github.com/SHIFFF/SHIFFF.github.io.git/">https://github.com/SHIFFF/SHIFFF.github.io.git/</a>‘ 鉴权失败</h3><p>GitHub于2021年8月13日移除了对密码身份验证的支持，因此您需要使用其他身份验证方式来访问GitHub仓库。</p>
+<p>推荐的替代方式是使用个人访问令牌（Personal Access Token）作为身份验证凭据。您可以在GitHub上生成一个个人访问令牌，并将其用作密码来访问您的仓库。</p>
+<p>以下是解决此问题的一般步骤：</p>
+<ol>
+<li><p>在GitHub上生成个人访问令牌：</p>
+<ul>
+<li>登录GitHub账号，转到Settings -&gt; Developer settings -&gt; Personal access tokens。</li>
+<li>点击Generate new token，选择所需的权限，并生成访问令牌。</li>
+<li>复制生成的访问令牌。</li>
+</ul>
+</li>
+<li><p>在Git中使用个人访问令牌：</p>
+<ul>
+<li>当Git提示输入用户名和密码时，用户名为您的GitHub用户名，密码为您生成的个人访问令牌。</li>
+</ul>
+</li>
+</ol>
+<p>通过这种方式，您应该能够成功进行身份验证并访问您的GitHub仓库。如果问题仍然存在，请参考提供的链接以获取更多信息或尝试其他解决方案。</p>
+]]></content>
+      <tags>
+        <tag>git</tag>
+        <tag>error</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>【Vue3】withDefaults和defineProps</title>
     <url>/2024/04/24/%E3%80%90Vue3%E3%80%91withDefaults%E5%92%8CdefineProps/</url>
     <content><![CDATA[<p>在Vue 3中，withDefaults和defineProps是用于定义和设置组件的props的工具，特别是在使用script setup语法糖时。</p>

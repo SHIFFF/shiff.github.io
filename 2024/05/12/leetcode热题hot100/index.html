@@ -30,8 +30,9 @@
 <meta property="og:description" content="leetcode热题hot100【JS】刷算法题可能用到的函数和表示方式常用的表达方式12&#x2F;&#x2F;2的10次方let n &#x3D; 2 ** 10;    数组1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950&#x2F;&#x2F;数组中插入数据let arr &#x3D; [];arr.push(1);">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://aliyun-lc-upload.oss-cn-hangzhou.aliyuncs.com/aliyun-lc-upload/uploads/2018/07/25/question_11.jpg">
+<meta property="og:image" content="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/rainwatertrap.png">
 <meta property="article:published_time" content="2024-05-12T15:24:52.000Z">
-<meta property="article:modified_time" content="2024-05-12T21:02:25.425Z">
+<meta property="article:modified_time" content="2024-05-13T06:17:47.031Z">
 <meta property="article:author" content="shiff">
 <meta property="article:tag" content="算法">
 <meta property="article:tag" content="JavaScript">
@@ -238,7 +239,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-05-13 05:02:25" itemprop="dateModified" datetime="2024-05-13T05:02:25+08:00">2024-05-13</time>
+                <time title="修改时间：2024-05-13 14:17:47" itemprop="dateModified" datetime="2024-05-13T14:17:47+08:00">2024-05-13</time>
               </span>
 
           
@@ -253,13 +254,13 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>12k</span>
+              <span>13k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
                 <i class="far fa-clock"></i>
               </span>
-              <span>11 分钟</span>
+              <span>12 分钟</span>
             </span>
 
         </div>
@@ -452,8 +453,25 @@
 <p>排序：首先对数组进行排序，这样可以更容易地避免重复的三元组，并且可以使用双指针技术来减少不必要的搜索。</p>
 <p>双指针：使用一个外层循环遍历每个元素，然后在剩余部分使用两个指针（一个从左边开始，另一个从右边开始）来寻找两个数，使得这三个数的和为0。</p>
 <p>跳过重复元素：在外层循环和双指针移动时，如果遇到相同的元素，应该跳过，以避免重复的三元组。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> threeSum = <span class="keyword">function</span>(<span class="params">nums</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> res = [];</span><br><span class="line">    nums.<span class="title function_">sort</span>(<span class="function">(<span class="params">a, b</span>) =&gt;</span> a - b); <span class="comment">// 对数组进行排序</span></span><br><span class="line">  <span class="comment">// -1 0 1 2 -1 -4</span></span><br><span class="line">  <span class="comment">// -1 -1 0 1 2 -4</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.<span class="property">length</span> - <span class="number">2</span>; i++) &#123;</span><br><span class="line">      	<span class="comment">//有重复元素，该元素和前一个元素的值一样，跳过</span></span><br><span class="line">        <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>]) <span class="keyword">continue</span>; <span class="comment">// 跳过重复的元素</span></span><br><span class="line">      	<span class="comment">//内部是双指针，是一个两边夹的格式</span></span><br><span class="line">        <span class="keyword">let</span> left = i + <span class="number">1</span>, right = nums.<span class="property">length</span> - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="keyword">let</span> sum = nums[i] + nums[left] + nums[right];</span><br><span class="line">            <span class="keyword">if</span> (sum === <span class="number">0</span>) &#123;</span><br><span class="line">                res.<span class="title function_">push</span>([nums[i], nums[left], nums[right]]);</span><br><span class="line">              <span class="comment">//左右指针都持续跳过重复元素</span></span><br><span class="line">                <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[left] == nums[left + <span class="number">1</span>]) left++; <span class="comment">// 跳过重复的元素</span></span><br><span class="line">                <span class="keyword">while</span> (left &lt; right &amp;&amp; nums[right] == nums[right - <span class="number">1</span>]) right--; <span class="comment">// 跳过重复的元素					//虽然跳过了重复元素，但是这个left和right依旧是上面sum中用过的一样的元素，所以要在跳一步。</span></span><br><span class="line">                left++;</span><br><span class="line">                right--;</span><br><span class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (sum &lt; <span class="number">0</span>) &#123;<span class="comment">//当和小于0时，说明整体数字小，让指向小的那个数的那个指针（left）向右移</span></span><br><span class="line">                left++;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                right--;<span class="comment">//sum &gt; 0，这里和上面时反着的，但是时同一个道理</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">nums</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">number[][]</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> threeSum = <span class="keyword">function</span>(<span class="params">nums</span>) &#123;</span><br><span class="line">    <span class="comment">//排序+循环嵌套双指针（两边夹）</span></span><br><span class="line">    <span class="comment">//因为有重复元素，还要去重</span></span><br><span class="line">    nums.<span class="title function_">sort</span>(<span class="function">(<span class="params">a,b</span>) =&gt;</span> a - b);<span class="comment">//递增</span></span><br><span class="line">    <span class="keyword">let</span> res = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; nums.<span class="property">length</span> - <span class="number">2</span>; i++)&#123;<span class="comment">//-2时因为i是三元组的第一个，要构成三元组就不可能是最后一个</span></span><br><span class="line">        <span class="comment">//对于三元组中的第一个数，也要去重，同一个数，只操作一次</span></span><br><span class="line">        <span class="keyword">if</span>( i &gt; <span class="number">0</span>  &amp;&amp; nums[i] == nums[i - <span class="number">1</span>]) <span class="keyword">continue</span>;</span><br><span class="line">      <span class="comment">//if( i + 1 &lt; nums.length - 2 &amp;&amp; nums[i + 1] == nums[i]) continue;这样的去重逻辑是错误的，不要这样写</span></span><br><span class="line">        <span class="comment">//双指针两边夹</span></span><br><span class="line">        <span class="keyword">let</span> left = i + <span class="number">1</span>, right = nums.<span class="property">length</span> - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">            <span class="keyword">let</span> sum = nums[i] + nums[left] + nums[right];</span><br><span class="line">            <span class="keyword">if</span>(sum === <span class="number">0</span>)&#123;<span class="comment">//找到一个三元组</span></span><br><span class="line">                res.<span class="title function_">push</span>([nums[i], nums[right], nums[left]]);</span><br><span class="line">                <span class="keyword">while</span>(left &lt; right &amp;&amp; nums[left] == nums[left + <span class="number">1</span>]) left++;</span><br><span class="line">                <span class="keyword">while</span>(left &lt; right &amp;&amp; nums[right] == nums[right - <span class="number">1</span>]) right--;</span><br><span class="line">                left++;</span><br><span class="line">                right--;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(sum &lt; <span class="number">0</span>)&#123;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;<span class="keyword">else</span> right--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 
+
+
+<h4 id="接雨水"><a href="#接雨水" class="headerlink" title="接雨水"></a>接雨水</h4><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/trapping-rain-water/">42. 接雨水</a></p>
+<p>给定 <code>n</code> 个非负整数表示每个宽度为 <code>1</code> 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。</p>
+<p><strong>示例 1：</strong></p>
+<p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/rainwatertrap.png" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：height = [0,1,0,2,1,0,1,3,2,1,2,1]</span><br><span class="line">输出：6</span><br><span class="line">解释：上面是由数组 [0,1,0,2,1,0,1,3,2,1,2,1] 表示的高度图，在这种情况下，可以接 6 个单位的雨水（蓝色部分表示雨水）。 </span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：height = [4,2,0,3,2,5]</span><br><span class="line">输出：9</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>n == height.length</code></li>
+<li><code>1 &lt;= n &lt;= 2 * 104</code></li>
+<li><code>0 &lt;= height[i] &lt;= 105</code></li>
+</ul>
 
     </div>
 
@@ -526,7 +544,10 @@
     <a href="/2024/05/11/%E3%80%8AjavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/" rel="prev" title="《JavaScript权威指南》读书笔记第七章函数表达式">
       <i class="fa fa-chevron-left"></i> 《JavaScript权威指南》读书笔记第七章函数表达式
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2024/05/13/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E4%B8%93%E9%A1%B9%E8%AE%AD%E7%BB%83/" rel="next" title="动态规划专项训练">
+      动态规划专项训练 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -591,7 +612,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode%E7%83%AD%E9%A2%98hot100%E3%80%90JS%E3%80%91"><span class="nav-number">1.</span> <span class="nav-text">leetcode热题hot100【JS】</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%B7%E7%AE%97%E6%B3%95%E9%A2%98%E5%8F%AF%E8%83%BD%E7%94%A8%E5%88%B0%E7%9A%84%E5%87%BD%E6%95%B0%E5%92%8C%E8%A1%A8%E7%A4%BA%E6%96%B9%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">刷算法题可能用到的函数和表示方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E8%A1%A8%E8%BE%BE%E6%96%B9%E5%BC%8F"><span class="nav-number">1.1.1.</span> <span class="nav-text">常用的表达方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">1.1.2.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.1.3.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-number">1.1.4.</span> <span class="nav-text">Map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set"><span class="nav-number">1.1.5.</span> <span class="nav-text">Set</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#100%E9%A2%98%E5%AE%9E%E6%88%98"><span class="nav-number">1.2.</span> <span class="nav-text">100题实战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%93%88%E5%B8%8C"><span class="nav-number">1.2.1.</span> <span class="nav-text">哈希</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%E3%80%90%E6%95%B0%E7%BB%84%E3%80%81%E5%93%88%E5%B8%8C%E3%80%91"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">两数之和【数组、哈希】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D%E5%88%86%E7%BB%84%E3%80%90%E6%95%B0%E7%BB%84%E3%80%81%E5%93%88%E5%B8%8C%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%91"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">字母异位词分组【数组、哈希、字符串】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%80%90%E8%A6%81%E4%BA%8C%E5%88%B7%E3%80%91%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E5%BA%8F%E5%88%97%E3%80%90%E5%B9%B6%E6%9F%A5%E9%9B%86%E3%80%81%E6%95%B0%E7%BB%84%E3%80%81%E5%93%88%E5%B8%8C%E8%A1%A8%E3%80%91"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">【要二刷】最长连续序列【并查集、数组、哈希表】</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88"><span class="nav-number">1.2.2.</span> <span class="nav-text">双指针</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E9%9B%B6%E3%80%90%E6%95%B0%E7%BB%84%E3%80%81%E5%8F%8C%E6%8C%87%E9%92%88%E3%80%91"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">移动零【数组、双指针】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8%E3%80%90%E5%8F%8C%E6%8C%87%E9%92%88%E3%80%81%E8%B4%AA%E5%BF%83%E3%80%91"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">盛最多水的容器【双指针、贪心】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%80%90%E9%9C%80%E8%A6%81%E4%BA%8C%E5%88%B7%E3%80%91%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C-%E3%80%90%E6%95%B0%E7%BB%84%EF%BC%8C%E5%8F%8C%E6%8C%87%E9%92%88%E3%80%91"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">【需要二刷】三数之和 【数组，双指针】</span></a></li></ol></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode%E7%83%AD%E9%A2%98hot100%E3%80%90JS%E3%80%91"><span class="nav-number">1.</span> <span class="nav-text">leetcode热题hot100【JS】</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%B7%E7%AE%97%E6%B3%95%E9%A2%98%E5%8F%AF%E8%83%BD%E7%94%A8%E5%88%B0%E7%9A%84%E5%87%BD%E6%95%B0%E5%92%8C%E8%A1%A8%E7%A4%BA%E6%96%B9%E5%BC%8F"><span class="nav-number">1.1.</span> <span class="nav-text">刷算法题可能用到的函数和表示方式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8%E7%9A%84%E8%A1%A8%E8%BE%BE%E6%96%B9%E5%BC%8F"><span class="nav-number">1.1.1.</span> <span class="nav-text">常用的表达方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E7%BB%84"><span class="nav-number">1.1.2.</span> <span class="nav-text">数组</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="nav-number">1.1.3.</span> <span class="nav-text">字符串</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-number">1.1.4.</span> <span class="nav-text">Map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set"><span class="nav-number">1.1.5.</span> <span class="nav-text">Set</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#100%E9%A2%98%E5%AE%9E%E6%88%98"><span class="nav-number">1.2.</span> <span class="nav-text">100题实战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%93%88%E5%B8%8C"><span class="nav-number">1.2.1.</span> <span class="nav-text">哈希</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C%E3%80%90%E6%95%B0%E7%BB%84%E3%80%81%E5%93%88%E5%B8%8C%E3%80%91"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">两数之和【数组、哈希】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AD%97%E6%AF%8D%E5%BC%82%E4%BD%8D%E8%AF%8D%E5%88%86%E7%BB%84%E3%80%90%E6%95%B0%E7%BB%84%E3%80%81%E5%93%88%E5%B8%8C%E3%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E3%80%91"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">字母异位词分组【数组、哈希、字符串】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%80%90%E8%A6%81%E4%BA%8C%E5%88%B7%E3%80%91%E6%9C%80%E9%95%BF%E8%BF%9E%E7%BB%AD%E5%BA%8F%E5%88%97%E3%80%90%E5%B9%B6%E6%9F%A5%E9%9B%86%E3%80%81%E6%95%B0%E7%BB%84%E3%80%81%E5%93%88%E5%B8%8C%E8%A1%A8%E3%80%91"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">【要二刷】最长连续序列【并查集、数组、哈希表】</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8F%8C%E6%8C%87%E9%92%88"><span class="nav-number">1.2.2.</span> <span class="nav-text">双指针</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%A7%BB%E5%8A%A8%E9%9B%B6%E3%80%90%E6%95%B0%E7%BB%84%E3%80%81%E5%8F%8C%E6%8C%87%E9%92%88%E3%80%91"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">移动零【数组、双指针】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%9B%E6%9C%80%E5%A4%9A%E6%B0%B4%E7%9A%84%E5%AE%B9%E5%99%A8%E3%80%90%E5%8F%8C%E6%8C%87%E9%92%88%E3%80%81%E8%B4%AA%E5%BF%83%E3%80%91"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">盛最多水的容器【双指针、贪心】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E3%80%90%E9%9C%80%E8%A6%81%E4%BA%8C%E5%88%B7%E3%80%91%E4%B8%89%E6%95%B0%E4%B9%8B%E5%92%8C-%E3%80%90%E6%95%B0%E7%BB%84%EF%BC%8C%E5%8F%8C%E6%8C%87%E9%92%88%E3%80%91"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">【需要二刷】三数之和 【数组，双指针】</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%8E%A5%E9%9B%A8%E6%B0%B4"><span class="nav-number">1.2.2.4.</span> <span class="nav-text">接雨水</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -607,7 +628,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">20</span>
+          <span class="site-state-item-count">21</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -620,7 +641,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">26</span>
+        <span class="site-state-item-count">27</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -689,12 +710,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">37k</span>
+    <span title="站点总字数">40k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">34 分钟</span>
+    <span title="站点阅读时长">37 分钟</span>
 </div>
 
 <div>

@@ -1,59 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>217.存在重复元素【简单】</title>
-    <url>/2023/03/16/217.%E5%AD%98%E5%9C%A8%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0%E3%80%90%E7%AE%80%E5%8D%95%E3%80%91/</url>
-    <content><![CDATA[<h1 id="217-存在重复元素【简单】"><a href="#217-存在重复元素【简单】" class="headerlink" title="217.存在重复元素【简单】"></a>217.存在重复元素【简单】</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>Problem: <a href="https://leetcode.cn/problems/contains-duplicate/description/">217. 存在重复元素</a></p>
-<p>给你一个整数数组 <code>nums</code> 。如果任一值在数组中出现 <strong>至少两次</strong> （appears <strong>at least twice</strong>），返回 <code>true</code> ；如果数组中每个元素互不相同（distinct），返回 <code>false</code> 。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums = [1,2,3,1]</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums = [1,2,3,4]</span><br><span class="line">输出：false</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums = [1,1,1,3,3,4,3,2,4,2]</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>1 &lt;= nums.length &lt;= 105</code></li>
-<li><code>-109 &lt;= nums[i] &lt;= 109</code></li>
-</ul>
-<h2 id="解题思路与代码"><a href="#解题思路与代码" class="headerlink" title="解题思路与代码"></a>解题思路与代码</h2><p><strong>思路一：</strong></p>
-<p>初始化标记为false，数组中任意值如果出现了2次，就可以标记为true</p>
-<p>对数值中的每个值出现次数计数，如果某个值在某次计数后出现次数等于2就标记为true。</p>
-<p><strong>难点：</strong>不能用count[num]++来计数，因为nums[i]的取值是可以为负数的，但是数组不能有负索引号</p>
-<p>**解决办法:**其实我上面的方法也是一种哈希表的方法，但我只用过C里面的map，对js中的map的用法不是很熟练，用map对象可以很好的解决负值的问题。暂时不写，还没理解map的用法。</p>
-<p><strong>思路二：</strong></p>
-<p>使用一个的新的数组，遍历<code>nums</code>数组，判断新数组<code>n</code>中是否存在<code>nums[i]</code>，若不存在，则将<code>nums[i]</code>插入新数组<code>n</code>；若存在，则返回true；</p>
-<p>判断数组中是否有某个值存在的方法为<code>indexOf()</code></p>
-<p><strong>思路三：</strong>（官方题解思路）</p>
-<p>在对数字从小到大排序之后，数组的重复元素一定出现在相邻位置中。因此，我们可以扫描已排序的数组，每次判断相邻的两个元素是否相等，如果相等则说明存在重复的元素。</p>
-<h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><ul>
-<li><p>时间复杂度:<br> $O(n)$</p>
-</li>
-<li><p>空间复杂度:<br> $O(n)$</p>
-</li>
-</ul>
-<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><p>解题思路一：</p>
-<p>暂无</p>
-<p>解题思路二：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 语言为JavaScript</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">nums</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">boolean</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> containsDuplicate = <span class="keyword">function</span>(<span class="params">nums</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> n = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> k <span class="keyword">of</span> nums)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n.<span class="title function_">indexOf</span>(k)==-<span class="number">1</span>)&#123;<span class="comment">//不存在</span></span><br><span class="line">            n.<span class="title function_">push</span>(k);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//上面for/of循环的遍历是js的写法，是ES6新增的</span></span><br><span class="line">    <span class="comment">//下面的代码的for循环遍历方式是c中的惯用写法，是常规的for循环</span></span><br><span class="line">    <span class="comment">// for(let i = 0; i &lt; nums.length; i++)&#123;//遍历数组</span></span><br><span class="line">    <span class="comment">//     if(n.indexOf(nums[i])==-1)&#123;//不存在</span></span><br><span class="line">    <span class="comment">//         n.push(nums[i]);</span></span><br><span class="line">    <span class="comment">//     &#125;else&#123;</span></span><br><span class="line">    <span class="comment">//         return true;</span></span><br><span class="line">    <span class="comment">//     &#125;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-        <category>学习计划</category>
-        <category>数据结构</category>
-        <category>数组</category>
-      </categories>
-      <tags>
-        <tag>数组</tag>
-        <tag>LeetCode</tag>
-        <tag>数据结构</tag>
-        <tag>算法</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>JavaScript基础语法-dom-bom-js-es6新语法-jQuery-数据可视化</title>
     <url>/2023/03/12/JavaScript%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95-dom-bom-js-es6%E6%96%B0%E8%AF%AD%E6%B3%95-jQuery-%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/</url>
     <content><![CDATA[<h1 id="JavaScript基础语法-dom-bom-js-es6新语法-jQuery-数据可视化"><a href="#JavaScript基础语法-dom-bom-js-es6新语法-jQuery-数据可视化" class="headerlink" title="JavaScript基础语法-dom-bom-js-es6新语法-jQuery-数据可视化"></a>JavaScript基础语法-dom-bom-js-es6新语法-jQuery-数据可视化</h1><p>该课程笔记基于b站pink老师的课程视频，视频链接：<a href="https://www.bilibili.com/video/BV1Sy4y1C7ha/?spm_id_from=333.337.search-card.all.click&vd_source=47b8ae38c6099b5bc1a761ca77b05155">https://www.bilibili.com/video/BV1Sy4y1C7ha/?spm_id_from=333.337.search-card.all.click&amp;vd_source=47b8ae38c6099b5bc1a761ca77b05155</a></p>
@@ -380,6 +327,92 @@
       </tags>
   </entry>
   <entry>
+    <title>217.存在重复元素【简单】</title>
+    <url>/2023/03/16/217.%E5%AD%98%E5%9C%A8%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0%E3%80%90%E7%AE%80%E5%8D%95%E3%80%91/</url>
+    <content><![CDATA[<h1 id="217-存在重复元素【简单】"><a href="#217-存在重复元素【简单】" class="headerlink" title="217.存在重复元素【简单】"></a>217.存在重复元素【简单】</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><p>Problem: <a href="https://leetcode.cn/problems/contains-duplicate/description/">217. 存在重复元素</a></p>
+<p>给你一个整数数组 <code>nums</code> 。如果任一值在数组中出现 <strong>至少两次</strong> （appears <strong>at least twice</strong>），返回 <code>true</code> ；如果数组中每个元素互不相同（distinct），返回 <code>false</code> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums = [1,2,3,1]</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums = [1,2,3,4]</span><br><span class="line">输出：false</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums = [1,1,1,3,3,4,3,2,4,2]</span><br><span class="line">输出：true</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>1 &lt;= nums.length &lt;= 105</code></li>
+<li><code>-109 &lt;= nums[i] &lt;= 109</code></li>
+</ul>
+<h2 id="解题思路与代码"><a href="#解题思路与代码" class="headerlink" title="解题思路与代码"></a>解题思路与代码</h2><p><strong>思路一：</strong></p>
+<p>初始化标记为false，数组中任意值如果出现了2次，就可以标记为true</p>
+<p>对数值中的每个值出现次数计数，如果某个值在某次计数后出现次数等于2就标记为true。</p>
+<p><strong>难点：</strong>不能用count[num]++来计数，因为nums[i]的取值是可以为负数的，但是数组不能有负索引号</p>
+<p>**解决办法:**其实我上面的方法也是一种哈希表的方法，但我只用过C里面的map，对js中的map的用法不是很熟练，用map对象可以很好的解决负值的问题。暂时不写，还没理解map的用法。</p>
+<p><strong>思路二：</strong></p>
+<p>使用一个的新的数组，遍历<code>nums</code>数组，判断新数组<code>n</code>中是否存在<code>nums[i]</code>，若不存在，则将<code>nums[i]</code>插入新数组<code>n</code>；若存在，则返回true；</p>
+<p>判断数组中是否有某个值存在的方法为<code>indexOf()</code></p>
+<p><strong>思路三：</strong>（官方题解思路）</p>
+<p>在对数字从小到大排序之后，数组的重复元素一定出现在相邻位置中。因此，我们可以扫描已排序的数组，每次判断相邻的两个元素是否相等，如果相等则说明存在重复的元素。</p>
+<h2 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h2><ul>
+<li><p>时间复杂度:<br> $O(n)$</p>
+</li>
+<li><p>空间复杂度:<br> $O(n)$</p>
+</li>
+</ul>
+<h2 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h2><p>解题思路一：</p>
+<p>暂无</p>
+<p>解题思路二：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 语言为JavaScript</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">nums</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">boolean</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> containsDuplicate = <span class="keyword">function</span>(<span class="params">nums</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> n = [];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> k <span class="keyword">of</span> nums)&#123;</span><br><span class="line">        <span class="keyword">if</span>(n.<span class="title function_">indexOf</span>(k)==-<span class="number">1</span>)&#123;<span class="comment">//不存在</span></span><br><span class="line">            n.<span class="title function_">push</span>(k);</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//上面for/of循环的遍历是js的写法，是ES6新增的</span></span><br><span class="line">    <span class="comment">//下面的代码的for循环遍历方式是c中的惯用写法，是常规的for循环</span></span><br><span class="line">    <span class="comment">// for(let i = 0; i &lt; nums.length; i++)&#123;//遍历数组</span></span><br><span class="line">    <span class="comment">//     if(n.indexOf(nums[i])==-1)&#123;//不存在</span></span><br><span class="line">    <span class="comment">//         n.push(nums[i]);</span></span><br><span class="line">    <span class="comment">//     &#125;else&#123;</span></span><br><span class="line">    <span class="comment">//         return true;</span></span><br><span class="line">    <span class="comment">//     &#125;</span></span><br><span class="line">    <span class="comment">// &#125;</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+        <category>学习计划</category>
+        <category>数据结构</category>
+        <category>数组</category>
+      </categories>
+      <tags>
+        <tag>数组</tag>
+        <tag>LeetCode</tag>
+        <tag>数据结构</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Typora的查找（替换）快捷键</title>
+    <url>/2023/03/14/Typora%E7%9A%84%E6%9F%A5%E6%89%BE%EF%BC%88%E6%9B%BF%E6%8D%A2%EF%BC%89%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    <content><![CDATA[<h3 id="Typora的查找（替换）快捷键"><a href="#Typora的查找（替换）快捷键" class="headerlink" title="Typora的查找（替换）快捷键"></a>Typora的查找（替换）快捷键</h3><ul>
+<li><p>查找：Ctrl+F</p>
+<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230314102135161.png" alt="image-20230314102135161"></p>
+</li>
+<li><p>替换：Ctrl+H</p>
+</li>
+</ul>
+<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230314102239226.png" alt="image-20230314102239226"></p>
+]]></content>
+      <tags>
+        <tag>Typora</tag>
+        <tag>快捷键</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>github-clone克隆报错</title>
+    <url>/2023/03/11/github-clone%E5%85%8B%E9%9A%86%E6%8A%A5%E9%94%99/</url>
+    <content><![CDATA[<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230307110603157.png" alt="image-20230307110603157"></p>
+<p>报错两次</p>
+<p><strong>1. OpenSSL SSL_read: Connection was reset, errno 10054</strong></p>
+<p>这是服务器的SSL证书没有经过第三方机构的签署，所以报错。错误原因可能是网络不稳定，连接超时造成的。重试clone</p>
+<p><strong>2.The requested URL returned error: 408</strong></p>
+<p>408很可能是请求超时，大概率还是网络问题，再次重试</p>
+<p>经过两次重试后成功！</p>
+]]></content>
+      <tags>
+        <tag>github</tag>
+        <tag>踩坑</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hello World</title>
     <url>/2023/03/11/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -396,237 +429,6 @@
 
 <p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 ]]></content>
-  </entry>
-  <entry>
-    <title>idea的全局搜索（替换）快捷键</title>
-    <url>/2023/03/12/idea%E7%9A%84%E5%85%A8%E5%B1%80%E6%90%9C%E7%B4%A2%EF%BC%88%E6%9B%BF%E6%8D%A2%EF%BC%89%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
-    <content><![CDATA[<h2 id="idea的全局搜索（替换）快捷键"><a href="#idea的全局搜索（替换）快捷键" class="headerlink" title="idea的全局搜索（替换）快捷键"></a>idea的全局搜索（替换）快捷键</h2><p>可以鼠标选中想要搜索的内容在按快捷键或者按完快捷键后输入想要搜索的内容</p>
-<ul>
-<li>ctrl+F 搜索范围为当前文件，不可替换</li>
-</ul>
-<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230311230431152.png" alt="image"></p>
-<ul>
-<li>ctrl+R 搜索范围为当前文件，可替换</li>
-</ul>
-<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230312034130905.png" alt="image-20230312034130905"></p>
-<ul>
-<li>ctrl+shift+R 搜索范围为整个项目，可替换</li>
-</ul>
-<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230311230702057.png" alt="image-20230311230702057"></p>
-]]></content>
-      <tags>
-        <tag>踩坑</tag>
-        <tag>idea</tag>
-        <tag>快捷键</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《JavaScript权威指南》读书笔记第七章函数表达式</title>
-    <url>/2024/05/11/%E3%80%8AjavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
-    <content><![CDATA[<h1 id="第七章——函数表达式"><a href="#第七章——函数表达式" class="headerlink" title="第七章——函数表达式"></a>第七章——函数表达式</h1><h2 id="函数表达式的特征"><a href="#函数表达式的特征" class="headerlink" title="函数表达式的特征"></a>函数表达式的特征</h2><p>定义函数的两种方法：</p>
-<ul>
-<li><p>函数声明</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">functionName</span>(<span class="params">arg0, arg1, arg2</span>)&#123;</span><br><span class="line">  <span class="comment">//函数体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>有一些浏览器给函数定义了一个name属性，可以通过这个属性访问到给函数指定的名字，这个值为function关键字后面的标识符。</p>
-<p>alert(function.name);&#x2F;&#x2F;“funtionName”</p>
-</blockquote>
-</li>
-<li><p>函数表达式</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure></li>
-</ul>
-<p>两个定义函数的方法的异同：</p>
-<p>由函数声明的函数在JS脚本构建时，会<code>函数提升</code>，而由函数表达式定义的函数不会。</p>
-<h2 id="使用函数实现递归"><a href="#使用函数实现递归" class="headerlink" title="使用函数实现递归"></a>使用函数实现递归</h2><h2 id="使用闭包定义私有变量"><a href="#使用闭包定义私有变量" class="headerlink" title="使用闭包定义私有变量"></a>使用闭包定义私有变量</h2>]]></content>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>读书笔记</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Vue】v-bind</title>
-    <url>/2024/04/24/%E3%80%90Vue%E3%80%91v-bind/</url>
-    <content><![CDATA[<h1 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h1><p> 是Vue.js中的一个指令，用于动态地绑定一个或多个属性，或者传递属性到组件。它可以将数据的值绑定到HTML元素的属性上，或者是父组件向子组件传递数据。</p>
-<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><ul>
-<li><strong>绑定HTML属性</strong>：可以将数据绑定到元素的属性上。例如，如果你想根据数据动态改变<img>的src属性，可以这样写：</li>
-</ul>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">&lt;img v-<span class="attr">bind</span>:src=<span class="string">&quot;imageSrc&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
-
-<p>这里，imageSrc是一个变量名，它的值会被设置为img的src属性。</p>
-<ul>
-<li><strong>缩写</strong>：v-bind:有一个缩写，即冒号:。上面的例子可以简写为：</li>
-</ul>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">&lt;img :src=<span class="string">&quot;imageSrc&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
-
-<h3 id="绑定多个属性"><a href="#绑定多个属性" class="headerlink" title="绑定多个属性"></a>绑定多个属性</h3><p>v-bind也可以通过使用对象语法一次绑定多个属性。例如：</p>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">&lt;div v-bind=<span class="string">&quot;&#123; id: someId, &#x27;data-name&#x27;: name &#125;&quot;</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
-<p>这里，someId和name是变量，它们的值将分别绑定到div的id属性和data-name属性。</p>
-<h3 id="绑定到组件的props"><a href="#绑定到组件的props" class="headerlink" title="绑定到组件的props"></a>绑定到组件的props</h3><p>当使用组件时，v-bind用于将数据从父组件传递到子组件的props：</p>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">&lt;my-component :some-prop=<span class="string">&quot;someData&quot;</span>&gt;&lt;/my-component&gt;</span><br></pre></td></tr></table></figure>
-
-<p>这里，someData是父组件中的数据，some-prop是子组件的prop，someData的值将传递给子组件的some-prop。</p>
-<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>动态绑定元素的类和样式。</p>
-<p>将数据传递给组件的props。</p>
-<p>根据数据动态改变元素的属性，如src、href等。</p>
-<p>v-bind:是Vue开发中非常常用的一个指令，它提高了代码的灵活性和可维护性，使得数据和视图之间的绑定更加直观和方便。</p>
-<blockquote>
-<p>V-bind可以绑定变量、绑定类、绑定属性等等</p>
-</blockquote>
-]]></content>
-      <tags>
-        <tag>Vue2</tag>
-        <tag>Vue3</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Typora的查找（替换）快捷键</title>
-    <url>/2023/03/14/Typora%E7%9A%84%E6%9F%A5%E6%89%BE%EF%BC%88%E6%9B%BF%E6%8D%A2%EF%BC%89%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
-    <content><![CDATA[<h3 id="Typora的查找（替换）快捷键"><a href="#Typora的查找（替换）快捷键" class="headerlink" title="Typora的查找（替换）快捷键"></a>Typora的查找（替换）快捷键</h3><ul>
-<li><p>查找：Ctrl+F</p>
-<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230314102135161.png" alt="image-20230314102135161"></p>
-</li>
-<li><p>替换：Ctrl+H</p>
-</li>
-</ul>
-<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230314102239226.png" alt="image-20230314102239226"></p>
-]]></content>
-      <tags>
-        <tag>快捷键</tag>
-        <tag>Typora</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>github-clone克隆报错</title>
-    <url>/2023/03/11/github-clone%E5%85%8B%E9%9A%86%E6%8A%A5%E9%94%99/</url>
-    <content><![CDATA[<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230307110603157.png" alt="image-20230307110603157"></p>
-<p>报错两次</p>
-<p><strong>1. OpenSSL SSL_read: Connection was reset, errno 10054</strong></p>
-<p>这是服务器的SSL证书没有经过第三方机构的签署，所以报错。错误原因可能是网络不稳定，连接超时造成的。重试clone</p>
-<p><strong>2.The requested URL returned error: 408</strong></p>
-<p>408很可能是请求超时，大概率还是网络问题，再次重试</p>
-<p>经过两次重试后成功！</p>
-]]></content>
-      <tags>
-        <tag>踩坑</tag>
-        <tag>github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【Vue3】withDefaults和defineProps</title>
-    <url>/2024/04/24/%E3%80%90Vue3%E3%80%91withDefaults%E5%92%8CdefineProps/</url>
-    <content><![CDATA[<p>在Vue 3中，withDefaults和defineProps是用于定义和设置组件的props的工具，特别是在使用script setup语法糖时。</p>
-<h3 id="defineProps"><a href="#defineProps" class="headerlink" title="defineProps"></a>defineProps</h3><p>defineProps函数用于在Vue组件中声明props的类型。它通常与TypeScript一起使用，以提供类型安全。在script setup语法中，defineProps用于定义接收自父组件的数据的属性。</p>
-<h3 id="withDefaults"><a href="#withDefaults" class="headerlink" title="withDefaults"></a>withDefaults</h3><p>withDefaults函数在Vue 3中用于为defineProps定义的props提供默认值。它的参数结构如下：</p>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="title function_">withDefaults</span>(defineProps&lt;<span class="title class_">Type</span>&gt;(), defaultProps)</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>第一个参数是defineProps调用的结果，defineProps<Type>()用于定义组件的props，并且可以指定一个TypeScript接口或类型来静态类型检查这些props。</p>
-</li>
-<li><p>第二个参数是一个对象，其中的键是prop的名字，值是这个prop的默认值。默认值可以是直接的值，或者是返回值的函数，这样每次使用默认值时都会调用该函数来获取一个新的值。</p>
-</li>
-</ul>
-<p>例如</p>
-<p>withDefaults函数用于为defineProps定义的props提供默认值。这是处理props可能未被父组件传递时的情况的一种方式，确保组件有一个可靠的默认状态。</p>
-<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineProps, withDefaults &#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Props</span> &#123;</span><br><span class="line">  <span class="attr">postList</span>: <span class="built_in">any</span>[];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> props = <span class="title function_">withDefaults</span>(defineProps&lt;<span class="title class_">Props</span>&gt;(),&#123;</span><br><span class="line">  <span class="attr">postList</span>: <span class="function">() =&gt;</span> [],</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li><p>defineProps<Props>()：这里使用Props接口来定义props的结构，Props接口指定了postList是一个数组。</p>
-</li>
-<li><p>withDefaults(…, { postList: () &#x3D;&gt; [] })：这里为postList提供了一个默认值。默认值是通过一个函数() &#x3D;&gt; []来指定的，这意味着如果没有提供postList，它将默认为一个空数组。使用函数来返回默认值是一种常见的做法，因为这确保了每次使用默认值时都会创建一个新的数组实例，避免了不同实例间共享同一个数组的问题。</p>
-</li>
-</ul>
-<h3 id="postList-x3D-gt-的意思"><a href="#postList-x3D-gt-的意思" class="headerlink" title="postList: () &#x3D;&gt; []的意思"></a>postList: () &#x3D;&gt; []的意思</h3><p>这里postList: () &#x3D;&gt; []表示postList的默认值是一个空数组。使用箭头函数()返回一个新的空数组[]，这样做的好处是每次调用这个默认值时都会创建一个新的数组实例，避免了潜在的引用类型数据共享问题，这是在JavaScript中处理数组和对象默认值的推荐做法。</p>
-<p>总结来说，这种写法确保了组件的postList prop在没有从父组件接收到值时，会安全地使用一个新的空数组作为默认值，同时保持了类型安全和响应性。</p>
-]]></content>
-      <tags>
-        <tag>Vue3</tag>
-        <tag>TypeScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【贪心+模拟】 1147. 段式回文</title>
-    <url>/2023/04/13/%E3%80%90%E8%B4%AA%E5%BF%83+%E6%A8%A1%E6%8B%9F%E3%80%91%201147.%20%E6%AE%B5%E5%BC%8F%E5%9B%9E%E6%96%87/</url>
-    <content><![CDATA[<h2 id="【13】贪心-模拟-1147-段式回文"><a href="#【13】贪心-模拟-1147-段式回文" class="headerlink" title="【13】贪心+模拟 1147. 段式回文"></a>【13】贪心+模拟 1147. 段式回文</h2><p> Problem: <a href="https://leetcode.cn/problems/longest-chunked-palindrome-decomposition/description/">1147. 段式回文</a></p>
-<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>  拆分字符串，使得拆分的字符串的前部分和后部分完全相同，返回能够拆分出的最大子串数</p>
-<p>  贪心：拆分时，能拆就拆&#x3D;&gt;拆分后的字符串尽可能的长&#x3D;&gt;能够拆分出尽可能多的子串</p>
-<p> 从小到大递归子串长度，模拟切割</p>
-<h1 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h1><p>  递归：<br>     含义：当前字符串，能够拆分出的最大子串数<br>     边界：不能拆&#x3D;&gt;空字符串&#x3D;&gt;长度为0</p>
-<p>  字符串的切片[(par1)..(par2)] &#x3D;&gt;[par1,par2) 左闭右开</p>
-<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><ul>
-<li><p>时间复杂度:  O(n^2)</p>
-</li>
-<li><p>空间复杂度: O(n)</p>
-</li>
-</ul>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><p><code>s.substr(i,b)</code>: <code>i</code>表示从第<code>i</code>个位置开始选取长度为<code>b</code>的子串，<strong>b省略</strong>默认取到字符串末尾</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longestDecomposition</span><span class="params">(string text)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = text.<span class="built_in">length</span>();</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//递归边界,长度为0不能拆，返回子串数为0</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n/<span class="number">2</span> ; i++)&#123;<span class="comment">//枚举前后缀长度,从小到大递归前后缀长度可以保证每次分割都是按能拆就拆的思想分割的</span></span><br><span class="line">            <span class="keyword">if</span>(text.<span class="built_in">substr</span>(<span class="number">0</span>,i)==text.<span class="built_in">substr</span>(n-i))&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">2</span> + <span class="built_in">longestDecomposition</span>(text.<span class="built_in">substr</span>(i,n<span class="number">-2</span>*i));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>LeetCode</category>
-        <category>每日一题</category>
-        <category>2023.4.12</category>
-      </categories>
-      <tags>
-        <tag>数组</tag>
-        <tag>LeetCode</tag>
-        <tag>算法</tag>
-        <tag>贪心</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>《JavaScript权威指南》读书笔记</title>
-    <url>/2023/03/16/%E3%80%8AjavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="《javaScript权威指南》读书笔记"><a href="#《javaScript权威指南》读书笔记" class="headerlink" title="《javaScript权威指南》读书笔记"></a>《javaScript权威指南》读书笔记</h1><p>本书笔记基于David Flanagan的《javaScript权威指南》原书第七版中文译本，也就是犀牛书。</p>
-<h2 id="词法结构"><a href="#词法结构" class="headerlink" title="词法结构"></a>词法结构</h2><h3 id="JavaScript程序的文本"><a href="#JavaScript程序的文本" class="headerlink" title="JavaScript程序的文本"></a>JavaScript程序的文本</h3><ul>
-<li>区分大小写</li>
-<li>忽略<strong>程序记号（token）</strong>之间的空格，很大程度上忽略换行符（也有例外）</li>
-</ul>
-<blockquote>
-<p>不太理解什么叫程序记号</p>
-</blockquote>
-<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//单行注释</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*单行注释*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *多行注释</span></span><br><span class="line"><span class="comment"> *每行开头额外的*不是必需的，只是为了美观</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h3><p>直接出现在程序中的数据值，如</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="literal">null</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line"><span class="number">1.2</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="string">&#x27;hello world&#x27;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="标识符与保留字"><a href="#标识符与保留字" class="headerlink" title="标识符与保留字"></a>标识符与保留字</h3><h4 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h4><p>用于命名常量、变量、属性、函数和类，就是一个名字，必需由<strong>字母，下划线，美元符号</strong>开头，可由<strong>字母、下划线、美元符号、数字</strong>组成。</p>
-<h4 id="保留字"><a href="#保留字" class="headerlink" title="保留字"></a>保留字</h4><p>一些不能作为标识符使用的单词，如for、if和while</p>
-<p>当然还有一些比较复杂的情况，在一定情况下可以使用为标识符。不过最简单的做法就是不要使用这些单词作为标识符。</p>
-<h3 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h3><p>JavaScript程序由Unicode字符集编写，意味标识符可以使用Unicode字母、数字和象形文字（不支持表情符号）。</p>
-<h4 id="Unicode转义序列"><a href="#Unicode转义序列" class="headerlink" title="Unicode转义序列"></a>Unicode转义序列</h4><p>由于某些计算机硬件和软件无法识别、处理Unicode字符，故定义了转义字符，以<code>\u</code>开头，后跟4为十六进制数或包含在一对花括号内的1~6位十六进制数字。</p>
-<blockquote>
-<p>花括号版本是ES6新增的</p>
-</blockquote>
-<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230316020145144.png" alt="image-20230316020145144"></p>
-<h4 id="Unicode归一化"><a href="#Unicode归一化" class="headerlink" title="Unicode归一化"></a>Unicode归一化</h4><p>由于不同编码方式的Unicode字符在js中是区分的，如下面的两个标识符</p>
-<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230316021128685.png" alt="image-20230316021128685"></p>
-<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230316021145803.png" alt="image-20230316021145803"></p>
-<p>虽然看起来完全相同，但由于它们的二进制编码是不同的，所以js也会认为它们是不同的，这会导致看起来相同的两个标识符其实表示的是两个不同的标识符，在赋值等各个操作中会出现问题。</p>
-<p>故在执行程序前，需要保证编辑器能够对源代码执行Unicode归一化。</p>
-<h3 id="可选的分号"><a href="#可选的分号" class="headerlink" title="可选的分号"></a>可选的分号</h3><p>分号用于分隔语句。</p>
-<p>分号可省略的情况：</p>
-<ul>
-<li><p>两条语句分别写在两行（不是一定的）</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">a = <span class="number">3</span>;<span class="comment">//此时这个分号可以省略</span></span><br><span class="line">b = <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line">a = <span class="number">3</span>;b = <span class="number">4</span>;<span class="comment">//分号是必须的</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//也不是所有的换行符都会被当作为分号,只有在不添加符号就无法解析代码的情况下才会把换行符当作分号</span></span><br><span class="line"><span class="keyword">let</span> a</span><br><span class="line">a </span><br><span class="line">= </span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a)</span><br><span class="line"><span class="comment">//会被解释为</span></span><br><span class="line"><span class="keyword">let</span> a; a = <span class="number">3</span>; <span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line"></span><br><span class="line"><span class="comment">//这种机制会引发一些问题,如下面的例子</span></span><br><span class="line"><span class="keyword">let</span> y = x + f</span><br><span class="line">(a+b).<span class="title function_">toString</span>()</span><br><span class="line"><span class="comment">//会被解释为</span></span><br><span class="line"><span class="keyword">let</span> y = x + <span class="title function_">f</span>(a+b).<span class="title function_">toString</span>();<span class="comment">//不一定与作者的真实意图一致</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//另外一种情况，return、throw、yield、break、continue后面的换行符是一定会被解释为分号的</span></span><br><span class="line"><span class="keyword">return</span> </span><br><span class="line"><span class="literal">true</span>;</span><br><span class="line"><span class="comment">//一定会被解释为</span></span><br><span class="line"><span class="keyword">return</span>; </span><br><span class="line"><span class="literal">true</span>;</span><br><span class="line"><span class="comment">//故一定不能在这些保留字和他们后面的表达式之间加换行符</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>另外，涉及到++、–操作符，必须与操作的表达式位于同一行。</p>
-<p>箭头函数中的<code>=&gt;</code>也必须与参数列表在同一行</p>
-</blockquote>
-</li>
-<li><p>在程序的末尾，接下来的加号是<code>&#125;</code></p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>读书笔记</category>
-        <category>JavaScript</category>
-      </categories>
-      <tags>
-        <tag>JavaScript</tag>
-        <tag>读书笔记</tag>
-      </tags>
   </entry>
   <entry>
     <title>leetcode热题hot100</title>
@@ -925,90 +727,210 @@
 
 ]]></content>
       <tags>
-        <tag>算法</tag>
         <tag>JavaScript</tag>
+        <tag>算法</tag>
         <tag>leetcod</tag>
       </tags>
   </entry>
   <entry>
-    <title>利用idea和maven仓库下载依赖</title>
-    <url>/2023/03/11/%E5%88%A9%E7%94%A8idea%E5%92%8Cmaven%E4%BB%93%E5%BA%93%E4%B8%8B%E8%BD%BD%E4%BE%9D%E8%B5%96/</url>
-    <content><![CDATA[<h2 id="利用idea和maven仓库下载依赖"><a href="#利用idea和maven仓库下载依赖" class="headerlink" title="利用idea和maven仓库下载依赖"></a>利用idea和maven仓库下载依赖</h2><p>以添加<a href="https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter">MyBatis Plus</a>依赖为例</p>
-<p>背景：用spring boot 初始化一个项目后，发现MyBatis Plus依赖没有添加</p>
-<p><strong>1.在maven仓库搜索mybaits-plus</strong></p>
-<p>仓库地址：<a href="https://mvnrepository.com(不同浏览器访问速度不一样,我用的火狐浏览器,感觉比用谷歌访问快很多,如果无法访问,可以换浏览器试试)/">https://mvnrepository.com（不同浏览器访问速度不一样，我用的火狐浏览器，感觉比用谷歌访问快很多，如果无法访问，可以换浏览器试试）</a></p>
-<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230311053841423.png" alt="image-20230311053841423"></p>
-<p>点击选中使用最多的包</p>
-<p><strong>2.版本可以自行选择，尽量选择使用人数比较多的那个版本</strong></p>
-<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230311053955492.png" alt="image-20230311053955492"></p>
-<p><strong>3.如果使用maven管理的包，直接复制框中的代码</strong></p>
-<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230311054228774.png" alt="image-20230311054228774"></p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baomidou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-plus-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>4.将复制的代码黏贴到pom.xml文件的依赖标签<code>&lt;dependencies&gt;</code>下，同时点击右上角的M图标进行更新</strong></p>
-<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230311054522516.png" alt="image-20230311054522516"></p>
-<p>右上角没有图标的话，可以右边栏（或者在左边）的Maven标签打开配置栏</p>
-<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230311054738541.png" alt="image-20230311054738541"></p>
-<p>点击刷新按钮进行更新下载依赖</p>
-<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230311054938693.png" alt="image-20230311054938693"></p>
-]]></content>
-      <tags>
-        <tag>idea</tag>
-        <tag>maven</tag>
-        <tag>依赖管理</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>双指针：一个输入，两端遍历（两边夹）</title>
-    <url>/2024/05/10/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%9A%E4%B8%80%E4%B8%AA%E8%BE%93%E5%85%A5%EF%BC%8C%E4%B8%A4%E7%AB%AF%E9%81%8D%E5%8E%86%EF%BC%88%E4%B8%A4%E8%BE%B9%E5%A4%B9%EF%BC%89/</url>
-    <content><![CDATA[<h3 id="双指针：一个输入，两端遍历（两边夹）"><a href="#双指针：一个输入，两端遍历（两边夹）" class="headerlink" title="双指针：一个输入，两端遍历（两边夹）"></a>双指针：一个输入，两端遍历（两边夹）</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//箭头函数 ()=&gt;&#123;&#125;</span></span><br><span class="line"><span class="comment">//()表示参数</span></span><br><span class="line"><span class="comment">//&#123;&#125;表示函数体</span></span><br><span class="line"><span class="keyword">let</span> <span class="title function_">fn</span> = arr =&gt;&#123;</span><br><span class="line">  <span class="keyword">let</span> left = <span class="number">0</span>, ans = <span class="number">0</span>, right = arr.<span class="property">length</span> -<span class="number">1</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">    <span class="comment">//根据题意补充代码</span></span><br><span class="line">    <span class="keyword">if</span>()&#123;</span><br><span class="line">      left++;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      right--;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h4><p><a href="https://leetcode.cn/problems/container-with-most-water/">11. 盛最多水的容器</a></p>
-<p>给定一个长度为 <code>n</code> 的整数数组 <code>height</code> 。有 <code>n</code> 条垂线，第 <code>i</code> 条线的两个端点是 <code>(i, 0)</code> 和 <code>(i, height[i])</code> 。</p>
-<p>找出其中的两条线，使得它们与 <code>x</code> 轴共同构成的容器可以容纳最多的水。</p>
-<p>返回容器可以储存的最大水量。</p>
-<p><strong>说明：</strong>你不能倾斜容器。</p>
-<p><strong>示例 1：</strong></p>
-<p><img src="https://aliyun-lc-upload.oss-cn-hangzhou.aliyuncs.com/aliyun-lc-upload/uploads/2018/07/25/question_11.jpg" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：[1,8,6,2,5,4,8,3,7]</span><br><span class="line">输出：49 </span><br><span class="line">解释：图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：height = [1,1]</span><br><span class="line">输出：1 </span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
+    <title>《JavaScript权威指南》读书笔记第七章函数表达式</title>
+    <url>/2024/05/11/%E3%80%8AjavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0-%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%87%BD%E6%95%B0%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
+    <content><![CDATA[<h1 id="第七章——函数表达式"><a href="#第七章——函数表达式" class="headerlink" title="第七章——函数表达式"></a>第七章——函数表达式</h1><h2 id="函数表达式的特征"><a href="#函数表达式的特征" class="headerlink" title="函数表达式的特征"></a>函数表达式的特征</h2><p>定义函数的两种方法：</p>
 <ul>
-<li><code>n == height.length</code></li>
-<li><code>2 &lt;= n &lt;= 105</code></li>
-<li><code>0 &lt;= height[i] &lt;= 104</code></li>
-</ul>
-<p>做题思路：</p>
-<p>双指针</p>
-<p>长*宽的最大值，迭代</p>
-<p>难点在于在什么情况下移动左指针，在什么情况下移动右指针</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">height</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">number</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> maxArea = <span class="keyword">function</span>(<span class="params">height</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> left = <span class="number">0</span>, right = height.<span class="property">length</span> - <span class="number">1</span>, maxAns = -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">        <span class="keyword">let</span> w = right - left;</span><br><span class="line">        <span class="keyword">let</span> h = <span class="title class_">Math</span>.<span class="title function_">min</span>(height[left], height[right]);</span><br><span class="line">        maxAns = <span class="title class_">Math</span>.<span class="title function_">max</span>(w * h, maxAns);</span><br><span class="line">        <span class="keyword">if</span>(height[left] &lt; height[right])&#123;</span><br><span class="line">            left++;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxAns</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<li><p>函数声明</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">functionName</span>(<span class="params">arg0, arg1, arg2</span>)&#123;</span><br><span class="line">  <span class="comment">//函数体</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>参考官方题解</p>
-<p><a href="https://leetcode.cn/problems/container-with-most-water/solutions/207215/sheng-zui-duo-shui-de-rong-qi-by-leetcode-solution">https://leetcode.cn/problems/container-with-most-water/solutions/207215/sheng-zui-duo-shui-de-rong-qi-by-leetcode-solution</a></p>
-]]></content>
+<blockquote>
+<p>有一些浏览器给函数定义了一个name属性，可以通过这个属性访问到给函数指定的名字，这个值为function关键字后面的标识符。</p>
+<p>alert(function.name);&#x2F;&#x2F;“funtionName”</p>
+</blockquote>
+</li>
+<li><p>函数表达式</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>两个定义函数的方法的异同：</p>
+<p>由函数声明的函数在JS脚本构建时，会<code>函数提升</code>，而由函数表达式定义的函数不会。</p>
+<h2 id="使用函数实现递归"><a href="#使用函数实现递归" class="headerlink" title="使用函数实现递归"></a>使用函数实现递归</h2><h2 id="使用闭包定义私有变量"><a href="#使用闭包定义私有变量" class="headerlink" title="使用闭包定义私有变量"></a>使用闭包定义私有变量</h2>]]></content>
       <tags>
-        <tag>算法</tag>
         <tag>JavaScript</tag>
+        <tag>读书笔记</tag>
       </tags>
   </entry>
   <entry>
-    <title>无效的目标发行版17</title>
-    <url>/2023/03/11/%E6%97%A0%E6%95%88%E7%9A%84%E7%9B%AE%E6%A0%87%E5%8F%91%E8%A1%8C%E7%89%8817/</url>
-    <content><![CDATA[<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230310153146114.png" alt="image-20230310153146114"></p>
-<p>出现无效的源发行版 就是jdk版本环境不一致造成的</p>
-<p>在spring Initializr上下载的spring boot 版本默认是3.0.4</p>
-<p>但是 springboot3.0 需要jdk17支持，如果没有安装jdk17 只需把springboot版本降低即可</p>
-<p>我用的jdk版本是1.8，所以需要降低springboot版本</p>
+    <title>【Vue3】withDefaults和defineProps</title>
+    <url>/2024/04/24/%E3%80%90Vue3%E3%80%91withDefaults%E5%92%8CdefineProps/</url>
+    <content><![CDATA[<p>在Vue 3中，withDefaults和defineProps是用于定义和设置组件的props的工具，特别是在使用script setup语法糖时。</p>
+<h3 id="defineProps"><a href="#defineProps" class="headerlink" title="defineProps"></a>defineProps</h3><p>defineProps函数用于在Vue组件中声明props的类型。它通常与TypeScript一起使用，以提供类型安全。在script setup语法中，defineProps用于定义接收自父组件的数据的属性。</p>
+<h3 id="withDefaults"><a href="#withDefaults" class="headerlink" title="withDefaults"></a>withDefaults</h3><p>withDefaults函数在Vue 3中用于为defineProps定义的props提供默认值。它的参数结构如下：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="title function_">withDefaults</span>(defineProps&lt;<span class="title class_">Type</span>&gt;(), defaultProps)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>第一个参数是defineProps调用的结果，defineProps<Type>()用于定义组件的props，并且可以指定一个TypeScript接口或类型来静态类型检查这些props。</p>
+</li>
+<li><p>第二个参数是一个对象，其中的键是prop的名字，值是这个prop的默认值。默认值可以是直接的值，或者是返回值的函数，这样每次使用默认值时都会调用该函数来获取一个新的值。</p>
+</li>
+</ul>
+<p>例如</p>
+<p>withDefaults函数用于为defineProps定义的props提供默认值。这是处理props可能未被父组件传递时的情况的一种方式，确保组件有一个可靠的默认状态。</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; defineProps, withDefaults &#125; <span class="keyword">from</span> <span class="string">&quot;vue&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">Props</span> &#123;</span><br><span class="line">  <span class="attr">postList</span>: <span class="built_in">any</span>[];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> props = <span class="title function_">withDefaults</span>(defineProps&lt;<span class="title class_">Props</span>&gt;(),&#123;</span><br><span class="line">  <span class="attr">postList</span>: <span class="function">() =&gt;</span> [],</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>defineProps<Props>()：这里使用Props接口来定义props的结构，Props接口指定了postList是一个数组。</p>
+</li>
+<li><p>withDefaults(…, { postList: () &#x3D;&gt; [] })：这里为postList提供了一个默认值。默认值是通过一个函数() &#x3D;&gt; []来指定的，这意味着如果没有提供postList，它将默认为一个空数组。使用函数来返回默认值是一种常见的做法，因为这确保了每次使用默认值时都会创建一个新的数组实例，避免了不同实例间共享同一个数组的问题。</p>
+</li>
+</ul>
+<h3 id="postList-x3D-gt-的意思"><a href="#postList-x3D-gt-的意思" class="headerlink" title="postList: () &#x3D;&gt; []的意思"></a>postList: () &#x3D;&gt; []的意思</h3><p>这里postList: () &#x3D;&gt; []表示postList的默认值是一个空数组。使用箭头函数()返回一个新的空数组[]，这样做的好处是每次调用这个默认值时都会创建一个新的数组实例，避免了潜在的引用类型数据共享问题，这是在JavaScript中处理数组和对象默认值的推荐做法。</p>
+<p>总结来说，这种写法确保了组件的postList prop在没有从父组件接收到值时，会安全地使用一个新的空数组作为默认值，同时保持了类型安全和响应性。</p>
 ]]></content>
       <tags>
+        <tag>Vue3</tag>
+        <tag>TypeScript</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>idea的全局搜索（替换）快捷键</title>
+    <url>/2023/03/12/idea%E7%9A%84%E5%85%A8%E5%B1%80%E6%90%9C%E7%B4%A2%EF%BC%88%E6%9B%BF%E6%8D%A2%EF%BC%89%E5%BF%AB%E6%8D%B7%E9%94%AE/</url>
+    <content><![CDATA[<h2 id="idea的全局搜索（替换）快捷键"><a href="#idea的全局搜索（替换）快捷键" class="headerlink" title="idea的全局搜索（替换）快捷键"></a>idea的全局搜索（替换）快捷键</h2><p>可以鼠标选中想要搜索的内容在按快捷键或者按完快捷键后输入想要搜索的内容</p>
+<ul>
+<li>ctrl+F 搜索范围为当前文件，不可替换</li>
+</ul>
+<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230311230431152.png" alt="image"></p>
+<ul>
+<li>ctrl+R 搜索范围为当前文件，可替换</li>
+</ul>
+<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230312034130905.png" alt="image-20230312034130905"></p>
+<ul>
+<li>ctrl+shift+R 搜索范围为整个项目，可替换</li>
+</ul>
+<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230311230702057.png" alt="image-20230311230702057"></p>
+]]></content>
+      <tags>
+        <tag>快捷键</tag>
         <tag>踩坑</tag>
         <tag>idea</tag>
-        <tag>springboot</tag>
-        <tag>jdk</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>《JavaScript权威指南》读书笔记</title>
+    <url>/2023/03/16/%E3%80%8AjavaScript%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E3%80%8B%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h1 id="《javaScript权威指南》读书笔记"><a href="#《javaScript权威指南》读书笔记" class="headerlink" title="《javaScript权威指南》读书笔记"></a>《javaScript权威指南》读书笔记</h1><p>本书笔记基于David Flanagan的《javaScript权威指南》原书第七版中文译本，也就是犀牛书。</p>
+<h2 id="词法结构"><a href="#词法结构" class="headerlink" title="词法结构"></a>词法结构</h2><h3 id="JavaScript程序的文本"><a href="#JavaScript程序的文本" class="headerlink" title="JavaScript程序的文本"></a>JavaScript程序的文本</h3><ul>
+<li>区分大小写</li>
+<li>忽略<strong>程序记号（token）</strong>之间的空格，很大程度上忽略换行符（也有例外）</li>
+</ul>
+<blockquote>
+<p>不太理解什么叫程序记号</p>
+</blockquote>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//单行注释</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*单行注释*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *多行注释</span></span><br><span class="line"><span class="comment"> *每行开头额外的*不是必需的，只是为了美观</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="字面量"><a href="#字面量" class="headerlink" title="字面量"></a>字面量</h3><p>直接出现在程序中的数据值，如</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="literal">null</span></span><br><span class="line"><span class="literal">false</span></span><br><span class="line"><span class="number">1.2</span></span><br><span class="line"><span class="number">1</span></span><br><span class="line"><span class="string">&#x27;hello world&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="标识符与保留字"><a href="#标识符与保留字" class="headerlink" title="标识符与保留字"></a>标识符与保留字</h3><h4 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a>标识符</h4><p>用于命名常量、变量、属性、函数和类，就是一个名字，必需由<strong>字母，下划线，美元符号</strong>开头，可由<strong>字母、下划线、美元符号、数字</strong>组成。</p>
+<h4 id="保留字"><a href="#保留字" class="headerlink" title="保留字"></a>保留字</h4><p>一些不能作为标识符使用的单词，如for、if和while</p>
+<p>当然还有一些比较复杂的情况，在一定情况下可以使用为标识符。不过最简单的做法就是不要使用这些单词作为标识符。</p>
+<h3 id="Unicode"><a href="#Unicode" class="headerlink" title="Unicode"></a>Unicode</h3><p>JavaScript程序由Unicode字符集编写，意味标识符可以使用Unicode字母、数字和象形文字（不支持表情符号）。</p>
+<h4 id="Unicode转义序列"><a href="#Unicode转义序列" class="headerlink" title="Unicode转义序列"></a>Unicode转义序列</h4><p>由于某些计算机硬件和软件无法识别、处理Unicode字符，故定义了转义字符，以<code>\u</code>开头，后跟4为十六进制数或包含在一对花括号内的1~6位十六进制数字。</p>
+<blockquote>
+<p>花括号版本是ES6新增的</p>
+</blockquote>
+<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230316020145144.png" alt="image-20230316020145144"></p>
+<h4 id="Unicode归一化"><a href="#Unicode归一化" class="headerlink" title="Unicode归一化"></a>Unicode归一化</h4><p>由于不同编码方式的Unicode字符在js中是区分的，如下面的两个标识符</p>
+<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230316021128685.png" alt="image-20230316021128685"></p>
+<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230316021145803.png" alt="image-20230316021145803"></p>
+<p>虽然看起来完全相同，但由于它们的二进制编码是不同的，所以js也会认为它们是不同的，这会导致看起来相同的两个标识符其实表示的是两个不同的标识符，在赋值等各个操作中会出现问题。</p>
+<p>故在执行程序前，需要保证编辑器能够对源代码执行Unicode归一化。</p>
+<h3 id="可选的分号"><a href="#可选的分号" class="headerlink" title="可选的分号"></a>可选的分号</h3><p>分号用于分隔语句。</p>
+<p>分号可省略的情况：</p>
+<ul>
+<li><p>两条语句分别写在两行（不是一定的）</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line">a = <span class="number">3</span>;<span class="comment">//此时这个分号可以省略</span></span><br><span class="line">b = <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line">a = <span class="number">3</span>;b = <span class="number">4</span>;<span class="comment">//分号是必须的</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//也不是所有的换行符都会被当作为分号,只有在不添加符号就无法解析代码的情况下才会把换行符当作分号</span></span><br><span class="line"><span class="keyword">let</span> a</span><br><span class="line">a </span><br><span class="line">= </span><br><span class="line"><span class="number">3</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(a)</span><br><span class="line"><span class="comment">//会被解释为</span></span><br><span class="line"><span class="keyword">let</span> a; a = <span class="number">3</span>; <span class="variable language_">console</span>.<span class="title function_">log</span>(a);</span><br><span class="line"></span><br><span class="line"><span class="comment">//这种机制会引发一些问题,如下面的例子</span></span><br><span class="line"><span class="keyword">let</span> y = x + f</span><br><span class="line">(a+b).<span class="title function_">toString</span>()</span><br><span class="line"><span class="comment">//会被解释为</span></span><br><span class="line"><span class="keyword">let</span> y = x + <span class="title function_">f</span>(a+b).<span class="title function_">toString</span>();<span class="comment">//不一定与作者的真实意图一致</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//另外一种情况，return、throw、yield、break、continue后面的换行符是一定会被解释为分号的</span></span><br><span class="line"><span class="keyword">return</span> </span><br><span class="line"><span class="literal">true</span>;</span><br><span class="line"><span class="comment">//一定会被解释为</span></span><br><span class="line"><span class="keyword">return</span>; </span><br><span class="line"><span class="literal">true</span>;</span><br><span class="line"><span class="comment">//故一定不能在这些保留字和他们后面的表达式之间加换行符</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>另外，涉及到++、–操作符，必须与操作的表达式位于同一行。</p>
+<p>箭头函数中的<code>=&gt;</code>也必须与参数列表在同一行</p>
+</blockquote>
+</li>
+<li><p>在程序的末尾，接下来的加号是<code>&#125;</code></p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>读书笔记</category>
+        <category>JavaScript</category>
+      </categories>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>读书笔记</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【贪心+模拟】 1147. 段式回文</title>
+    <url>/2023/04/13/%E3%80%90%E8%B4%AA%E5%BF%83+%E6%A8%A1%E6%8B%9F%E3%80%91%201147.%20%E6%AE%B5%E5%BC%8F%E5%9B%9E%E6%96%87/</url>
+    <content><![CDATA[<h2 id="【13】贪心-模拟-1147-段式回文"><a href="#【13】贪心-模拟-1147-段式回文" class="headerlink" title="【13】贪心+模拟 1147. 段式回文"></a>【13】贪心+模拟 1147. 段式回文</h2><p> Problem: <a href="https://leetcode.cn/problems/longest-chunked-palindrome-decomposition/description/">1147. 段式回文</a></p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>  拆分字符串，使得拆分的字符串的前部分和后部分完全相同，返回能够拆分出的最大子串数</p>
+<p>  贪心：拆分时，能拆就拆&#x3D;&gt;拆分后的字符串尽可能的长&#x3D;&gt;能够拆分出尽可能多的子串</p>
+<p> 从小到大递归子串长度，模拟切割</p>
+<h1 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h1><p>  递归：<br>     含义：当前字符串，能够拆分出的最大子串数<br>     边界：不能拆&#x3D;&gt;空字符串&#x3D;&gt;长度为0</p>
+<p>  字符串的切片[(par1)..(par2)] &#x3D;&gt;[par1,par2) 左闭右开</p>
+<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><ul>
+<li><p>时间复杂度:  O(n^2)</p>
+</li>
+<li><p>空间复杂度: O(n)</p>
+</li>
+</ul>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><p><code>s.substr(i,b)</code>: <code>i</code>表示从第<code>i</code>个位置开始选取长度为<code>b</code>的子串，<strong>b省略</strong>默认取到字符串末尾</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longestDecomposition</span><span class="params">(string text)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = text.<span class="built_in">length</span>();</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//递归边界,长度为0不能拆，返回子串数为0</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n/<span class="number">2</span> ; i++)&#123;<span class="comment">//枚举前后缀长度,从小到大递归前后缀长度可以保证每次分割都是按能拆就拆的思想分割的</span></span><br><span class="line">            <span class="keyword">if</span>(text.<span class="built_in">substr</span>(<span class="number">0</span>,i)==text.<span class="built_in">substr</span>(n-i))&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">2</span> + <span class="built_in">longestDecomposition</span>(text.<span class="built_in">substr</span>(i,n<span class="number">-2</span>*i));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>LeetCode</category>
+        <category>每日一题</category>
+        <category>2023.4.12</category>
+      </categories>
+      <tags>
+        <tag>数组</tag>
+        <tag>LeetCode</tag>
+        <tag>算法</tag>
+        <tag>贪心</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【哈希+map】2404.出现最频繁的偶数元素</title>
+    <url>/2023/04/13/%E5%87%BA%E7%8E%B0%E6%9C%80%E9%A2%91%E7%B9%81%E7%9A%84%E5%81%B6%E6%95%B0%E5%85%83%E7%B4%A0/</url>
+    <content><![CDATA[<h2 id="【哈希-map】2404-出现最频繁的偶数元素"><a href="#【哈希-map】2404-出现最频繁的偶数元素" class="headerlink" title="【哈希+map】2404. 出现最频繁的偶数元素"></a>【哈希+map】2404. 出现最频繁的偶数元素</h2><blockquote>
+<p> Problem: <a href="https://leetcode.cn/problems/most-frequent-even-element/description/">2404. 出现最频繁的偶数元素</a></p>
+</blockquote>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>从数组中找出出现次数最多的偶数（如果这样的数有多个，选取较小的那个）</p>
+<h1 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h1><p>原本的想法是使用map+set，map当作哈希表用来计数，set来记录出现次数最多的偶数，(看了大佬的代码)后来优化了只用map，使用int变量res记录出现次数最多的偶数，如果出现次数一样多，且这个数较小，则更新res。</p>
+<p>顺便复习了下C++中map和set的用法，这两个都只能通过使用迭代器遍历，但是map可以通过map[key]的方式来访问和赋值，可使用的函数用<code>begin()</code>、<code>end()</code>、<code>find()</code>、<code>clear()</code>等等。</p>
+<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><ul>
+<li><p>时间复杂度: </p>
+<blockquote>
+<p>$O(n)$</p>
+</blockquote>
+</li>
+<li><p>空间复杂度: </p>
+<blockquote>
+<p>$O(n)$</p>
+</blockquote>
+</li>
+</ul>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><p>原版:</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment">原版</span></span><br><span class="line"><span class="comment">从数组中找出出现次数最多的偶数（如果这样的数有多个，选取较小的那个）</span></span><br><span class="line"><span class="comment">***/</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">mostFrequentEven</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//记录偶数出现的次数,存在mp中</span></span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; mp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="type">int</span> num = nums[i];</span><br><span class="line">            <span class="keyword">if</span>(num%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(mp.<span class="built_in">find</span>(num)==mp.<span class="built_in">end</span>())&#123;<span class="comment">//找不到</span></span><br><span class="line">                    mp[num] = <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    mp[num]++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//找到mp中的最大值进行插入</span></span><br><span class="line">        <span class="type">int</span> max =  <span class="number">-1</span>;</span><br><span class="line">        set&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">for</span>(unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt;::iterator it = mp.<span class="built_in">begin</span>(); it != mp.<span class="built_in">end</span>(); it++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(it-&gt;second &gt; max)&#123;</span><br><span class="line">                max = it-&gt;second;<span class="comment">//更新最大值</span></span><br><span class="line">                res.<span class="built_in">clear</span>();</span><br><span class="line">                res.<span class="built_in">insert</span>(it-&gt;first);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(it-&gt;second == max)&#123;</span><br><span class="line">                res.<span class="built_in">insert</span>(it-&gt;first);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(max==<span class="number">-1</span>) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> *(res.<span class="built_in">begin</span>());</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>简单优化后:</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment">简单优化后</span></span><br><span class="line"><span class="comment">从数组中找出出现次数最多的偶数（如果这样的数有多个，选取较小的那个）</span></span><br><span class="line"><span class="comment">***/</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">mostFrequentEven</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//记录偶数出现的次数,存在mp中</span></span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; mp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="type">int</span> num = nums[i];</span><br><span class="line">            <span class="keyword">if</span>(num%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(mp.<span class="built_in">find</span>(num)==mp.<span class="built_in">end</span>())&#123;<span class="comment">//找不到</span></span><br><span class="line">                    mp[num] = <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    mp[num]++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//找到mp中的最大值进行插入</span></span><br><span class="line">        <span class="type">int</span> max =  <span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> res;</span><br><span class="line">        <span class="keyword">for</span>(unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt;::iterator it = mp.<span class="built_in">begin</span>(); it != mp.<span class="built_in">end</span>(); it++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(it-&gt;second &gt; max)&#123;</span><br><span class="line">                max = it-&gt;second;<span class="comment">//更新最大值</span></span><br><span class="line">                res = it-&gt;first;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(it-&gt;second == max &amp;&amp; res &gt; it-&gt;first)&#123;</span><br><span class="line">                 res = it-&gt;first;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(max==<span class="number">-1</span>) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> res;</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>LeetCode</category>
+        <category>每日一题</category>
+        <category>2023.4.13</category>
+      </categories>
+      <tags>
+        <tag>数组</tag>
+        <tag>LeetCode</tag>
+        <tag>算法</tag>
+        <tag>哈希</tag>
       </tags>
   </entry>
   <entry>
@@ -1123,6 +1045,157 @@
       </tags>
   </entry>
   <entry>
+    <title>利用idea和maven仓库下载依赖</title>
+    <url>/2023/03/11/%E5%88%A9%E7%94%A8idea%E5%92%8Cmaven%E4%BB%93%E5%BA%93%E4%B8%8B%E8%BD%BD%E4%BE%9D%E8%B5%96/</url>
+    <content><![CDATA[<h2 id="利用idea和maven仓库下载依赖"><a href="#利用idea和maven仓库下载依赖" class="headerlink" title="利用idea和maven仓库下载依赖"></a>利用idea和maven仓库下载依赖</h2><p>以添加<a href="https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter">MyBatis Plus</a>依赖为例</p>
+<p>背景：用spring boot 初始化一个项目后，发现MyBatis Plus依赖没有添加</p>
+<p><strong>1.在maven仓库搜索mybaits-plus</strong></p>
+<p>仓库地址：<a href="https://mvnrepository.com(不同浏览器访问速度不一样,我用的火狐浏览器,感觉比用谷歌访问快很多,如果无法访问,可以换浏览器试试)/">https://mvnrepository.com（不同浏览器访问速度不一样，我用的火狐浏览器，感觉比用谷歌访问快很多，如果无法访问，可以换浏览器试试）</a></p>
+<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230311053841423.png" alt="image-20230311053841423"></p>
+<p>点击选中使用最多的包</p>
+<p><strong>2.版本可以自行选择，尽量选择使用人数比较多的那个版本</strong></p>
+<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230311053955492.png" alt="image-20230311053955492"></p>
+<p><strong>3.如果使用maven管理的包，直接复制框中的代码</strong></p>
+<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230311054228774.png" alt="image-20230311054228774"></p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baomidou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-plus-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>4.将复制的代码黏贴到pom.xml文件的依赖标签<code>&lt;dependencies&gt;</code>下，同时点击右上角的M图标进行更新</strong></p>
+<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230311054522516.png" alt="image-20230311054522516"></p>
+<p>右上角没有图标的话，可以右边栏（或者在左边）的Maven标签打开配置栏</p>
+<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230311054738541.png" alt="image-20230311054738541"></p>
+<p>点击刷新按钮进行更新下载依赖</p>
+<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230311054938693.png" alt="image-20230311054938693"></p>
+]]></content>
+      <tags>
+        <tag>idea</tag>
+        <tag>maven</tag>
+        <tag>依赖管理</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>【Vue】v-bind</title>
+    <url>/2024/04/24/%E3%80%90Vue%E3%80%91v-bind/</url>
+    <content><![CDATA[<h1 id="v-bind"><a href="#v-bind" class="headerlink" title="v-bind"></a>v-bind</h1><p> 是Vue.js中的一个指令，用于动态地绑定一个或多个属性，或者传递属性到组件。它可以将数据的值绑定到HTML元素的属性上，或者是父组件向子组件传递数据。</p>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><ul>
+<li><strong>绑定HTML属性</strong>：可以将数据绑定到元素的属性上。例如，如果你想根据数据动态改变<img>的src属性，可以这样写：</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">&lt;img v-<span class="attr">bind</span>:src=<span class="string">&quot;imageSrc&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这里，imageSrc是一个变量名，它的值会被设置为img的src属性。</p>
+<ul>
+<li><strong>缩写</strong>：v-bind:有一个缩写，即冒号:。上面的例子可以简写为：</li>
+</ul>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">&lt;img :src=<span class="string">&quot;imageSrc&quot;</span>&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="绑定多个属性"><a href="#绑定多个属性" class="headerlink" title="绑定多个属性"></a>绑定多个属性</h3><p>v-bind也可以通过使用对象语法一次绑定多个属性。例如：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">&lt;div v-bind=<span class="string">&quot;&#123; id: someId, &#x27;data-name&#x27;: name &#125;&quot;</span>&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这里，someId和name是变量，它们的值将分别绑定到div的id属性和data-name属性。</p>
+<h3 id="绑定到组件的props"><a href="#绑定到组件的props" class="headerlink" title="绑定到组件的props"></a>绑定到组件的props</h3><p>当使用组件时，v-bind用于将数据从父组件传递到子组件的props：</p>
+<figure class="highlight typescript"><table><tr><td class="code"><pre><span class="line">&lt;my-component :some-prop=<span class="string">&quot;someData&quot;</span>&gt;&lt;/my-component&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这里，someData是父组件中的数据，some-prop是子组件的prop，someData的值将传递给子组件的some-prop。</p>
+<h3 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h3><p>动态绑定元素的类和样式。</p>
+<p>将数据传递给组件的props。</p>
+<p>根据数据动态改变元素的属性，如src、href等。</p>
+<p>v-bind:是Vue开发中非常常用的一个指令，它提高了代码的灵活性和可维护性，使得数据和视图之间的绑定更加直观和方便。</p>
+<blockquote>
+<p>V-bind可以绑定变量、绑定类、绑定属性等等</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>Vue3</tag>
+        <tag>Vue2</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>双指针：一个输入，两端遍历（两边夹）</title>
+    <url>/2024/05/10/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%9A%E4%B8%80%E4%B8%AA%E8%BE%93%E5%85%A5%EF%BC%8C%E4%B8%A4%E7%AB%AF%E9%81%8D%E5%8E%86%EF%BC%88%E4%B8%A4%E8%BE%B9%E5%A4%B9%EF%BC%89/</url>
+    <content><![CDATA[<h3 id="双指针：一个输入，两端遍历（两边夹）"><a href="#双指针：一个输入，两端遍历（两边夹）" class="headerlink" title="双指针：一个输入，两端遍历（两边夹）"></a>双指针：一个输入，两端遍历（两边夹）</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//箭头函数 ()=&gt;&#123;&#125;</span></span><br><span class="line"><span class="comment">//()表示参数</span></span><br><span class="line"><span class="comment">//&#123;&#125;表示函数体</span></span><br><span class="line"><span class="keyword">let</span> <span class="title function_">fn</span> = arr =&gt;&#123;</span><br><span class="line">  <span class="keyword">let</span> left = <span class="number">0</span>, ans = <span class="number">0</span>, right = arr.<span class="property">length</span> -<span class="number">1</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">    <span class="comment">//根据题意补充代码</span></span><br><span class="line">    <span class="keyword">if</span>()&#123;</span><br><span class="line">      left++;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      right--;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h4><p><a href="https://leetcode.cn/problems/container-with-most-water/">11. 盛最多水的容器</a></p>
+<p>给定一个长度为 <code>n</code> 的整数数组 <code>height</code> 。有 <code>n</code> 条垂线，第 <code>i</code> 条线的两个端点是 <code>(i, 0)</code> 和 <code>(i, height[i])</code> 。</p>
+<p>找出其中的两条线，使得它们与 <code>x</code> 轴共同构成的容器可以容纳最多的水。</p>
+<p>返回容器可以储存的最大水量。</p>
+<p><strong>说明：</strong>你不能倾斜容器。</p>
+<p><strong>示例 1：</strong></p>
+<p><img src="https://aliyun-lc-upload.oss-cn-hangzhou.aliyuncs.com/aliyun-lc-upload/uploads/2018/07/25/question_11.jpg" alt="img"></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：[1,8,6,2,5,4,8,3,7]</span><br><span class="line">输出：49 </span><br><span class="line">解释：图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：height = [1,1]</span><br><span class="line">输出：1 </span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>n == height.length</code></li>
+<li><code>2 &lt;= n &lt;= 105</code></li>
+<li><code>0 &lt;= height[i] &lt;= 104</code></li>
+</ul>
+<p>做题思路：</p>
+<p>双指针</p>
+<p>长*宽的最大值，迭代</p>
+<p>难点在于在什么情况下移动左指针，在什么情况下移动右指针</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">height</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">number</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> maxArea = <span class="keyword">function</span>(<span class="params">height</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> left = <span class="number">0</span>, right = height.<span class="property">length</span> - <span class="number">1</span>, maxAns = -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">        <span class="keyword">let</span> w = right - left;</span><br><span class="line">        <span class="keyword">let</span> h = <span class="title class_">Math</span>.<span class="title function_">min</span>(height[left], height[right]);</span><br><span class="line">        maxAns = <span class="title class_">Math</span>.<span class="title function_">max</span>(w * h, maxAns);</span><br><span class="line">        <span class="keyword">if</span>(height[left] &lt; height[right])&#123;</span><br><span class="line">            left++;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxAns</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>参考官方题解</p>
+<p><a href="https://leetcode.cn/problems/container-with-most-water/solutions/207215/sheng-zui-duo-shui-de-rong-qi-by-leetcode-solution">https://leetcode.cn/problems/container-with-most-water/solutions/207215/sheng-zui-duo-shui-de-rong-qi-by-leetcode-solution</a></p>
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据库报错Incorrect-string-value</title>
+    <url>/2023/03/12/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8A%A5%E9%94%99Incorrect-string-value/</url>
+    <content><![CDATA[<h3 id="数据库报错Incorrect-string-value-‘-xE7-x94-xB7‘-for-column-‘name‘-at-row-1"><a href="#数据库报错Incorrect-string-value-‘-xE7-x94-xB7‘-for-column-‘name‘-at-row-1" class="headerlink" title="数据库报错Incorrect string value: ‘\xE7\x94\xB7‘ for column ‘name‘ at row 1"></a>数据库报错Incorrect string value: ‘\xE7\x94\xB7‘ for column ‘name‘ at row 1</h3><p><img src="C:\Users\12726\AppData\Roaming\Typora\typora-user-images\image-20230312024828536.png" alt="image-20230312024828536"></p>
+<p>报错内容为在name列插入的第一条数据的字符串值是不正确的，主要原因是我插入的数据为汉字，为中文字符串，需要使用到utf-8字符集，而默认是使用的是latin1字符集。</p>
+<p>解决方案：用这个命令更改表名，去覆盖它的原有字符集，就可以实现成功插入中文</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE interface_info（这里改成自己的表名） CONVERT TO CHARACTER SET utf8;</span><br></pre></td></tr></table></figure>
+
+<p>参考博文：<a href="https://blog.csdn.net/weixin_63639665/article/details/128206602">https://blog.csdn.net/weixin_63639665/article/details/128206602</a></p>
+]]></content>
+      <categories>
+        <category>数据库</category>
+        <category>MySQL</category>
+      </categories>
+      <tags>
+        <tag>踩坑</tag>
+        <tag>MySQL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>双指针：两个输入,两个都需要遍历（快慢指针）</title>
+    <url>/2024/05/10/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%9A%E4%B8%A4%E4%B8%AA%E8%BE%93%E5%85%A5-%E4%B8%A4%E4%B8%AA%E9%83%BD%E9%9C%80%E8%A6%81%E9%81%8D%E5%8E%86%EF%BC%88%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88%EF%BC%89/</url>
+    <content><![CDATA[<h3 id="2-双指针：两个输入-两个都需要遍历（快慢指针）"><a href="#2-双指针：两个输入-两个都需要遍历（快慢指针）" class="headerlink" title="2.双指针：两个输入,两个都需要遍历（快慢指针）"></a>2.双指针：两个输入,两个都需要遍历（快慢指针）</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="title function_">fn</span> = (<span class="params">arr1, arr2</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">let</span> i = <span class="number">0</span>, j = <span class="number">0</span>, ans = <span class="number">0</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">while</span>(i &lt; arr1.<span class="property">length</span> &amp;&amp; j &lt; arr2.<span class="property">length</span>)&#123;</span><br><span class="line">    <span class="comment">//根据题意补充代码</span></span><br><span class="line">    <span class="keyword">if</span>()&#123;</span><br><span class="line">      i++;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      j++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; arr1.<span class="property">length</span>)&#123;</span><br><span class="line">      <span class="comment">//</span></span><br><span class="line">      i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(j &lt; arr2.<span class="property">length</span>)&#123;</span><br><span class="line">      <span class="comment">//</span></span><br><span class="line">      j++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h4><p><a href="https://leetcode.cn/problems/merge-sorted-array/">88. 合并两个有序数组</a></p>
+<p>给你两个按 <strong>非递减顺序</strong> 排列的整数数组 <code>nums1</code> 和 <code>nums2</code>，另有两个整数 <code>m</code> 和 <code>n</code> ，分别表示 <code>nums1</code> 和 <code>nums2</code> 中的元素数目。</p>
+<p>请你 <strong>合并</strong> <code>nums2</code> 到 <code>nums1</code> 中，使合并后的数组同样按 <strong>非递减顺序</strong> 排列。</p>
+<p><strong>注意：</strong>最终，合并后数组不应由函数返回，而是存储在数组 <code>nums1</code> 中。为了应对这种情况，<code>nums1</code> 的初始长度为 <code>m + n</code>，其中前 <code>m</code> 个元素表示应合并的元素，后 <code>n</code> 个元素为 <code>0</code> ，应忽略。<code>nums2</code> 的长度为 <code>n</code> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3</span><br><span class="line">输出：[1,2,2,3,5,6]</span><br><span class="line">解释：需要合并 [1,2,3] 和 [2,5,6] 。</span><br><span class="line">合并结果是 [1,2,2,3,5,6] ，其中斜体加粗标注的为 nums1 中的元素。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums1 = [1], m = 1, nums2 = [], n = 0</span><br><span class="line">输出：[1]</span><br><span class="line">解释：需要合并 [1] 和 [] 。</span><br><span class="line">合并结果是 [1] 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 3：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums1 = [0], m = 0, nums2 = [1], n = 1</span><br><span class="line">输出：[1]</span><br><span class="line">解释：需要合并的数组是 [] 和 [1] 。</span><br><span class="line">合并结果是 [1] 。</span><br><span class="line">注意，因为 m = 0 ，所以 nums1 中没有元素。nums1 中仅存的 0 仅仅是为了确保合并结果可以顺利存放到 nums1 中。</span><br></pre></td></tr></table></figure>
+
+<p>思路一：双指针，但是不借助额外的数组，原数组nums1的值就会被覆盖，但是题目没有说不能借助额外数组，所以就先放到新的数组里面，在把新数组赋值给nuns1</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">nums1</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; <span class="variable">m</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">nums2</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; <span class="variable">n</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">void</span>&#125; Do not return anything, modify nums1 in-place instead.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> merge = <span class="keyword">function</span>(<span class="params">nums1, m, nums2, n</span>) &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//思路一：双指针，但是不借助额外的数组，原数组nums1的值就会被覆盖，但是题目没有说不能借助额外数组，所以就先放到新的数组里面，在把新数组赋值给nuns1</span></span><br><span class="line">    <span class="keyword">let</span> newArr = <span class="keyword">new</span> <span class="title class_">Array</span>(m + n);</span><br><span class="line">    <span class="keyword">let</span> k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; m &amp;&amp; j &lt; n)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums2[j] &lt;= nums1[i])&#123;</span><br><span class="line">            newArr[k++] = nums2[j++];</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            newArr[k++] = nums1[i++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; m) newArr[k++] = nums1[i++];</span><br><span class="line">    <span class="keyword">while</span>(j &lt; n) newArr[k++] = nums2[j++];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> p = <span class="number">0</span>; p &lt; m + n; p++)&#123;</span><br><span class="line">        nums1[p] = newArr[p];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> nums1;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>思路二：逆向双指针，因为num1的数组的末尾m个都是0，是不害怕被覆盖的</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">nums1</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; <span class="variable">m</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">nums2</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; <span class="variable">n</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">void</span>&#125; Do not return anything, modify nums1 in-place instead.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> merge = <span class="keyword">function</span>(<span class="params">nums1, m, nums2, n</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> i = m - <span class="number">1</span>, j = n - <span class="number">1</span>, k = m + n - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(i &gt;= <span class="number">0</span> &amp;&amp; j &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums1[i] &gt;= nums2[j])&#123;</span><br><span class="line">            nums1[k--] = nums1[i--];</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            nums1[k--] = nums2[j--];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(i &gt;= <span class="number">0</span>) nums1[k--] = nums1[i--];</span><br><span class="line">    <span class="keyword">while</span>(j &gt;= <span class="number">0</span>) nums1[k--] = nums2[j--];</span><br><span class="line">    <span class="keyword">return</span> nums1;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>JavaScript</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>滑动窗口专项训练</title>
     <url>/2024/05/16/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E4%B8%93%E9%A1%B9%E8%AE%AD%E7%BB%83/</url>
     <content><![CDATA[<h1 id="滑动窗口专项训练"><a href="#滑动窗口专项训练" class="headerlink" title="滑动窗口专项训练"></a>滑动窗口专项训练</h1><h2 id="更新记录"><a href="#更新记录" class="headerlink" title="更新记录"></a>更新记录</h2><p>2024.5.17 第一次记录</p>
@@ -1222,106 +1295,19 @@
       </tags>
   </entry>
   <entry>
-    <title>双指针：两个输入,两个都需要遍历（快慢指针）</title>
-    <url>/2024/05/10/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%9A%E4%B8%A4%E4%B8%AA%E8%BE%93%E5%85%A5-%E4%B8%A4%E4%B8%AA%E9%83%BD%E9%9C%80%E8%A6%81%E9%81%8D%E5%8E%86%EF%BC%88%E5%BF%AB%E6%85%A2%E6%8C%87%E9%92%88%EF%BC%89/</url>
-    <content><![CDATA[<h3 id="2-双指针：两个输入-两个都需要遍历（快慢指针）"><a href="#2-双指针：两个输入-两个都需要遍历（快慢指针）" class="headerlink" title="2.双指针：两个输入,两个都需要遍历（快慢指针）"></a>2.双指针：两个输入,两个都需要遍历（快慢指针）</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="title function_">fn</span> = (<span class="params">arr1, arr2</span>) =&gt; &#123;</span><br><span class="line">  <span class="keyword">let</span> i = <span class="number">0</span>, j = <span class="number">0</span>, ans = <span class="number">0</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">while</span>(i &lt; arr1.<span class="property">length</span> &amp;&amp; j &lt; arr2.<span class="property">length</span>)&#123;</span><br><span class="line">    <span class="comment">//根据题意补充代码</span></span><br><span class="line">    <span class="keyword">if</span>()&#123;</span><br><span class="line">      i++;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      j++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; arr1.<span class="property">length</span>)&#123;</span><br><span class="line">      <span class="comment">//</span></span><br><span class="line">      i++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(j &lt; arr2.<span class="property">length</span>)&#123;</span><br><span class="line">      <span class="comment">//</span></span><br><span class="line">      j++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h4 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h4><p><a href="https://leetcode.cn/problems/merge-sorted-array/">88. 合并两个有序数组</a></p>
-<p>给你两个按 <strong>非递减顺序</strong> 排列的整数数组 <code>nums1</code> 和 <code>nums2</code>，另有两个整数 <code>m</code> 和 <code>n</code> ，分别表示 <code>nums1</code> 和 <code>nums2</code> 中的元素数目。</p>
-<p>请你 <strong>合并</strong> <code>nums2</code> 到 <code>nums1</code> 中，使合并后的数组同样按 <strong>非递减顺序</strong> 排列。</p>
-<p><strong>注意：</strong>最终，合并后数组不应由函数返回，而是存储在数组 <code>nums1</code> 中。为了应对这种情况，<code>nums1</code> 的初始长度为 <code>m + n</code>，其中前 <code>m</code> 个元素表示应合并的元素，后 <code>n</code> 个元素为 <code>0</code> ，应忽略。<code>nums2</code> 的长度为 <code>n</code> 。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3</span><br><span class="line">输出：[1,2,2,3,5,6]</span><br><span class="line">解释：需要合并 [1,2,3] 和 [2,5,6] 。</span><br><span class="line">合并结果是 [1,2,2,3,5,6] ，其中斜体加粗标注的为 nums1 中的元素。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums1 = [1], m = 1, nums2 = [], n = 0</span><br><span class="line">输出：[1]</span><br><span class="line">解释：需要合并 [1] 和 [] 。</span><br><span class="line">合并结果是 [1] 。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 3：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：nums1 = [0], m = 0, nums2 = [1], n = 1</span><br><span class="line">输出：[1]</span><br><span class="line">解释：需要合并的数组是 [] 和 [1] 。</span><br><span class="line">合并结果是 [1] 。</span><br><span class="line">注意，因为 m = 0 ，所以 nums1 中没有元素。nums1 中仅存的 0 仅仅是为了确保合并结果可以顺利存放到 nums1 中。</span><br></pre></td></tr></table></figure>
-
-<p>思路一：双指针，但是不借助额外的数组，原数组nums1的值就会被覆盖，但是题目没有说不能借助额外数组，所以就先放到新的数组里面，在把新数组赋值给nuns1</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">nums1</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; <span class="variable">m</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">nums2</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; <span class="variable">n</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">void</span>&#125; Do not return anything, modify nums1 in-place instead.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> merge = <span class="keyword">function</span>(<span class="params">nums1, m, nums2, n</span>) &#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">let</span> i = <span class="number">0</span>, j = <span class="number">0</span>;</span><br><span class="line">    <span class="comment">//思路一：双指针，但是不借助额外的数组，原数组nums1的值就会被覆盖，但是题目没有说不能借助额外数组，所以就先放到新的数组里面，在把新数组赋值给nuns1</span></span><br><span class="line">    <span class="keyword">let</span> newArr = <span class="keyword">new</span> <span class="title class_">Array</span>(m + n);</span><br><span class="line">    <span class="keyword">let</span> k = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; m &amp;&amp; j &lt; n)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums2[j] &lt;= nums1[i])&#123;</span><br><span class="line">            newArr[k++] = nums2[j++];</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            newArr[k++] = nums1[i++];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(i &lt; m) newArr[k++] = nums1[i++];</span><br><span class="line">    <span class="keyword">while</span>(j &lt; n) newArr[k++] = nums2[j++];</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">let</span> p = <span class="number">0</span>; p &lt; m + n; p++)&#123;</span><br><span class="line">        nums1[p] = newArr[p];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> nums1;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>思路二：逆向双指针，因为num1的数组的末尾m个都是0，是不害怕被覆盖的</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">nums1</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; <span class="variable">m</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">nums2</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number</span>&#125; <span class="variable">n</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">void</span>&#125; Do not return anything, modify nums1 in-place instead.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> merge = <span class="keyword">function</span>(<span class="params">nums1, m, nums2, n</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> i = m - <span class="number">1</span>, j = n - <span class="number">1</span>, k = m + n - <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span>(i &gt;= <span class="number">0</span> &amp;&amp; j &gt;= <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(nums1[i] &gt;= nums2[j])&#123;</span><br><span class="line">            nums1[k--] = nums1[i--];</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            nums1[k--] = nums2[j--];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">while</span>(i &gt;= <span class="number">0</span>) nums1[k--] = nums1[i--];</span><br><span class="line">    <span class="keyword">while</span>(j &gt;= <span class="number">0</span>) nums1[k--] = nums2[j--];</span><br><span class="line">    <span class="keyword">return</span> nums1;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+    <title>无效的目标发行版17</title>
+    <url>/2023/03/11/%E6%97%A0%E6%95%88%E7%9A%84%E7%9B%AE%E6%A0%87%E5%8F%91%E8%A1%8C%E7%89%8817/</url>
+    <content><![CDATA[<p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230310153146114.png" alt="image-20230310153146114"></p>
+<p>出现无效的源发行版 就是jdk版本环境不一致造成的</p>
+<p>在spring Initializr上下载的spring boot 版本默认是3.0.4</p>
+<p>但是 springboot3.0 需要jdk17支持，如果没有安装jdk17 只需把springboot版本降低即可</p>
+<p>我用的jdk版本是1.8，所以需要降低springboot版本</p>
 ]]></content>
-      <tags>
-        <tag>算法</tag>
-        <tag>JavaScript</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>【哈希+map】2404.出现最频繁的偶数元素</title>
-    <url>/2023/04/13/%E5%87%BA%E7%8E%B0%E6%9C%80%E9%A2%91%E7%B9%81%E7%9A%84%E5%81%B6%E6%95%B0%E5%85%83%E7%B4%A0/</url>
-    <content><![CDATA[<h2 id="【哈希-map】2404-出现最频繁的偶数元素"><a href="#【哈希-map】2404-出现最频繁的偶数元素" class="headerlink" title="【哈希+map】2404. 出现最频繁的偶数元素"></a>【哈希+map】2404. 出现最频繁的偶数元素</h2><blockquote>
-<p> Problem: <a href="https://leetcode.cn/problems/most-frequent-even-element/description/">2404. 出现最频繁的偶数元素</a></p>
-</blockquote>
-<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>从数组中找出出现次数最多的偶数（如果这样的数有多个，选取较小的那个）</p>
-<h1 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h1><p>原本的想法是使用map+set，map当作哈希表用来计数，set来记录出现次数最多的偶数，(看了大佬的代码)后来优化了只用map，使用int变量res记录出现次数最多的偶数，如果出现次数一样多，且这个数较小，则更新res。</p>
-<p>顺便复习了下C++中map和set的用法，这两个都只能通过使用迭代器遍历，但是map可以通过map[key]的方式来访问和赋值，可使用的函数用<code>begin()</code>、<code>end()</code>、<code>find()</code>、<code>clear()</code>等等。</p>
-<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><ul>
-<li><p>时间复杂度: </p>
-<blockquote>
-<p>$O(n)$</p>
-</blockquote>
-</li>
-<li><p>空间复杂度: </p>
-<blockquote>
-<p>$O(n)$</p>
-</blockquote>
-</li>
-</ul>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><p>原版:</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment">原版</span></span><br><span class="line"><span class="comment">从数组中找出出现次数最多的偶数（如果这样的数有多个，选取较小的那个）</span></span><br><span class="line"><span class="comment">***/</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">mostFrequentEven</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//记录偶数出现的次数,存在mp中</span></span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; mp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="type">int</span> num = nums[i];</span><br><span class="line">            <span class="keyword">if</span>(num%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(mp.<span class="built_in">find</span>(num)==mp.<span class="built_in">end</span>())&#123;<span class="comment">//找不到</span></span><br><span class="line">                    mp[num] = <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    mp[num]++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//找到mp中的最大值进行插入</span></span><br><span class="line">        <span class="type">int</span> max =  <span class="number">-1</span>;</span><br><span class="line">        set&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">for</span>(unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt;::iterator it = mp.<span class="built_in">begin</span>(); it != mp.<span class="built_in">end</span>(); it++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(it-&gt;second &gt; max)&#123;</span><br><span class="line">                max = it-&gt;second;<span class="comment">//更新最大值</span></span><br><span class="line">                res.<span class="built_in">clear</span>();</span><br><span class="line">                res.<span class="built_in">insert</span>(it-&gt;first);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(it-&gt;second == max)&#123;</span><br><span class="line">                res.<span class="built_in">insert</span>(it-&gt;first);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(max==<span class="number">-1</span>) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> *(res.<span class="built_in">begin</span>());</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>简单优化后:</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment">简单优化后</span></span><br><span class="line"><span class="comment">从数组中找出出现次数最多的偶数（如果这样的数有多个，选取较小的那个）</span></span><br><span class="line"><span class="comment">***/</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">mostFrequentEven</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//记录偶数出现的次数,存在mp中</span></span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; mp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="type">int</span> num = nums[i];</span><br><span class="line">            <span class="keyword">if</span>(num%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(mp.<span class="built_in">find</span>(num)==mp.<span class="built_in">end</span>())&#123;<span class="comment">//找不到</span></span><br><span class="line">                    mp[num] = <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    mp[num]++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//找到mp中的最大值进行插入</span></span><br><span class="line">        <span class="type">int</span> max =  <span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> res;</span><br><span class="line">        <span class="keyword">for</span>(unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt;::iterator it = mp.<span class="built_in">begin</span>(); it != mp.<span class="built_in">end</span>(); it++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(it-&gt;second &gt; max)&#123;</span><br><span class="line">                max = it-&gt;second;<span class="comment">//更新最大值</span></span><br><span class="line">                res = it-&gt;first;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(it-&gt;second == max &amp;&amp; res &gt; it-&gt;first)&#123;</span><br><span class="line">                 res = it-&gt;first;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(max==<span class="number">-1</span>) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> res;</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>LeetCode</category>
-        <category>每日一题</category>
-        <category>2023.4.13</category>
-      </categories>
-      <tags>
-        <tag>数组</tag>
-        <tag>LeetCode</tag>
-        <tag>算法</tag>
-        <tag>哈希</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据库报错Incorrect-string-value</title>
-    <url>/2023/03/12/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%8A%A5%E9%94%99Incorrect-string-value/</url>
-    <content><![CDATA[<h3 id="数据库报错Incorrect-string-value-‘-xE7-x94-xB7‘-for-column-‘name‘-at-row-1"><a href="#数据库报错Incorrect-string-value-‘-xE7-x94-xB7‘-for-column-‘name‘-at-row-1" class="headerlink" title="数据库报错Incorrect string value: ‘\xE7\x94\xB7‘ for column ‘name‘ at row 1"></a>数据库报错Incorrect string value: ‘\xE7\x94\xB7‘ for column ‘name‘ at row 1</h3><p><img src="C:\Users\12726\AppData\Roaming\Typora\typora-user-images\image-20230312024828536.png" alt="image-20230312024828536"></p>
-<p>报错内容为在name列插入的第一条数据的字符串值是不正确的，主要原因是我插入的数据为汉字，为中文字符串，需要使用到utf-8字符集，而默认是使用的是latin1字符集。</p>
-<p>解决方案：用这个命令更改表名，去覆盖它的原有字符集，就可以实现成功插入中文</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">ALTER TABLE interface_info（这里改成自己的表名） CONVERT TO CHARACTER SET utf8;</span><br></pre></td></tr></table></figure>
-
-<p>参考博文：<a href="https://blog.csdn.net/weixin_63639665/article/details/128206602">https://blog.csdn.net/weixin_63639665/article/details/128206602</a></p>
-]]></content>
-      <categories>
-        <category>数据库</category>
-        <category>MySQL</category>
-      </categories>
       <tags>
         <tag>踩坑</tag>
-        <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>站点记录</title>
-    <url>/2023/03/12/%E7%AB%99%E7%82%B9%E8%AE%B0%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="站点记录"><a href="#站点记录" class="headerlink" title="站点记录"></a>站点记录</h2><h3 id="工具类站点"><a href="#工具类站点" class="headerlink" title="工具类站点"></a>工具类站点</h3><p>1.时间戳转换： <a href="https://tool.lu/timestamp">https://tool.lu/timestamp</a><br>2.b站视频下载： <a href="https://www.urlgot.cn/">https://www.urlgot.cn/</a></p>
-<h3 id="学习类站点"><a href="#学习类站点" class="headerlink" title="学习类站点"></a>学习类站点</h3><h4 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h4><ul>
-<li><a href="https://developers.aliwork.com/docs/guide/start">钉钉宜搭.开发者中心</a></li>
-<li>前端框架：<a href="https://pro.ant.design/zh-CN/docs/getting-started">ant.design.pro</a></li>
-<li>博客框架：<a href="https://hexo.io/zh-cn/docs">hexo文档</a></li>
-</ul>
-<h3 id="仓库类站点"><a href="#仓库类站点" class="headerlink" title="仓库类站点"></a>仓库类站点</h3>]]></content>
-      <tags>
-        <tag>站点链接</tag>
+        <tag>idea</tag>
+        <tag>springboot</tag>
+        <tag>jdk</tag>
       </tags>
   </entry>
   <entry>
@@ -1349,6 +1335,20 @@
       <tags>
         <tag>git</tag>
         <tag>error</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>站点记录</title>
+    <url>/2023/03/12/%E7%AB%99%E7%82%B9%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="站点记录"><a href="#站点记录" class="headerlink" title="站点记录"></a>站点记录</h2><h3 id="工具类站点"><a href="#工具类站点" class="headerlink" title="工具类站点"></a>工具类站点</h3><p>1.时间戳转换： <a href="https://tool.lu/timestamp">https://tool.lu/timestamp</a><br>2.b站视频下载： <a href="https://www.urlgot.cn/">https://www.urlgot.cn/</a></p>
+<h3 id="学习类站点"><a href="#学习类站点" class="headerlink" title="学习类站点"></a>学习类站点</h3><h4 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h4><ul>
+<li><a href="https://developers.aliwork.com/docs/guide/start">钉钉宜搭.开发者中心</a></li>
+<li>前端框架：<a href="https://pro.ant.design/zh-CN/docs/getting-started">ant.design.pro</a></li>
+<li>博客框架：<a href="https://hexo.io/zh-cn/docs">hexo文档</a></li>
+</ul>
+<h3 id="仓库类站点"><a href="#仓库类站点" class="headerlink" title="仓库类站点"></a>仓库类站点</h3>]]></content>
+      <tags>
+        <tag>站点链接</tag>
       </tags>
   </entry>
 </search>

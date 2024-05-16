@@ -22,20 +22,23 @@
     var CONFIG = {"hostname":"shiff.top","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="站点记录工具类站点1.时间戳转换： https:&#x2F;&#x2F;tool.lu&#x2F;timestamp2.b站视频下载： https:&#x2F;&#x2F;www.urlgot.cn&#x2F; 学习类站点官方文档 钉钉宜搭.开发者中心 前端框架：ant.design.pro 博客框架：hexo文档  仓库类站点">
+  <meta name="description" content="【13】贪心+模拟 1147. 段式回文 Problem: 1147. 段式回文 思路  拆分字符串，使得拆分的字符串的前部分和后部分完全相同，返回能够拆分出的最大子串数   贪心：拆分时，能拆就拆&#x3D;&gt;拆分后的字符串尽可能的长&#x3D;&gt;能够拆分出尽可能多的子串  从小到大递归子串长度，模拟切割 解题方法  递归：     含义：当前字符串，能够拆分出的最大子串数">
 <meta property="og:type" content="article">
-<meta property="og:title" content="站点记录">
-<meta property="og:url" content="http://shiff.top/2023/03/12/O%CC%83%C2%BE%C2%B5a%CC%83%C2%BCC%CC%A7A%CC%82%C2%BC/index.html">
+<meta property="og:title" content="【贪心+模拟】 1147. 段式回文">
+<meta property="og:url" content="http://shiff.top/2023/04/13/%E3%80%90%E8%B4%AA%E5%BF%83+%E6%A8%A1%E6%8B%9F%E3%80%91%201147.%20%E6%AE%B5%E5%BC%8F%E5%9B%9E%E6%96%87/index.html">
 <meta property="og:site_name" content="微弱的光">
-<meta property="og:description" content="站点记录工具类站点1.时间戳转换： https:&#x2F;&#x2F;tool.lu&#x2F;timestamp2.b站视频下载： https:&#x2F;&#x2F;www.urlgot.cn&#x2F; 学习类站点官方文档 钉钉宜搭.开发者中心 前端框架：ant.design.pro 博客框架：hexo文档  仓库类站点">
+<meta property="og:description" content="【13】贪心+模拟 1147. 段式回文 Problem: 1147. 段式回文 思路  拆分字符串，使得拆分的字符串的前部分和后部分完全相同，返回能够拆分出的最大子串数   贪心：拆分时，能拆就拆&#x3D;&gt;拆分后的字符串尽可能的长&#x3D;&gt;能够拆分出尽可能多的子串  从小到大递归子串长度，模拟切割 解题方法  递归：     含义：当前字符串，能够拆分出的最大子串数">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2023-03-12T07:41:51.000Z">
-<meta property="article:modified_time" content="2023-03-12T09:25:52.000Z">
+<meta property="article:published_time" content="2023-04-12T17:22:36.000Z">
+<meta property="article:modified_time" content="2024-05-16T15:14:53.532Z">
 <meta property="article:author" content="shiff">
-<meta property="article:tag" content="站点链接">
+<meta property="article:tag" content="数组">
+<meta property="article:tag" content="LeetCode">
+<meta property="article:tag" content="算法">
+<meta property="article:tag" content="贪心">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://shiff.top/2023/03/12/O%CC%83%C2%BE%C2%B5a%CC%83%C2%BCC%CC%A7A%CC%82%C2%BC/">
+<link rel="canonical" href="http://shiff.top/2023/04/13/%E3%80%90%E8%B4%AA%E5%BF%83+%E6%A8%A1%E6%8B%9F%E3%80%91%201147.%20%E6%AE%B5%E5%BC%8F%E5%9B%9E%E6%96%87/">
 
 
 <script id="page-configurations">
@@ -48,7 +51,7 @@
   };
 </script>
 
-  <title>站点记录 | 微弱的光</title>
+  <title>【贪心+模拟】 1147. 段式回文 | 微弱的光</title>
   
 
 
@@ -202,7 +205,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://shiff.top/2023/03/12/O%CC%83%C2%BE%C2%B5a%CC%83%C2%BCC%CC%A7A%CC%82%C2%BC/">
+    <link itemprop="mainEntityOfPage" href="http://shiff.top/2023/04/13/%E3%80%90%E8%B4%AA%E5%BF%83+%E6%A8%A1%E6%8B%9F%E3%80%91%201147.%20%E6%AE%B5%E5%BC%8F%E5%9B%9E%E6%96%87/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="https://avatars.githubusercontent.com/u/55538843?s=96&v=4">
@@ -215,7 +218,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          站点记录
+          【贪心+模拟】 1147. 段式回文
         </h1>
 
         <div class="post-meta">
@@ -226,9 +229,32 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2023-03-12 15:41:51 / 修改时间：17:25:52" itemprop="dateCreated datePublished" datetime="2023-03-12T15:41:51+08:00">2023-03-12</time>
+              <time title="创建时间：2023-04-13 01:22:36" itemprop="dateCreated datePublished" datetime="2023-04-13T01:22:36+08:00">2023-04-13</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-05-16 23:14:53" itemprop="dateModified" datetime="2024-05-16T23:14:53+08:00">2024-05-16</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">每日一题</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LeetCode/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/2023-4-12/" itemprop="url" rel="index"><span itemprop="name">2023.4.12</span></a>
+                </span>
             </span>
 
           
@@ -243,7 +269,7 @@
               <span class="post-meta-item-icon">
                 <i class="far fa-file-word"></i>
               </span>
-              <span>127</span>
+              <span>673</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -261,13 +287,20 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="站点记录"><a href="#站点记录" class="headerlink" title="站点记录"></a>站点记录</h2><h3 id="工具类站点"><a href="#工具类站点" class="headerlink" title="工具类站点"></a>工具类站点</h3><p>1.时间戳转换： <a target="_blank" rel="noopener" href="https://tool.lu/timestamp">https://tool.lu/timestamp</a><br>2.b站视频下载： <a target="_blank" rel="noopener" href="https://www.urlgot.cn/">https://www.urlgot.cn/</a></p>
-<h3 id="学习类站点"><a href="#学习类站点" class="headerlink" title="学习类站点"></a>学习类站点</h3><h4 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h4><ul>
-<li><a target="_blank" rel="noopener" href="https://developers.aliwork.com/docs/guide/start">钉钉宜搭.开发者中心</a></li>
-<li>前端框架：<a target="_blank" rel="noopener" href="https://pro.ant.design/zh-CN/docs/getting-started">ant.design.pro</a></li>
-<li>博客框架：<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs">hexo文档</a></li>
+        <h2 id="【13】贪心-模拟-1147-段式回文"><a href="#【13】贪心-模拟-1147-段式回文" class="headerlink" title="【13】贪心+模拟 1147. 段式回文"></a>【13】贪心+模拟 1147. 段式回文</h2><p> Problem: <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/longest-chunked-palindrome-decomposition/description/">1147. 段式回文</a></p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>  拆分字符串，使得拆分的字符串的前部分和后部分完全相同，返回能够拆分出的最大子串数</p>
+<p>  贪心：拆分时，能拆就拆&#x3D;&gt;拆分后的字符串尽可能的长&#x3D;&gt;能够拆分出尽可能多的子串</p>
+<p> 从小到大递归子串长度，模拟切割</p>
+<h1 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h1><p>  递归：<br>     含义：当前字符串，能够拆分出的最大子串数<br>     边界：不能拆&#x3D;&gt;空字符串&#x3D;&gt;长度为0</p>
+<p>  字符串的切片[(par1)..(par2)] &#x3D;&gt;[par1,par2) 左闭右开</p>
+<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><ul>
+<li><p>时间复杂度:  O(n^2)</p>
+</li>
+<li><p>空间复杂度: O(n)</p>
+</li>
 </ul>
-<h3 id="仓库类站点"><a href="#仓库类站点" class="headerlink" title="仓库类站点"></a>仓库类站点</h3>
+<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><p><code>s.substr(i,b)</code>: <code>i</code>表示从第<code>i</code>个位置开始选取长度为<code>b</code>的子串，<strong>b省略</strong>默认取到字符串末尾</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">longestDecomposition</span><span class="params">(string text)</span> </span>&#123;</span><br><span class="line">        <span class="type">int</span> n = text.<span class="built_in">length</span>();</span><br><span class="line">        <span class="keyword">if</span>(n==<span class="number">0</span>) <span class="keyword">return</span> <span class="number">0</span>;<span class="comment">//递归边界,长度为0不能拆，返回子串数为0</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span>; i &lt;= n/<span class="number">2</span> ; i++)&#123;<span class="comment">//枚举前后缀长度,从小到大递归前后缀长度可以保证每次分割都是按能拆就拆的思想分割的</span></span><br><span class="line">            <span class="keyword">if</span>(text.<span class="built_in">substr</span>(<span class="number">0</span>,i)==text.<span class="built_in">substr</span>(n-i))&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">2</span> + <span class="built_in">longestDecomposition</span>(text.<span class="built_in">substr</span>(i,n<span class="number">-2</span>*i));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -314,7 +347,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://shiff.top/2023/03/12/O%CC%83%C2%BE%C2%B5a%CC%83%C2%BCC%CC%A7A%CC%82%C2%BC/" title="站点记录">http://shiff.top/2023/03/12/Õ¾µã¼ÇÂ¼/</a>
+    <a href="http://shiff.top/2023/04/13/%E3%80%90%E8%B4%AA%E5%BF%83+%E6%A8%A1%E6%8B%9F%E3%80%91%201147.%20%E6%AE%B5%E5%BC%8F%E5%9B%9E%E6%96%87/" title="【贪心+模拟】 1147. 段式回文">http://shiff.top/2023/04/13/【贪心+模拟】 1147. 段式回文/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -325,7 +358,10 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E7%AB%99%E7%82%B9%E9%93%BE%E6%8E%A5/" rel="tag"># 站点链接</a>
+              <a href="/tags/%E6%95%B0%E7%BB%84/" rel="tag"># 数组</a>
+              <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+              <a href="/tags/%E7%AE%97%E6%B3%95/" rel="tag"># 算法</a>
+              <a href="/tags/%E8%B4%AA%E5%BF%83/" rel="tag"># 贪心</a>
           </div>
 
         
@@ -334,12 +370,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/03/11/%E5%88%A9%E7%94%A8idea%E5%92%8Cmaven%E4%BB%93%E5%BA%93%E4%B8%8B%E8%BD%BD%E4%BE%9D%E8%B5%96/" rel="prev" title="利用idea和maven仓库下载依赖">
-      <i class="fa fa-chevron-left"></i> 利用idea和maven仓库下载依赖
+    <a href="/2023/03/16/217.%E5%AD%98%E5%9C%A8%E9%87%8D%E5%A4%8D%E5%85%83%E7%B4%A0%E3%80%90%E7%AE%80%E5%8D%95%E3%80%91/" rel="prev" title="217.存在重复元素【简单】">
+      <i class="fa fa-chevron-left"></i> 217.存在重复元素【简单】
     </a></div>
       <div class="post-nav-item">
-    <a href="/2023/03/12/idea%C2%B5A%CC%88E%CC%80%C2%AB%C2%BEO%CC%88E%CC%88N%CC%83E%CC%88%C3%B7%C2%A3%C2%A8I%CC%80%C3%A6%C2%BB%C2%BB%C2%A3%C2%A9%C2%BFi%CC%80%C2%BDY%CC%81%C2%BCu%CC%88/" rel="next" title="idea的全局搜索（替换）快捷键">
-      idea的全局搜索（替换）快捷键 <i class="fa fa-chevron-right"></i>
+    <a href="/2023/04/13/%E5%87%BA%E7%8E%B0%E6%9C%80%E9%A2%91%E7%B9%81%E7%9A%84%E5%81%B6%E6%95%B0%E5%85%83%E7%B4%A0/" rel="next" title="【哈希+map】2404.出现最频繁的偶数元素">
+      【哈希+map】2404.出现最频繁的偶数元素 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -405,7 +441,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AB%99%E7%82%B9%E8%AE%B0%E5%BD%95"><span class="nav-number">1.</span> <span class="nav-text">站点记录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B7%A5%E5%85%B7%E7%B1%BB%E7%AB%99%E7%82%B9"><span class="nav-number">1.1.</span> <span class="nav-text">工具类站点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%A6%E4%B9%A0%E7%B1%BB%E7%AB%99%E7%82%B9"><span class="nav-number">1.2.</span> <span class="nav-text">学习类站点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%98%E6%96%B9%E6%96%87%E6%A1%A3"><span class="nav-number">1.2.1.</span> <span class="nav-text">官方文档</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%93%E5%BA%93%E7%B1%BB%E7%AB%99%E7%82%B9"><span class="nav-number">1.3.</span> <span class="nav-text">仓库类站点</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E3%80%9013%E3%80%91%E8%B4%AA%E5%BF%83-%E6%A8%A1%E6%8B%9F-1147-%E6%AE%B5%E5%BC%8F%E5%9B%9E%E6%96%87"><span class="nav-number">1.</span> <span class="nav-text">【13】贪心+模拟 1147. 段式回文</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%80%9D%E8%B7%AF"><span class="nav-number"></span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%A7%A3%E9%A2%98%E6%96%B9%E6%B3%95"><span class="nav-number"></span> <span class="nav-text">解题方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number"></span> <span class="nav-text">复杂度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Code"><span class="nav-number"></span> <span class="nav-text">Code</span></a></div>
       </div>
       <!--/noindex-->
 
@@ -421,7 +457,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">21</span>
+          <span class="site-state-item-count">22</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -503,12 +539,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">40k</span>
+    <span title="站点总字数">53k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">37 分钟</span>
+    <span title="站点阅读时长">48 分钟</span>
 </div>
 
 <div>

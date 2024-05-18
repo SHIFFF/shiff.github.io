@@ -1,6 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Vue-父子组件的通信</title>
+    <url>/2024/05/18/Vue-%E7%88%B6%E5%AD%90%E7%BB%84%E4%BB%B6%E7%9A%84%E9%80%9A%E4%BF%A1/</url>
+    <content><![CDATA[<h1 id="Vue-父子组件的通信"><a href="#Vue-父子组件的通信" class="headerlink" title="Vue-父子组件的通信"></a>Vue-父子组件的通信</h1><p>在 Vue.js 中，父子组件之间的通信可以通过 props 和 events 来实现。下面分别介绍了 props 和 events 的用法：</p>
+<h3 id="使用-Props（父传子）："><a href="#使用-Props（父传子）：" class="headerlink" title="使用 Props（父传子）："></a>使用 Props（父传子）：</h3><ul>
+<li>父组件可以通过 props 向子组件传递数据。</li>
+<li>在子组件中，props 是响应式的，即当父组件的数据发生变化时，子组件会自动更新。</li>
+<li>父组件通过在子组件上使用属性绑定的方式传递数据。</li>
+</ul>
+<p><strong>父组件：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;ChildComponent :message=&quot;parentMessage&quot; /&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import ChildComponent from &#x27;./ChildComponent.vue&#x27;;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      parentMessage: &#x27;Hello from Parent&#x27;,</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    ChildComponent,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>子组件：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div&gt;&#123;&#123; message &#125;&#125;&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  props: [&#x27;message&#x27;],</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用-Events（子传父）："><a href="#使用-Events（子传父）：" class="headerlink" title="使用 Events（子传父）："></a>使用 Events（子传父）：</h3><ul>
+<li>子组件可以通过 events 向父组件发送消息。</li>
+<li>在子组件中使用 <code>$emit</code> 方法触发一个自定义事件，并传递数据。</li>
+<li>父组件通过在子组件上监听自定义事件来接收子组件发送的消息。</li>
+</ul>
+<p><strong>父组件：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;ChildComponent @child-event=&quot;handleChildEvent&quot; /&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">import ChildComponent from &#x27;./ChildComponent.vue&#x27;;</span><br><span class="line"></span><br><span class="line">export default &#123;</span><br><span class="line">  methods: &#123;</span><br><span class="line">    handleChildEvent(data) &#123;</span><br><span class="line">      console.log(&#x27;Received data from child:&#x27;, data);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">  components: &#123;</span><br><span class="line">    ChildComponent,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>子组件：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;button @click=&quot;sendMessage&quot;&gt;Send Message to Parent&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  methods: &#123;</span><br><span class="line">    sendMessage() &#123;</span><br><span class="line">      this.$emit(&#x27;child-event&#x27;, &#x27;Hello from Child&#x27;);</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>通过 props 和 events，父子组件之间可以方便地进行通信，实现数据的传递和交互。</p>
+]]></content>
+  </entry>
+  <entry>
     <title>vue文档学习</title>
     <url>/2024/05/18/vue%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h1 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js</h1><p>vue官方文档 <a href="https://cn.vuejs.org/guide/introduction.html">https://cn.vuejs.org/guide/introduction.html</a></p>
@@ -102,7 +131,64 @@
 
 
 
-<h3 id="条件渲染（v-if）"><a href="#条件渲染（v-if）" class="headerlink" title="条件渲染（v-if）"></a>条件渲染（v-if）</h3>]]></content>
+<h3 id="条件渲染（v-if）"><a href="#条件渲染（v-if）" class="headerlink" title="条件渲染（v-if）"></a>条件渲染（v-if）</h3><ul>
+<li><code>v-if</code>，只有在awesome为<code>true</code>时，<code>h1</code>标签才会被渲染</li>
+<li><code>v-else-if</code>和<code>v-else</code>用法与JS中<code>if-else if-else</code>的用法基本一致</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">//v-if</span><br><span class="line">&lt;h1 v-if=&quot;awesome&quot;&gt;Vue is awesome!&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">//v-else</span><br><span class="line">&lt;h1 v-if=&quot;awesome&quot;&gt;Vue is awesome!&lt;/h1&gt;</span><br><span class="line">&lt;h1 v-else&gt;Oh no 😢&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="列表渲染（v-for）"><a href="#列表渲染（v-for）" class="headerlink" title="列表渲染（v-for）"></a>列表渲染（v-for）</h3><ul>
+<li><p>v-for用于循环渲染</p>
+</li>
+<li><p>给每个 todo 对象设置了唯一的 <code>id</code>，并且将它作为<a href="https://cn.vuejs.org/api/built-in-special-attributes.html#key">特殊的 <code>key</code> attribute</a> 绑定到每个 <code>&lt;li&gt;</code>。<code>key</code> 使得 Vue 能够精确的移动每个 <code>&lt;li&gt;</code>，以匹配对应的对象在数组中的位置。</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li v-for=&quot;todo in todos&quot; :key=&quot;todo.id&quot;&gt;</span><br><span class="line">    &#123;&#123; todo.text &#125;&#125;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">//在数组中新增数据</span><br><span class="line">todos.value.push(newTodo)</span><br><span class="line"></span><br><span class="line">//在数组中删除数据，过滤数据</span><br><span class="line">todos.value = todos.value.filter(/* ... */)</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; ref &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">// 给每个 todo 对象一个唯一的 id</span><br><span class="line">let id = 0</span><br><span class="line"></span><br><span class="line">const newTodo = ref(&#x27;&#x27;)</span><br><span class="line">const todos = ref([</span><br><span class="line">  &#123; id: id++, text: &#x27;Learn HTML&#x27; &#125;,</span><br><span class="line">  &#123; id: id++, text: &#x27;Learn JavaScript&#x27; &#125;,</span><br><span class="line">  &#123; id: id++, text: &#x27;Learn Vue&#x27; &#125;</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">function addTodo() &#123;</span><br><span class="line">  // 新增todo</span><br><span class="line">  if(newTodo.value != &#x27;&#x27;)&#123;</span><br><span class="line">    console.log(newTodo.value);</span><br><span class="line">    todos.value.push(&#123;</span><br><span class="line">      id: id++,</span><br><span class="line">      text: newTodo.value</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  newTodo.value = &#x27;&#x27;//添加完数据后要重置为空</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function removeTodo(todo) &#123;</span><br><span class="line">  // 删除todo</span><br><span class="line">  todos.value = todos.value.filter((item)=&gt;&#123;</span><br><span class="line">    return item!=todo;</span><br><span class="line">  &#125;);</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;form @submit.prevent=&quot;addTodo&quot;&gt;</span><br><span class="line">    &lt;input v-model=&quot;newTodo&quot; required placeholder=&quot;new todo&quot;&gt;</span><br><span class="line">    &lt;button&gt;Add Todo&lt;/button&gt;</span><br><span class="line">  &lt;/form&gt;</span><br><span class="line">  &lt;ul&gt;</span><br><span class="line">    &lt;li v-for=&quot;todo in todos&quot; :key=&quot;todo.id&quot;&gt;</span><br><span class="line">      &#123;&#123; todo.text &#125;&#125;</span><br><span class="line">      &lt;button @click=&quot;removeTodo(todo)&quot;&gt;X&lt;/button&gt;</span><br><span class="line">    &lt;/li&gt;</span><br><span class="line">  &lt;/ul&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="计算属性（computed）"><a href="#计算属性（computed）" class="headerlink" title="计算属性（computed）"></a>计算属性（computed）</h4><ul>
+<li>创建一个计算属性 ref，这个 ref 会动态地根据其他响应式数据源来计算其 <code>.value</code></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import &#123; ref, computed &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">const hideCompleted = ref(false)</span><br><span class="line">const todos = ref([</span><br><span class="line">  /* ... */</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">const filteredTodos = computed(() =&gt; &#123;</span><br><span class="line">  // 根据 `todos.value` &amp; `hideCompleted.value`</span><br><span class="line">  // 返回过滤后的 todo 项目</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">- &lt;li v-for=&quot;todo in todos&quot;&gt;</span><br><span class="line">+ &lt;li v-for=&quot;todo in filteredTodos&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; ref, computed &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">let id = 0</span><br><span class="line"></span><br><span class="line">const newTodo = ref(&#x27;&#x27;)</span><br><span class="line">const hideCompleted = ref(false)</span><br><span class="line">const todos = ref([</span><br><span class="line">  &#123; id: id++, text: &#x27;Learn HTML&#x27;, done: true &#125;,</span><br><span class="line">  &#123; id: id++, text: &#x27;Learn JavaScript&#x27;, done: true &#125;,</span><br><span class="line">  &#123; id: id++, text: &#x27;Learn Vue&#x27;, done: false &#125;</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">//当hideCompleted为true的时候，应该隐藏掉todos中done属性为ture的属性，所以过滤时返回done为false的属性的对象</span><br><span class="line">const filteredTodos = computed(() =&gt; &#123;</span><br><span class="line">  return hideCompleted.value</span><br><span class="line">    ? todos.value.filter((t) =&gt; !t.done)</span><br><span class="line">    : todos.value</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">function addTodo() &#123;</span><br><span class="line">  todos.value.push(&#123; id: id++, text: newTodo.value, done: false &#125;)</span><br><span class="line">  newTodo.value = &#x27;&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function removeTodo(todo) &#123;</span><br><span class="line">  todos.value = todos.value.filter((t) =&gt; t !== todo)</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;form @submit.prevent=&quot;addTodo&quot;&gt;</span><br><span class="line">    &lt;input v-model=&quot;newTodo&quot; required placeholder=&quot;new todo&quot;&gt;</span><br><span class="line">    &lt;button&gt;Add Todo&lt;/button&gt;</span><br><span class="line">  &lt;/form&gt;</span><br><span class="line">  &lt;ul&gt;</span><br><span class="line">    &lt;li v-for=&quot;todo in filteredTodos&quot; :key=&quot;todo.id&quot;&gt;</span><br><span class="line">      &lt;input type=&quot;checkbox&quot; v-model=&quot;todo.done&quot;&gt;</span><br><span class="line">      &lt;span :class=&quot;&#123; done: todo.done &#125;&quot;&gt;&#123;&#123; todo.text &#125;&#125;&lt;/span&gt;</span><br><span class="line">      &lt;button @click=&quot;removeTodo(todo)&quot;&gt;X&lt;/button&gt;</span><br><span class="line">    &lt;/li&gt;</span><br><span class="line">  &lt;/ul&gt;</span><br><span class="line">  &lt;button @click=&quot;hideCompleted = !hideCompleted&quot;&gt;</span><br><span class="line">    &#123;&#123; hideCompleted ? &#x27;Show all&#x27; : &#x27;Hide completed&#x27; &#125;&#125;</span><br><span class="line">  &lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.done &#123;</span><br><span class="line">  text-decoration: line-through;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="生命周期和模板引用"><a href="#生命周期和模板引用" class="headerlink" title="生命周期和模板引用"></a>生命周期和模板引用</h3><ul>
+<li>当我们需要手动操作DOM时，会需要使用<code>模板引用</code>，也就是指向模板中的一个DOM元素的ref</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;p ref=&quot;pElementRef&quot;&gt;hello&lt;/p&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">//使用同名ref访问该引用</span><br><span class="line">const pElementRef = ref(null)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//要在挂载之后执行代码，我们可以使用 onMounted() 函数：</span><br><span class="line">import &#123; onMounted &#125; from &#x27;vue&#x27;</span><br><span class="line">  //ref引用的是一个DOM元素，在这个例子中，就是一个p标签</span><br><span class="line">onMounted(() =&gt; &#123;</span><br><span class="line">  // 此时组件已经挂载。</span><br><span class="line">   pElementRef.value.textContent = &quot;你好&quot;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>此时，这个 ref 使用 null 值来初始化。这是因为当&lt;script setup&gt; 执行时，DOM 元素还不存在。模板引用 ref 只能在组件挂载后访问。</p>
+<ul>
+<li><code>onMounted</code>被称为<strong>生命周期钩子</strong>——它允许我们注册一个在组件的特定生命周期调用的回调函数。还有一些其他的钩子如 <code>onUpdated</code> 和 <code>onUnmounted</code>。</li>
+</ul>
+<h3 id="侦听器-watch"><a href="#侦听器-watch" class="headerlink" title="侦听器(watch)"></a>侦听器(watch)</h3><p>有时我们需要响应性地执行一些“副作用”——例如，当一个数字改变时将其输出到控制台。我们可以通过侦听器来实现它：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">import &#123; ref, watch &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">const count = ref(0)</span><br><span class="line"></span><br><span class="line">watch(count, (newCount) =&gt; &#123;</span><br><span class="line">  // 没错，console.log() 是一个副作用</span><br><span class="line">  console.log(`new count is: $&#123;newCount&#125;`)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+]]></content>
       <tags>
         <tag>Vue</tag>
       </tags>
@@ -1056,8 +1142,8 @@
 <p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230314102239226.png" alt="image-20230314102239226"></p>
 ]]></content>
       <tags>
-        <tag>快捷键</tag>
         <tag>Typora</tag>
+        <tag>快捷键</tag>
       </tags>
   </entry>
   <entry>
@@ -1423,9 +1509,9 @@
 <p><img src="https://cdn.staticaly.com/gh/SHIFFF/Blogcdn@master/img/image-20230311230702057.png" alt="image-20230311230702057"></p>
 ]]></content>
       <tags>
+        <tag>快捷键</tag>
         <tag>踩坑</tag>
         <tag>idea</tag>
-        <tag>快捷键</tag>
       </tags>
   </entry>
   <entry>

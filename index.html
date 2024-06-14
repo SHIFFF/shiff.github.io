@@ -198,6 +198,128 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shiff.top/2024/06/14/overflow%E7%9A%84%E7%94%A8%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/55538843?s=96&v=4">
+      <meta itemprop="name" content="shiff">
+      <meta itemprop="description" content="千里之行，始于足下">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微弱的光">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/06/14/overflow%E7%9A%84%E7%94%A8%E6%B3%95/" class="post-title-link" itemprop="url">overflow的用法</a>
+        </h2>
+
+        <div class="post-meta">
+
+
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-06-14 11:05:16 / 修改时间：11:07:37" itemprop="dateCreated datePublished" datetime="2024-06-14T11:05:16+08:00">2024-06-14</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>1.4k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Overflow的用法"><a href="#Overflow的用法" class="headerlink" title="Overflow的用法"></a>Overflow的用法</h1><p><code>overflow</code> 是 CSS 中的一个属性，用于控制元素内容在水平方向和垂直方向上的溢出行为。它决定了当内容溢出元素的尺寸时，是否显示滚动条、截断内容或其他处理方式。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">overflow</span>: visible | hidden | scroll | auto;</span><br></pre></td></tr></table></figure>
+
+<h3 id="属性值"><a href="#属性值" class="headerlink" title="属性值"></a>属性值</h3><ul>
+<li><code>visible</code>：默认值。内容不会被剪裁，会呈现在元素框之外。</li>
+<li><code>hidden</code>：溢出内容会被剪裁（隐藏），不会显示滚动条。</li>
+<li><code>scroll</code>：无论内容是否溢出，都会显示滚动条。</li>
+<li><code>auto</code>：如果内容溢出，浏览器会自动显示滚动条。</li>
+</ul>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>假设有一个包含大量文本的容器：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>CSS 代码如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line">  <span class="attribute">overflow</span>: auto; <span class="comment">/* 自动显示滚动条 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中：</p>
+<ul>
+<li>当容器的内容宽度或高度超过 200px 或 100px 时，浏览器会自动显示水平或垂直滚动条，以便用户可以滚动查看内容。</li>
+</ul>
+<h3 id="各属性值示例"><a href="#各属性值示例" class="headerlink" title="各属性值示例"></a>各属性值示例</h3><ol>
+<li><code>visible</code>：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line">  <span class="attribute">overflow</span>: visible;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>内容会溢出容器，不会显示滚动条。</p>
+<ol start="2">
+<li><code>hidden</code>：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>内容会被剪裁，溢出部分不可见，不会显示滚动条。</p>
+<ol start="3">
+<li><code>scroll</code>：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line">  <span class="attribute">overflow</span>: scroll;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>无论内容是否溢出，都会显示滚动条。</p>
+<ol start="4">
+<li><code>auto</code>：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line">  <span class="attribute">overflow</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当内容溢出时，浏览器会自动显示滚动条。</p>
+<h3 id="组合使用-overflow-x-和-overflow-y"><a href="#组合使用-overflow-x-和-overflow-y" class="headerlink" title="组合使用 overflow-x 和 overflow-y"></a>组合使用 <code>overflow-x</code> 和 <code>overflow-y</code></h3><p>有时你可能需要分别控制水平方向和垂直方向的溢出行为，这时可以使用 <code>overflow-x</code> 和 <code>overflow-y</code> 属性。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line">  <span class="attribute">overflow-x</span>: auto; <span class="comment">/* 水平方向自动显示滚动条 */</span></span><br><span class="line">  <span class="attribute">overflow-y</span>: hidden; <span class="comment">/* 垂直方向隐藏溢出内容 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li><code>overflow</code> 属性仅在元素具有限定的宽度和高度时起作用。</li>
+<li><code>overflow</code> 属性常用于创建滚动区域，特别是在布局响应式设计中。</li>
+</ul>
+<p>通过合理使用 <code>overflow</code> 属性，可以更好地控制元素内容在水平方向和垂直方向上的显示方式，提升页面的可读性和用户体验。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+        
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://shiff.top/2024/05/24/Axios%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1013,7 +1135,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-05-25 16:41:32" itemprop="dateModified" datetime="2024-05-25T16:41:32+08:00">2024-05-25</time>
+                <time title="修改时间：2024-05-25 16:44:16" itemprop="dateModified" datetime="2024-05-25T16:44:16+08:00">2024-05-25</time>
               </span>
 
           
@@ -1865,109 +1987,6 @@
   
 
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://shiff.top/2024/05/10/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%9A%E4%B8%80%E4%B8%AA%E8%BE%93%E5%85%A5%EF%BC%8C%E4%B8%A4%E7%AB%AF%E9%81%8D%E5%8E%86%EF%BC%88%E4%B8%A4%E8%BE%B9%E5%A4%B9%EF%BC%89/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/55538843?s=96&v=4">
-      <meta itemprop="name" content="shiff">
-      <meta itemprop="description" content="千里之行，始于足下">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="微弱的光">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/05/10/%E5%8F%8C%E6%8C%87%E9%92%88%EF%BC%9A%E4%B8%80%E4%B8%AA%E8%BE%93%E5%85%A5%EF%BC%8C%E4%B8%A4%E7%AB%AF%E9%81%8D%E5%8E%86%EF%BC%88%E4%B8%A4%E8%BE%B9%E5%A4%B9%EF%BC%89/" class="post-title-link" itemprop="url">双指针：一个输入，两端遍历（两边夹）</a>
-        </h2>
-
-        <div class="post-meta">
-
-
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2024-05-10 16:04:21 / 修改时间：16:06:12" itemprop="dateCreated datePublished" datetime="2024-05-10T16:04:21+08:00">2024-05-10</time>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>1.1k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>1 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h3 id="双指针：一个输入，两端遍历（两边夹）"><a href="#双指针：一个输入，两端遍历（两边夹）" class="headerlink" title="双指针：一个输入，两端遍历（两边夹）"></a>双指针：一个输入，两端遍历（两边夹）</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//箭头函数 ()=&gt;&#123;&#125;</span></span><br><span class="line"><span class="comment">//()表示参数</span></span><br><span class="line"><span class="comment">//&#123;&#125;表示函数体</span></span><br><span class="line"><span class="keyword">let</span> <span class="title function_">fn</span> = arr =&gt;&#123;</span><br><span class="line">  <span class="keyword">let</span> left = <span class="number">0</span>, ans = <span class="number">0</span>, right = arr.<span class="property">length</span> -<span class="number">1</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">    <span class="comment">//根据题意补充代码</span></span><br><span class="line">    <span class="keyword">if</span>()&#123;</span><br><span class="line">      left++;</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">      right--;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h4><p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/container-with-most-water/">11. 盛最多水的容器</a></p>
-<p>给定一个长度为 <code>n</code> 的整数数组 <code>height</code> 。有 <code>n</code> 条垂线，第 <code>i</code> 条线的两个端点是 <code>(i, 0)</code> 和 <code>(i, height[i])</code> 。</p>
-<p>找出其中的两条线，使得它们与 <code>x</code> 轴共同构成的容器可以容纳最多的水。</p>
-<p>返回容器可以储存的最大水量。</p>
-<p><strong>说明：</strong>你不能倾斜容器。</p>
-<p><strong>示例 1：</strong></p>
-<p><img src="https://aliyun-lc-upload.oss-cn-hangzhou.aliyuncs.com/aliyun-lc-upload/uploads/2018/07/25/question_11.jpg" alt="img"></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入：[1,8,6,2,5,4,8,3,7]</span><br><span class="line">输出：49 </span><br><span class="line">解释：图中垂直线代表输入数组 [1,8,6,2,5,4,8,3,7]。在此情况下，容器能够容纳水（表示为蓝色部分）的最大值为 49。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：height = [1,1]</span><br><span class="line">输出：1 </span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>n == height.length</code></li>
-<li><code>2 &lt;= n &lt;= 105</code></li>
-<li><code>0 &lt;= height[i] &lt;= 104</code></li>
-</ul>
-<p>做题思路：</p>
-<p>双指针</p>
-<p>长*宽的最大值，迭代</p>
-<p>难点在于在什么情况下移动左指针，在什么情况下移动右指针</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> &#123;<span class="type">number[]</span>&#125; <span class="variable">height</span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> &#123;<span class="type">number</span>&#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> maxArea = <span class="keyword">function</span>(<span class="params">height</span>) &#123;</span><br><span class="line">    <span class="keyword">let</span> left = <span class="number">0</span>, right = height.<span class="property">length</span> - <span class="number">1</span>, maxAns = -<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span>(left &lt; right)&#123;</span><br><span class="line">        <span class="keyword">let</span> w = right - left;</span><br><span class="line">        <span class="keyword">let</span> h = <span class="title class_">Math</span>.<span class="title function_">min</span>(height[left], height[right]);</span><br><span class="line">        maxAns = <span class="title class_">Math</span>.<span class="title function_">max</span>(w * h, maxAns);</span><br><span class="line">        <span class="keyword">if</span>(height[left] &lt; height[right])&#123;</span><br><span class="line">            left++;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            right--;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> maxAns</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>参考官方题解</p>
-<p><a target="_blank" rel="noopener" href="https://leetcode.cn/problems/container-with-most-water/solutions/207215/sheng-zui-duo-shui-de-rong-qi-by-leetcode-solution">https://leetcode.cn/problems/container-with-most-water/solutions/207215/sheng-zui-duo-shui-de-rong-qi-by-leetcode-solution</a></p>
-
-      
-    </div>
-
-    
-    
-    
-
-        
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
 
   
   <nav class="pagination">
@@ -2039,7 +2058,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">26</span>
+          <span class="site-state-item-count">27</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -2052,7 +2071,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">30</span>
+        <span class="site-state-item-count">31</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -2121,12 +2140,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-area"></i>
     </span>
-    <span title="站点总字数">73k</span>
+    <span title="站点总字数">74k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:06</span>
+    <span title="站点阅读时长">1:07</span>
 </div>
 
 <div>

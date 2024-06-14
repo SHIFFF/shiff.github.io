@@ -1,6 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>overflow的用法</title>
+    <url>/2024/06/14/overflow%E7%9A%84%E7%94%A8%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="Overflow的用法"><a href="#Overflow的用法" class="headerlink" title="Overflow的用法"></a>Overflow的用法</h1><p><code>overflow</code> 是 CSS 中的一个属性，用于控制元素内容在水平方向和垂直方向上的溢出行为。它决定了当内容溢出元素的尺寸时，是否显示滚动条、截断内容或其他处理方式。</p>
+<h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="attribute">overflow</span>: visible | hidden | scroll | auto;</span><br></pre></td></tr></table></figure>
+
+<h3 id="属性值"><a href="#属性值" class="headerlink" title="属性值"></a>属性值</h3><ul>
+<li><code>visible</code>：默认值。内容不会被剪裁，会呈现在元素框之外。</li>
+<li><code>hidden</code>：溢出内容会被剪裁（隐藏），不会显示滚动条。</li>
+<li><code>scroll</code>：无论内容是否溢出，都会显示滚动条。</li>
+<li><code>auto</code>：如果内容溢出，浏览器会自动显示滚动条。</li>
+</ul>
+<h3 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h3><p>假设有一个包含大量文本的容器：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;container&quot;</span>&gt;</span></span><br><span class="line">  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>CSS 代码如下：</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line">  <span class="attribute">overflow</span>: auto; <span class="comment">/* 自动显示滚动条 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中：</p>
+<ul>
+<li>当容器的内容宽度或高度超过 200px 或 100px 时，浏览器会自动显示水平或垂直滚动条，以便用户可以滚动查看内容。</li>
+</ul>
+<h3 id="各属性值示例"><a href="#各属性值示例" class="headerlink" title="各属性值示例"></a>各属性值示例</h3><ol>
+<li><code>visible</code>：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line">  <span class="attribute">overflow</span>: visible;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>内容会溢出容器，不会显示滚动条。</p>
+<ol start="2">
+<li><code>hidden</code>：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line">  <span class="attribute">overflow</span>: hidden;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>内容会被剪裁，溢出部分不可见，不会显示滚动条。</p>
+<ol start="3">
+<li><code>scroll</code>：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line">  <span class="attribute">overflow</span>: scroll;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>无论内容是否溢出，都会显示滚动条。</p>
+<ol start="4">
+<li><code>auto</code>：</li>
+</ol>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line">  <span class="attribute">overflow</span>: auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当内容溢出时，浏览器会自动显示滚动条。</p>
+<h3 id="组合使用-overflow-x-和-overflow-y"><a href="#组合使用-overflow-x-和-overflow-y" class="headerlink" title="组合使用 overflow-x 和 overflow-y"></a>组合使用 <code>overflow-x</code> 和 <code>overflow-y</code></h3><p>有时你可能需要分别控制水平方向和垂直方向的溢出行为，这时可以使用 <code>overflow-x</code> 和 <code>overflow-y</code> 属性。</p>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">200px</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid black;</span><br><span class="line">  <span class="attribute">overflow-x</span>: auto; <span class="comment">/* 水平方向自动显示滚动条 */</span></span><br><span class="line">  <span class="attribute">overflow-y</span>: hidden; <span class="comment">/* 垂直方向隐藏溢出内容 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><ul>
+<li><code>overflow</code> 属性仅在元素具有限定的宽度和高度时起作用。</li>
+<li><code>overflow</code> 属性常用于创建滚动区域，特别是在布局响应式设计中。</li>
+</ul>
+<p>通过合理使用 <code>overflow</code> 属性，可以更好地控制元素内容在水平方向和垂直方向上的显示方式，提升页面的可读性和用户体验。</p>
+]]></content>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Axios学习</title>
     <url>/2024/05/24/Axios%E5%AD%A6%E4%B9%A0/</url>
     <content><![CDATA[<h1 id="Axiso库"><a href="#Axiso库" class="headerlink" title="Axiso库"></a>Axiso库</h1><p><strong>官方介绍：</strong></p>

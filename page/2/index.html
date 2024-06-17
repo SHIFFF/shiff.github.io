@@ -198,6 +198,237 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://shiff.top/2024/05/18/vue%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/55538843?s=96&v=4">
+      <meta itemprop="name" content="shiff">
+      <meta itemprop="description" content="千里之行，始于足下">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="微弱的光">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2024/05/18/vue%E6%96%87%E6%A1%A3%E5%AD%A6%E4%B9%A0/" class="post-title-link" itemprop="url">vue文档学习</a>
+        </h2>
+
+        <div class="post-meta">
+
+
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2024-05-18 00:11:20 / 修改时间：12:38:48" itemprop="dateCreated datePublished" datetime="2024-05-18T00:11:20+08:00">2024-05-18</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+              <span>8.7k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+              <span>8 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Vue-js"><a href="#Vue-js" class="headerlink" title="Vue.js"></a>Vue.js</h1><p>vue官方文档 <a target="_blank" rel="noopener" href="https://cn.vuejs.org/guide/introduction.html">https://cn.vuejs.org/guide/introduction.html</a></p>
+<p>基于vue方法文档的学习笔记，初学时主要记录基础知识，深度学习后希望能加上自己的理解！</p>
+<h3 id="更新时间"><a href="#更新时间" class="headerlink" title="更新时间"></a>更新时间</h3><p>2024.05.18第一次更新</p>
+<h2 id="什么是Vue"><a href="#什么是Vue" class="headerlink" title="什么是Vue"></a>什么是Vue</h2><p>一款用于构建用户界面的 （JavaScript ）渐进式框架框架</p>
+<p>两个功能：</p>
+<ul>
+<li><strong>声明式渲染</strong>：vue的模板语法使得我们可以声明式地描述HTML和JS状态之间的关系</li>
+<li><strong>响应性</strong>：自动跟踪JS状态并响应式地更新DOM</li>
+</ul>
+<h2 id="Vue可以使用的场景"><a href="#Vue可以使用的场景" class="headerlink" title="Vue可以使用的场景"></a>Vue可以使用的场景</h2><ul>
+<li>无需构建步骤，渐进式增强静态的 HTML</li>
+<li>在任何页面中作为 Web Components 嵌入</li>
+<li>单页应用 (SPA)</li>
+<li>全栈 &#x2F; 服务端渲染 (SSR)</li>
+<li>Jamstack &#x2F; 静态站点生成 (SSG)</li>
+<li>开发桌面端、移动端、WebGL，甚至是命令行终端中的界面</li>
+</ul>
+<h2 id="单文件组件（SFC——-vue"><a href="#单文件组件（SFC——-vue" class="headerlink" title="单文件组件（SFC——*.vue)"></a>单文件组件（SFC——*.vue)</h2><p>vue的标志性功能</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped scoped&gt;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Vue组件的书写风格"><a href="#Vue组件的书写风格" class="headerlink" title="Vue组件的书写风格"></a>Vue组件的书写风格</h2><h3 id="选项式API-（Option-API）"><a href="#选项式API-（Option-API）" class="headerlink" title="选项式API （Option API）"></a>选项式API （Option API）</h3><ul>
+<li>用对象来描述组件逻辑</li>
+<li>对象包括data、methos、mouted等属性，这些属性都是可选式的（我自己的理解，不一定对）</li>
+<li>选项定义的属性会暴露在函数内部的this上（即可以通过this访问到这个属性），this指向当前组件的实例</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  // data() 返回的属性将会成为响应式的状态</span><br><span class="line">  // 并且暴露在 `this` 上</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      count: 0</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  // methods 是一些用来更改状态与触发更新的函数</span><br><span class="line">  // 它们可以在模板中作为事件处理器绑定</span><br><span class="line">  methods: &#123;</span><br><span class="line">    increment() &#123;</span><br><span class="line">      this.count++</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"></span><br><span class="line">  // 生命周期钩子会在组件生命周期的各个不同阶段被调用</span><br><span class="line">  // 例如这个函数就会在组件挂载完成后被调用</span><br><span class="line">  mounted() &#123;</span><br><span class="line">    console.log(`The initial count is $&#123;this.count&#125;.`)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;button @click=&quot;increment&quot;&gt;Count is: &#123;&#123; count &#125;&#125;&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="组合式API（Composition-API）"><a href="#组合式API（Composition-API）" class="headerlink" title="组合式API（Composition API）"></a>组合式API（Composition API）</h3><ul>
+<li>可以使用导入的API函数描述组件逻辑</li>
+<li>组合式API与<code>&lt;script setup&gt;</code>搭配使用，其中<code>setup</code>是一个标识，使得我们可以更简洁地使用组合式API（会在编译时做一些处理）</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; ref, onMounted &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">// 响应式状态</span><br><span class="line">const count = ref(0)</span><br><span class="line"></span><br><span class="line">// 用来修改状态、触发更新的函数</span><br><span class="line">function increment() &#123;</span><br><span class="line">  count.value++</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 生命周期钩子</span><br><span class="line">onMounted(() =&gt; &#123;</span><br><span class="line">  console.log(`The initial count is $&#123;count.value&#125;.`)</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;button @click=&quot;increment&quot;&gt;Count is: &#123;&#123; count &#125;&#125;&lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="两者之间的异同"><a href="#两者之间的异同" class="headerlink" title="两者之间的异同"></a>两者之间的异同</h3><ul>
+<li>选项式API基于组件式API</li>
+<li>选项式有面对对象的思想，对初学者更友好，强制按照选项来组织代码</li>
+<li>组件式的核心思想是直接在函数作用域内定义响应式状态变量，并从多个函数中得到的状态组合起来处理复杂问题。更自由、灵活，但更难理解（确实，我不太能理解）</li>
+</ul>
+<h2 id="互动教程（组件式API-SFC）"><a href="#互动教程（组件式API-SFC）" class="headerlink" title="互动教程（组件式API+SFC）"></a>互动教程（组件式API+SFC）</h2><h3 id="响应式变量声明方式"><a href="#响应式变量声明方式" class="headerlink" title="响应式变量声明方式"></a>响应式变量声明方式</h3><p>说的明白点，就是动态的数据绑定，在reactive或ref中声明的变量可以响应式地用在html中</p>
+<h4 id="reactive-声明"><a href="#reactive-声明" class="headerlink" title="reactive()声明"></a>reactive()声明</h4><ul>
+<li>reactive只适用于对象（包括数组和内置类型，如Map和Set）</li>
+<li>reactive创建的对象时JS Proxy，行为与普通对象一致</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; reactive &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> counter = <span class="title function_">reactive</span>(&#123;</span><br><span class="line">  <span class="attr">count</span>: <span class="number">0</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(counter.<span class="property">count</span>) <span class="comment">// 0</span></span><br><span class="line">counter.<span class="property">count</span>++</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="ref"><a href="#ref" class="headerlink" title="ref()"></a>ref()</h4><ul>
+<li>ref接收任意类型数据</li>
+<li>返回值是一个对象，可以通过对象.value属性访问数据</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; ref &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> message = <span class="title function_">ref</span>(<span class="string">&#x27;Hello World!&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(message.<span class="property">value</span>) <span class="comment">// &quot;Hello World!&quot;</span></span><br><span class="line">message.<span class="property">value</span> = <span class="string">&#x27;Changed&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="在模板template中使用响应式状态"><a href="#在模板template中使用响应式状态" class="headerlink" title="在模板template中使用响应式状态"></a>在模板template中使用响应式状态</h3><p>响应式状态暂时我喜欢理解为响应式变量</p>
+<ul>
+<li>使用<code>&#123;&#123;&#125;&#125;</code>使用，并且ref中的对象的value可以不用message.value去访问，而是可以使用message直接访问（因为会被自动解包）</li>
+<li><code>&#123;&#123;&#125;&#125;</code>中不限制于变量名，也可以是表达式</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//变量写法</span><br><span class="line">&lt;h1&gt;&#123;&#123; message &#125;&#125;&lt;/h1&gt;</span><br><span class="line">&lt;p&gt;Count is: &#123;&#123; counter.count &#125;&#125;&lt;/p&gt;</span><br><span class="line"></span><br><span class="line">//表达式写法</span><br><span class="line">&lt;h1&gt;&#123;&#123; message.split(&#x27;&#x27;).reverse().join(&#x27;&#x27;) &#125;&#125;&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="Attribute绑定（v-bind）"><a href="#Attribute绑定（v-bind）" class="headerlink" title="Attribute绑定（v-bind）"></a>Attribute绑定（v-bind）</h3><ul>
+<li><p>Attribute n.属性，特质，在编程中通常用来描述数据对象的特征</p>
+</li>
+<li><p>v-bind用于绑定一个动态值，时v-开头的一种特殊Attribute</p>
+</li>
+<li><p>绑定的值可以是calss，可以是id，也可以是一些参数</p>
+</li>
+<li><p>可以简写为<code>:</code></p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;div v-bind:id=&quot;dynamicId&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">//语法糖</span><br><span class="line">&lt;div :id=&quot;dynamicId&quot;&gt;&lt;/div&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; ref &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">const titleClass = ref(&#x27;title&#x27;)</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;h1 :class=&quot;titleClass&quot;&gt;Make me red&lt;/h1&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.title &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="事件监听（v-on）"><a href="#事件监听（v-on）" class="headerlink" title="事件监听（v-on）"></a>事件监听（v-on）</h3><ul>
+<li><p>使用v-on监听DOM事件</p>
+</li>
+<li><p>简写为@</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;button v-on:click=&quot;increment&quot;&gt;&#123;&#123; count &#125;&#125;&lt;/button&gt;</span><br><span class="line">//简写</span><br><span class="line">&lt;button @click=&quot;increment&quot;&gt;&#123;&#123; count &#125;&#125;&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在script中声明回调函数increment</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; ref &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">const count = ref(0)</span><br><span class="line"></span><br><span class="line">function increment() &#123;</span><br><span class="line">  // 更新组件状态</span><br><span class="line">  count.value++</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="表单的双向绑定"><a href="#表单的双向绑定" class="headerlink" title="表单的双向绑定"></a>表单的双向绑定</h3><h4 id="使用v-bind-v-on"><a href="#使用v-bind-v-on" class="headerlink" title="使用v-bind+v-on"></a>使用v-bind+v-on</h4><p>当v-on监听到表单内容的变化，就使用回调函数获取到表单的新内容，更新数据后，重新响应在v-bind绑定的组件上</p>
+<h4 id="使用v-model（常用于表单、单选、多选、下拉框）"><a href="#使用v-model（常用于表单、单选、多选、下拉框）" class="headerlink" title="使用v-model（常用于表单、单选、多选、下拉框）"></a>使用v-model（常用于表单、单选、多选、下拉框）</h4><ul>
+<li>v-model是实质是上述方法的语法糖</li>
+<li>V-model将绑定的值与input中的值自动同步，不需要在使用事件处理函数</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//用法</span><br><span class="line">&lt;input v-model=&quot;text&quot;&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//例子</span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; ref &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">const text = ref(&#x27;&#x27;)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;input v-model=&quot;text&quot; placeholder=&quot;Type here&quot;&gt;</span><br><span class="line">  &lt;p&gt;&#123;&#123; text &#125;&#125;&lt;/p&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="条件渲染（v-if）"><a href="#条件渲染（v-if）" class="headerlink" title="条件渲染（v-if）"></a>条件渲染（v-if）</h3><ul>
+<li><code>v-if</code>，只有在awesome为<code>true</code>时，<code>h1</code>标签才会被渲染</li>
+<li><code>v-else-if</code>和<code>v-else</code>用法与JS中<code>if-else if-else</code>的用法基本一致</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//v-if</span><br><span class="line">&lt;h1 v-if=&quot;awesome&quot;&gt;Vue is awesome!&lt;/h1&gt;</span><br><span class="line"></span><br><span class="line">//v-else</span><br><span class="line">&lt;h1 v-if=&quot;awesome&quot;&gt;Vue is awesome!&lt;/h1&gt;</span><br><span class="line">&lt;h1 v-else&gt;Oh no 😢&lt;/h1&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="列表渲染（v-for）"><a href="#列表渲染（v-for）" class="headerlink" title="列表渲染（v-for）"></a>列表渲染（v-for）</h3><ul>
+<li><p>v-for用于循环渲染</p>
+</li>
+<li><p>给每个 todo 对象设置了唯一的 <code>id</code>，并且将它作为<a target="_blank" rel="noopener" href="https://cn.vuejs.org/api/built-in-special-attributes.html#key">特殊的 <code>key</code> attribute</a> 绑定到每个 <code>&lt;li&gt;</code>。<code>key</code> 使得 Vue 能够精确的移动每个 <code>&lt;li&gt;</code>，以匹配对应的对象在数组中的位置。</p>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;ul&gt;</span><br><span class="line">  &lt;li v-for=&quot;todo in todos&quot; :key=&quot;todo.id&quot;&gt;</span><br><span class="line">    &#123;&#123; todo.text &#125;&#125;</span><br><span class="line">  &lt;/li&gt;</span><br><span class="line">&lt;/ul&gt;</span><br><span class="line"></span><br><span class="line">//在数组中新增数据</span><br><span class="line">todos.value.push(newTodo)</span><br><span class="line"></span><br><span class="line">//在数组中删除数据，过滤数据</span><br><span class="line">todos.value = todos.value.filter(/* ... */)</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; ref &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">// 给每个 todo 对象一个唯一的 id</span><br><span class="line">let id = 0</span><br><span class="line"></span><br><span class="line">const newTodo = ref(&#x27;&#x27;)</span><br><span class="line">const todos = ref([</span><br><span class="line">  &#123; id: id++, text: &#x27;Learn HTML&#x27; &#125;,</span><br><span class="line">  &#123; id: id++, text: &#x27;Learn JavaScript&#x27; &#125;,</span><br><span class="line">  &#123; id: id++, text: &#x27;Learn Vue&#x27; &#125;</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">function addTodo() &#123;</span><br><span class="line">  // 新增todo</span><br><span class="line">  if(newTodo.value != &#x27;&#x27;)&#123;</span><br><span class="line">    console.log(newTodo.value);</span><br><span class="line">    todos.value.push(&#123;</span><br><span class="line">      id: id++,</span><br><span class="line">      text: newTodo.value</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  newTodo.value = &#x27;&#x27;//添加完数据后要重置为空</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function removeTodo(todo) &#123;</span><br><span class="line">  // 删除todo</span><br><span class="line">  todos.value = todos.value.filter((item)=&gt;&#123;</span><br><span class="line">    return item!=todo;</span><br><span class="line">  &#125;);</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;form @submit.prevent=&quot;addTodo&quot;&gt;</span><br><span class="line">    &lt;input v-model=&quot;newTodo&quot; required placeholder=&quot;new todo&quot;&gt;</span><br><span class="line">    &lt;button&gt;Add Todo&lt;/button&gt;</span><br><span class="line">  &lt;/form&gt;</span><br><span class="line">  &lt;ul&gt;</span><br><span class="line">    &lt;li v-for=&quot;todo in todos&quot; :key=&quot;todo.id&quot;&gt;</span><br><span class="line">      &#123;&#123; todo.text &#125;&#125;</span><br><span class="line">      &lt;button @click=&quot;removeTodo(todo)&quot;&gt;X&lt;/button&gt;</span><br><span class="line">    &lt;/li&gt;</span><br><span class="line">  &lt;/ul&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="计算属性（computed）"><a href="#计算属性（computed）" class="headerlink" title="计算属性（computed）"></a>计算属性（computed）</h4><ul>
+<li>创建一个计算属性 ref，这个 ref 会动态地根据其他响应式数据源来计算其 <code>.value</code></li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">import &#123; ref, computed &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">const hideCompleted = ref(false)</span><br><span class="line">const todos = ref([</span><br><span class="line">  /* ... */</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">const filteredTodos = computed(() =&gt; &#123;</span><br><span class="line">  // 根据 `todos.value` &amp; `hideCompleted.value`</span><br><span class="line">  // 返回过滤后的 todo 项目</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">- &lt;li v-for=&quot;todo in todos&quot;&gt;</span><br><span class="line">+ &lt;li v-for=&quot;todo in filteredTodos&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">import &#123; ref, computed &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">let id = 0</span><br><span class="line"></span><br><span class="line">const newTodo = ref(&#x27;&#x27;)</span><br><span class="line">const hideCompleted = ref(false)</span><br><span class="line">const todos = ref([</span><br><span class="line">  &#123; id: id++, text: &#x27;Learn HTML&#x27;, done: true &#125;,</span><br><span class="line">  &#123; id: id++, text: &#x27;Learn JavaScript&#x27;, done: true &#125;,</span><br><span class="line">  &#123; id: id++, text: &#x27;Learn Vue&#x27;, done: false &#125;</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line">//当hideCompleted为true的时候，应该隐藏掉todos中done属性为ture的属性，所以过滤时返回done为false的属性的对象</span><br><span class="line">const filteredTodos = computed(() =&gt; &#123;</span><br><span class="line">  return hideCompleted.value</span><br><span class="line">    ? todos.value.filter((t) =&gt; !t.done)</span><br><span class="line">    : todos.value</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">function addTodo() &#123;</span><br><span class="line">  todos.value.push(&#123; id: id++, text: newTodo.value, done: false &#125;)</span><br><span class="line">  newTodo.value = &#x27;&#x27;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function removeTodo(todo) &#123;</span><br><span class="line">  todos.value = todos.value.filter((t) =&gt; t !== todo)</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;form @submit.prevent=&quot;addTodo&quot;&gt;</span><br><span class="line">    &lt;input v-model=&quot;newTodo&quot; required placeholder=&quot;new todo&quot;&gt;</span><br><span class="line">    &lt;button&gt;Add Todo&lt;/button&gt;</span><br><span class="line">  &lt;/form&gt;</span><br><span class="line">  &lt;ul&gt;</span><br><span class="line">    &lt;li v-for=&quot;todo in filteredTodos&quot; :key=&quot;todo.id&quot;&gt;</span><br><span class="line">      &lt;input type=&quot;checkbox&quot; v-model=&quot;todo.done&quot;&gt;</span><br><span class="line">      &lt;span :class=&quot;&#123; done: todo.done &#125;&quot;&gt;&#123;&#123; todo.text &#125;&#125;&lt;/span&gt;</span><br><span class="line">      &lt;button @click=&quot;removeTodo(todo)&quot;&gt;X&lt;/button&gt;</span><br><span class="line">    &lt;/li&gt;</span><br><span class="line">  &lt;/ul&gt;</span><br><span class="line">  &lt;button @click=&quot;hideCompleted = !hideCompleted&quot;&gt;</span><br><span class="line">    &#123;&#123; hideCompleted ? &#x27;Show all&#x27; : &#x27;Hide completed&#x27; &#125;&#125;</span><br><span class="line">  &lt;/button&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.done &#123;</span><br><span class="line">  text-decoration: line-through;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="生命周期和模板引用"><a href="#生命周期和模板引用" class="headerlink" title="生命周期和模板引用"></a>生命周期和模板引用</h3><ul>
+<li>当我们需要手动操作DOM时，会需要使用<code>模板引用</code>，也就是指向模板中的一个DOM元素的ref</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">&lt;p ref=&quot;pElementRef&quot;&gt;hello&lt;/p&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;script setup&gt;</span><br><span class="line">//使用同名ref访问该引用</span><br><span class="line">const pElementRef = ref(null)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">//要在挂载之后执行代码，我们可以使用 onMounted() 函数：</span><br><span class="line">import &#123; onMounted &#125; from &#x27;vue&#x27;</span><br><span class="line">  //ref引用的是一个DOM元素，在这个例子中，就是一个p标签</span><br><span class="line">onMounted(() =&gt; &#123;</span><br><span class="line">  // 此时组件已经挂载。</span><br><span class="line">   pElementRef.value.textContent = &quot;你好&quot;</span><br><span class="line">&#125;)</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>此时，这个 ref 使用 null 值来初始化。这是因为当&lt;script setup&gt; 执行时，DOM 元素还不存在。模板引用 ref 只能在组件挂载后访问。</p>
+<ul>
+<li><code>onMounted</code>被称为<strong>生命周期钩子</strong>——它允许我们注册一个在组件的特定生命周期调用的回调函数。还有一些其他的钩子如 <code>onUpdated</code> 和 <code>onUnmounted</code>。</li>
+</ul>
+<h3 id="侦听器-watch"><a href="#侦听器-watch" class="headerlink" title="侦听器(watch)"></a>侦听器(watch)</h3><p>有时我们需要响应性地执行一些“副作用”——例如，当一个数字改变时将其输出到控制台。我们可以通过侦听器来实现它：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import &#123; ref, watch &#125; from &#x27;vue&#x27;</span><br><span class="line"></span><br><span class="line">const count = ref(0)</span><br><span class="line"></span><br><span class="line">watch(count, (newCount) =&gt; &#123;</span><br><span class="line">  // 没错，console.log() 是一个副作用</span><br><span class="line">  console.log(`new count is: $&#123;newCount&#125;`)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      
+    </div>
+
+    
+    
+    
+
+        
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://shiff.top/2024/05/16/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E4%B8%93%E9%A1%B9%E8%AE%AD%E7%BB%83/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1662,121 +1893,6 @@
   
 
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://shiff.top/2023/04/13/%E5%87%BA%E7%8E%B0%E6%9C%80%E9%A2%91%E7%B9%81%E7%9A%84%E5%81%B6%E6%95%B0%E5%85%83%E7%B4%A0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/55538843?s=96&v=4">
-      <meta itemprop="name" content="shiff">
-      <meta itemprop="description" content="千里之行，始于足下">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="微弱的光">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/04/13/%E5%87%BA%E7%8E%B0%E6%9C%80%E9%A2%91%E7%B9%81%E7%9A%84%E5%81%B6%E6%95%B0%E5%85%83%E7%B4%A0/" class="post-title-link" itemprop="url">【哈希+map】2404.出现最频繁的偶数元素</a>
-        </h2>
-
-        <div class="post-meta">
-
-
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2023-04-13 01:40:12 / 修改时间：01:42:40" itemprop="dateCreated datePublished" datetime="2023-04-13T01:40:12+08:00">2023-04-13</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/" itemprop="url" rel="index"><span itemprop="name">LeetCode</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/" itemprop="url" rel="index"><span itemprop="name">每日一题</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LeetCode/%E6%AF%8F%E6%97%A5%E4%B8%80%E9%A2%98/2023-4-13/" itemprop="url" rel="index"><span itemprop="name">2023.4.13</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="本文字数">
-              <span class="post-meta-item-icon">
-                <i class="far fa-file-word"></i>
-              </span>
-              <span>1.8k</span>
-            </span>
-            <span class="post-meta-item" title="阅读时长">
-              <span class="post-meta-item-icon">
-                <i class="far fa-clock"></i>
-              </span>
-              <span>2 分钟</span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="【哈希-map】2404-出现最频繁的偶数元素"><a href="#【哈希-map】2404-出现最频繁的偶数元素" class="headerlink" title="【哈希+map】2404. 出现最频繁的偶数元素"></a>【哈希+map】2404. 出现最频繁的偶数元素</h2><blockquote>
-<p> Problem: <a target="_blank" rel="noopener" href="https://leetcode.cn/problems/most-frequent-even-element/description/">2404. 出现最频繁的偶数元素</a></p>
-</blockquote>
-<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>从数组中找出出现次数最多的偶数（如果这样的数有多个，选取较小的那个）</p>
-<h1 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h1><p>原本的想法是使用map+set，map当作哈希表用来计数，set来记录出现次数最多的偶数，(看了大佬的代码)后来优化了只用map，使用int变量res记录出现次数最多的偶数，如果出现次数一样多，且这个数较小，则更新res。</p>
-<p>顺便复习了下C++中map和set的用法，这两个都只能通过使用迭代器遍历，但是map可以通过map[key]的方式来访问和赋值，可使用的函数用<code>begin()</code>、<code>end()</code>、<code>find()</code>、<code>clear()</code>等等。</p>
-<h1 id="复杂度"><a href="#复杂度" class="headerlink" title="复杂度"></a>复杂度</h1><ul>
-<li><p>时间复杂度: </p>
-<blockquote>
-<p>$O(n)$</p>
-</blockquote>
-</li>
-<li><p>空间复杂度: </p>
-<blockquote>
-<p>$O(n)$</p>
-</blockquote>
-</li>
-</ul>
-<h1 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h1><p>原版:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment">原版</span></span><br><span class="line"><span class="comment">从数组中找出出现次数最多的偶数（如果这样的数有多个，选取较小的那个）</span></span><br><span class="line"><span class="comment">***/</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">mostFrequentEven</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//记录偶数出现的次数,存在mp中</span></span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; mp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="type">int</span> num = nums[i];</span><br><span class="line">            <span class="keyword">if</span>(num%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(mp.<span class="built_in">find</span>(num)==mp.<span class="built_in">end</span>())&#123;<span class="comment">//找不到</span></span><br><span class="line">                    mp[num] = <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    mp[num]++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//找到mp中的最大值进行插入</span></span><br><span class="line">        <span class="type">int</span> max =  <span class="number">-1</span>;</span><br><span class="line">        set&lt;<span class="type">int</span>&gt; res;</span><br><span class="line">        <span class="keyword">for</span>(unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt;::iterator it = mp.<span class="built_in">begin</span>(); it != mp.<span class="built_in">end</span>(); it++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(it-&gt;second &gt; max)&#123;</span><br><span class="line">                max = it-&gt;second;<span class="comment">//更新最大值</span></span><br><span class="line">                res.<span class="built_in">clear</span>();</span><br><span class="line">                res.<span class="built_in">insert</span>(it-&gt;first);</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(it-&gt;second == max)&#123;</span><br><span class="line">                res.<span class="built_in">insert</span>(it-&gt;first);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(max==<span class="number">-1</span>) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> *(res.<span class="built_in">begin</span>());</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>简单优化后:</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/***</span></span><br><span class="line"><span class="comment">简单优化后</span></span><br><span class="line"><span class="comment">从数组中找出出现次数最多的偶数（如果这样的数有多个，选取较小的那个）</span></span><br><span class="line"><span class="comment">***/</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">mostFrequentEven</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//记录偶数出现的次数,存在mp中</span></span><br><span class="line">        unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt; mp;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; nums.<span class="built_in">size</span>(); i++)&#123;</span><br><span class="line">            <span class="type">int</span> num = nums[i];</span><br><span class="line">            <span class="keyword">if</span>(num%<span class="number">2</span>==<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(mp.<span class="built_in">find</span>(num)==mp.<span class="built_in">end</span>())&#123;<span class="comment">//找不到</span></span><br><span class="line">                    mp[num] = <span class="number">1</span>;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    mp[num]++;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//找到mp中的最大值进行插入</span></span><br><span class="line">        <span class="type">int</span> max =  <span class="number">-1</span>;</span><br><span class="line">        <span class="type">int</span> res;</span><br><span class="line">        <span class="keyword">for</span>(unordered_map&lt;<span class="type">int</span>, <span class="type">int</span>&gt;::iterator it = mp.<span class="built_in">begin</span>(); it != mp.<span class="built_in">end</span>(); it++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(it-&gt;second &gt; max)&#123;</span><br><span class="line">                max = it-&gt;second;<span class="comment">//更新最大值</span></span><br><span class="line">                res = it-&gt;first;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(it-&gt;second == max &amp;&amp; res &gt; it-&gt;first)&#123;</span><br><span class="line">                 res = it-&gt;first;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(max==<span class="number">-1</span>) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">return</span> res;</span><br><span class="line">    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-
-        
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
 
   
   <nav class="pagination">
@@ -1848,14 +1964,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">13</span>
+        <span class="site-state-item-count">14</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">

@@ -1,6 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Flex布局与Grid布局</title>
+    <url>/2024/06/17/Flex%E5%B8%83%E5%B1%80%E4%B8%8EGrid%E5%B8%83%E5%B1%80/</url>
+    <content><![CDATA[<h1 id="Flex布局与Grid布局"><a href="#Flex布局与Grid布局" class="headerlink" title="Flex布局与Grid布局"></a>Flex布局与Grid布局</h1><p>Grid布局和Flex布局都是在CSS中用于进行页面布局的工具，它们各有优势和适用场景。以下是它们的一些异同点以及优缺点：</p>
+<p><strong>异同点：</strong></p>
+<ol>
+<li><p><strong>相同点：</strong></p>
+<ul>
+<li>两者都是现代CSS布局工具，用于实现响应式布局和页面排版。</li>
+<li>都支持对网格和弹性盒子进行灵活布局。</li>
+<li>都可以在容器内部的子元素之间创建空间布局。</li>
+</ul>
+</li>
+<li><p><strong>不同点：</strong></p>
+<ul>
+<li><p><strong>Flex布局（弹性布局）：</strong></p>
+<ul>
+<li>适用于一维布局，例如在一条水平或垂直的轴线上布局元素。</li>
+<li>适合于构建灵活的、水平或垂直居中的布局。</li>
+<li>可以根据内容的大小来调整元素的尺寸。</li>
+</ul>
+</li>
+<li><p><strong>Grid布局（网格布局）：</strong></p>
+<ul>
+<li>适用于二维布局，可以在交叉轴上对元素进行定位，创建复杂的网格布局。</li>
+<li>适用于规划复杂的网格结构，如页面布局的整体设计。</li>
+<li>可以控制行与列交叉点的位置，实现更精确的布局设计。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>优缺点：</strong></p>
+<ol>
+<li><p><strong>Flex布局优点：</strong></p>
+<ul>
+<li>简单实用，适合搭建基本的布局和页面结构。</li>
+<li>支持响应式布局，更容易实现移动端适配，适合移动端开发。</li>
+<li>配合弹性盒子布局的属性丰富，可以快速实现元素的排列和对齐。</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>适用于相对简单布局，复杂的网格结构可能实现起来比较困难。</li>
+<li>不太适合搭建复杂的多列布局。</li>
+</ul>
+</li>
+<li><p><strong>Grid布局优点：</strong></p>
+<ul>
+<li>可以实现更复杂的网格布局，可以精确控制元素的位置和大小。</li>
+<li>适合搭建大型网站和复杂的设计布局。</li>
+<li>支持分区和定位，可以创建更灵活的页面结构。</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>学习成本相对较高，语法相对复杂，初学者可能需要一定时间适应。</li>
+<li>在一维布局方面不如Flex布局灵活，并不适用于所有布局场景。</li>
+</ul>
+</li>
+</ol>
+<p><strong>结论：</strong> </p>
+<ul>
+<li>如果页面结构相对简单，主要涉及到一维布局的元素排列和对齐，Flex布局是一个不错的选择。</li>
+<li>如果需要实现复杂的二维布局，例如创建大型网格结构，Grid布局更适合用来实现。</li>
+<li>在实际项目中，可以根据具体需求和布局复杂度来选择合适的布局方法，有时候也可以结合使用两者来实现更灵活和多样化的布局效果。</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>文本的截断和显示控制</title>
+    <url>/2024/06/16/%E6%96%87%E6%9C%AC%E7%9A%84%E6%88%AA%E6%96%AD%E5%92%8C%E6%98%BE%E7%A4%BA%E6%8E%A7%E5%88%B6/</url>
+    <content><![CDATA[<h1 id="文本的截断和显示控制"><a href="#文本的截断和显示控制" class="headerlink" title="文本的截断和显示控制"></a>文本的截断和显示控制</h1><p>下面三个属性通常用于在Web开发中对文本进行截断和显示控制，主要用于控制文本在容器中的显示方式。具体含义如下：</p>
+<ol>
+<li><p><code>display: -webkit-box;</code>：这个属性用于指定元素应该生成一个块级容器框。在这种布局模型中，元素是一个块级容器，可以在内部容纳其他元素。在这种情况下，通常需要与其他属性结合使用。</p>
+</li>
+<li><p><code>-webkit-line-clamp: 2;</code>：这个属性用于指定显示的行数限制。在文本溢出时，只显示指定行数的文本内容。上面的例子中，只显示不超过两行的文本内容。</p>
+</li>
+<li><p><code> -webkit-box-orient: vertical;</code>：这个属性用于指定盒子的排列方向。在这种情况下，盒子内的元素垂直排列。</p>
+</li>
+</ol>
+<p>这些属性通常与前缀 <code>-webkit-</code> 一起使用，表示这些属性是Webkit浏览器专有的CSS扩展。这些属性主要用于控制元素的显示方式，特别是在限制文本显示行数和盒子内元素排列方向方面。</p>
+]]></content>
+      <tags>
+        <tag>CSS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>text-overflow的用法</title>
     <url>/2024/06/14/text-overflow%E7%9A%84%E7%94%A8%E6%B3%95/</url>
     <content><![CDATA[<h1 id="text-overflow的用法"><a href="#text-overflow的用法" class="headerlink" title="text-overflow的用法"></a>text-overflow的用法</h1><p><code>text-overflow</code>是CSS样式属性，用于控制当文本溢出容器时如何显示。</p>
@@ -1348,9 +1436,9 @@
         <category>2023.4.13</category>
       </categories>
       <tags>
-        <tag>算法</tag>
         <tag>数组</tag>
         <tag>LeetCode</tag>
+        <tag>算法</tag>
         <tag>哈希</tag>
       </tags>
   </entry>
@@ -1377,9 +1465,9 @@
         <category>2023.4.12</category>
       </categories>
       <tags>
-        <tag>算法</tag>
         <tag>数组</tag>
         <tag>LeetCode</tag>
+        <tag>算法</tag>
         <tag>贪心</tag>
       </tags>
   </entry>
@@ -1430,10 +1518,10 @@
         <category>数组</category>
       </categories>
       <tags>
-        <tag>算法</tag>
         <tag>数组</tag>
         <tag>LeetCode</tag>
         <tag>数据结构</tag>
+        <tag>算法</tag>
       </tags>
   </entry>
   <entry>
